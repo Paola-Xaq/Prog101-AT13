@@ -1,51 +1,20 @@
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'checkstyle'
-apply plugin: 'jacoco'
+plugins {
+    id 'java'
+}
 
-mainClassName = 'org.fundacionjala.at13.spaceinvaders.Main'
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
 test {
-    testLogging {
-        events "failed"
-        exceptionFormat "full"
-    }
+    useJUnitPlatform()
 }
-
-jacocoTestReport {
-    afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: ['org/fundacionjala/at13/students/**',
-                                        'org/fundacionjala/at13/sandbox/**',
-                                        'org/fundacionjala/at13/authenticator/**'])
-        }))
-    }
-}
-
-checkstyle {
-    toolVersion '8.34'
-    configFile file('config/checkstyle/checkstyle.xml')
-    checkstyleMain.source = "src/main/"
-    checkstyleMain.excludes = ["**/src/test/**"]
-}
-
-checkstyleMain {
-    source = 'src/main/java'
-}
-
-checkstyleTest {
-    source = 'src/main/java'
-}
-
-check.dependsOn jacocoTestReport
-
-test.finalizedBy("checkstyleMain")
-test.finalizedBy("jacocoTestReport")
