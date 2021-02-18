@@ -1,8 +1,9 @@
 plugins {
     id 'java'
+    id 'org.jetbrains.intellij' version '0.4.21'
 }
 
-group 'org.example'
+
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -10,11 +11,15 @@ repositories {
 }
 
 dependencies {
-    implementation 'junit:junit:4.12'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.6.2'
 }
 
-test {
-    useJUnitPlatform()
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    version '2020.1.1'
+}
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
 }

@@ -1,4 +1,6 @@
-import org.junit.Assert;
+
+
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class MainTest {
@@ -8,6 +10,6 @@ public class MainTest {
         Main main = new Main();
         int expected = 2;
         int actual = main.divide(4,2);
-        Assert.assertEquals(expected,actual);
+        assertEquals(expected,actual);
     }
 }
