@@ -32,7 +32,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add_ManyNumbers_Ten() {
+    public void add_ManyNumbers_Fifteen() {
         calculator = new Calculator();
         int expected = 15;
         int actual = calculator.add("1,2,3,4,5");
@@ -40,10 +40,18 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add_NumbersBetweenNewLines_Three() {
+    public void add_NumbersBetweenNewLines_Six() {
         calculator = new Calculator();
         int expected = 6;
         int actual = calculator.add("1\n2,3");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void add_NumberWithDifferentDelimiters_Three() {
+        calculator = new Calculator();
+        int expected = 11;
+        int actual = calculator.add("//;\n1;5;5");
         Assert.assertEquals(expected,actual);
     }
 }
