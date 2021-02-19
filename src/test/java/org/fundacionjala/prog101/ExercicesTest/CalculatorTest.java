@@ -14,4 +14,12 @@ public class CalculatorTest {
         int actual = calculator.add("");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_OnlyOneNumber_One() {
+        calculator = new Calculator();
+        int expected = 1;
+        int actual = calculator.add("1");
+        Assert.assertEquals(expected,actual);
+    }
 }
