@@ -48,10 +48,23 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add_NumberWithDifferentDelimiters_Three() {
+    public void add_NumberWithDifferentDelimiters_Eleven() {
         calculator = new Calculator();
         int expected = 11;
         int actual = calculator.add("//;\n1;5;5");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void add_StringWithNegativeNumber_Exception() {
+        calculator = new Calculator();
+        calculator.add("-1");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void add_StringWithManyNegativeNumber_Exception() {
+        calculator = new Calculator();
+        calculator.add("-1,-5,-6");
+    }
+
 }
