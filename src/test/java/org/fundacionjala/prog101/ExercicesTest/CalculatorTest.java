@@ -22,4 +22,12 @@ public class CalculatorTest {
         int actual = calculator.add("1");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_TwoNumbers_Three() {
+        calculator = new Calculator();
+        int expected = 3;
+        int actual = calculator.add("2,1");
+        Assert.assertEquals(expected,actual);
+    }
 }

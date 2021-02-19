@@ -6,8 +6,9 @@ public class Calculator {
             String[] arrayNumbers = numbers.split("[,]");
             int sum = 0;
             for (String number : arrayNumbers) {
-                return sum += Integer.parseInt(number);
+                sum += Integer.parseInt(number);
             }
+            return sum;
         }
         return 0;
     }
