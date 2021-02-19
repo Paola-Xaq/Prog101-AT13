@@ -1,25 +1,55 @@
-plugins {
-    id 'java'
-    id 'org.jetbrains.intellij' version '0.4.21'
-}
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
 
-
-version '1.0-SNAPSHOT'
+mainClassName = 'org.fundacionjala.prog101.Main'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testImplementation 'junit:junit:4.12'
+//    // https://mvnrepository.com/artifact/com.sikulix/sikulixapi
+//    implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.0'
+// https://mvnrepository.com/artifact/com.sikulix/sikulixapi
+    implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.4'
 }
 
-// See https://github.com/JetBrains/gradle-intellij-plugin/
-intellij {
-    version '2020.1.1'
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+    }
 }
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+
+jacocoTestReport {
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['org/fundacionjala/prog101/students/**',
+                                        'org/fundacionjala/prog101/sandbox/**',
+                                        'org/fundacionjala/prog101/authenticator/**'])
+        }))
+    }
 }
+
+checkstyle {
+    toolVersion '8.34'
+    configFile file('config/checkstyle/checkstyle.xml')
+    checkstyleMain.source = "src/main/"
+    checkstyleMain.excludes = ["**/src/test/**"]
+}
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+
+checkstyleTest {
+    source = 'src/main/java'
+}
+
+check.dependsOn jacocoTestReport
+
+test.finalizedBy("checkstyleMain")
+test.finalizedBy("jacocoTestReport")
