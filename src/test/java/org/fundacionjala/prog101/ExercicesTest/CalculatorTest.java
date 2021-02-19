@@ -38,4 +38,12 @@ public class CalculatorTest {
         int actual = calculator.add("1,2,3,4,5");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_NumbersBetweenNewLines_Three() {
+        calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.add("1\n2,3");
+        Assert.assertEquals(expected,actual);
+    }
 }
