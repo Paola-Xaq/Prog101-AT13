@@ -30,4 +30,12 @@ public class CalculatorTest {
         int actual = calculator.add("2,1");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_ManyNumbers_Ten() {
+        calculator = new Calculator();
+        int expected = 15;
+        int actual = calculator.add("1,2,3,4,5");
+        Assert.assertEquals(expected,actual);
+    }
 }
