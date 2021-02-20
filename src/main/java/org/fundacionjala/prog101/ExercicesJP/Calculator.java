@@ -1,7 +1,5 @@
 package org.fundacionjala.prog101.ExercicesJP;
 
-import java.util.regex.Pattern;
-
 public class Calculator {
 
     /**
@@ -22,7 +20,14 @@ public class Calculator {
             numbers = parts[1];
         }
 
-        String[] arrayNumbers = numbers.split(Pattern.quote(delimiter));
+        if (delimiter.startsWith("[")) {
+            delimiter = delimiter.substring(1, delimiter.length() - 1);
+        }
+        delimiter = delimiter.replace("][", "|");
+        delimiter = "[" + delimiter + "]";
+
+
+        String[] arrayNumbers = numbers.split(delimiter);
         String negativesNumbers = verifyNegativeNumbers(arrayNumbers);
         if (!negativesNumbers.isEmpty()) {
             throw new IllegalArgumentException("negatives not allowed " + negativesNumbers);

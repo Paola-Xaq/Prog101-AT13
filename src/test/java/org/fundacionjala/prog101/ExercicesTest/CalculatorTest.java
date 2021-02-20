@@ -112,4 +112,13 @@ public class CalculatorTest {
         int actual = calculator.add("1201,1001");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_NumberWithManyDifferentDelimiters_Six() {
+        calculator = new Calculator();
+        int expected = 11;
+        int actual = calculator.add("//[-][%][@]\n1-2%3@5");
+        Assert.assertEquals(expected,actual);
+    }
+
 }
