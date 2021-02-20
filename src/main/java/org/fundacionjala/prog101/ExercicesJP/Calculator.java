@@ -7,6 +7,7 @@ public class Calculator {
      */
     public int add(String numbers) {
         int sum = 0;
+        final int numberLimit = 1000;
         String delimiter = ",|\n";
 
         if (numbers.isEmpty()) {
@@ -27,7 +28,9 @@ public class Calculator {
 
         for (String number : arrayNumbers) {
             int num = Integer.parseInt(number);
-            sum += Integer.parseInt(number);
+            if (num <= numberLimit) {
+                sum += Integer.parseInt(number);
+            }
         }
         return sum;
     }

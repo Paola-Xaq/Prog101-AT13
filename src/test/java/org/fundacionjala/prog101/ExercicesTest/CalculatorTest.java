@@ -67,4 +67,25 @@ public class CalculatorTest {
         calculator.add("-1,-5,-6");
     }
 
+    @Test
+    public void add_OnlyNumberLessThanOrEqualsTo1000_Two() {
+        calculator = new Calculator();
+        int expected = 2;
+        int actual = calculator.add("2,1001");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void add_OnlyNumberLessThanOrEqualsTo1000_1002() {
+        calculator = new Calculator();
+        int expected = 1002;
+        int actual = calculator.add("2,1000");
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void add_OnlyNumberLessThanOrEqualsTo1000_0() {
+        calculator = new Calculator();
+        int expected = 0;
+        int actual = calculator.add("1201,1001");
+        Assert.assertEquals(expected,actual);
+    }
 }
