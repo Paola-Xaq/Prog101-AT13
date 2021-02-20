@@ -6,8 +6,8 @@ public class Calculator {
      * Method for sum numbers into a String .
      */
     public int add(String numbers) {
-        int sum = 0;
-        final int numberLimit = 1000;
+
+
         String delimiter = ",|\n";
 
         if (numbers.isEmpty()) {
@@ -33,6 +33,15 @@ public class Calculator {
             throw new IllegalArgumentException("negatives not allowed " + negativesNumbers);
         }
 
+        return sum(arrayNumbers);
+    }
+
+    /**
+     * Method return the sum all numbers into a String .
+     */
+    public int sum(String[] arrayNumbers) {
+        int sum = 0;
+        final int numberLimit = 1000;
         for (String number : arrayNumbers) {
             int num = Integer.parseInt(number);
             if (num <= numberLimit) {
