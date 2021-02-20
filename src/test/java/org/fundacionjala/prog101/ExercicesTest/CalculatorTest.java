@@ -55,10 +55,32 @@ public class CalculatorTest {
         Assert.assertEquals(expected,actual);
     }
 
+    @Test
+    public void add_NumberWithDifferentDelimiters_Six() {
+        calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.add("//.\n1.3.2");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void add_NumberWithDifferentDelimiters_Ten() {
+        calculator = new Calculator();
+        int expected = 10;
+        int actual = calculator.add("//*\n5*3*2");
+        Assert.assertEquals(expected,actual);
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void add_StringWithNegativeNumber_Exception() {
         calculator = new Calculator();
         calculator.add("-1");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void add_StringWithNegativeNumberAndOtherNumber_Exception() {
+        calculator = new Calculator();
+        calculator.add("-1,2");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -74,6 +96,7 @@ public class CalculatorTest {
         int actual = calculator.add("2,1001");
         Assert.assertEquals(expected,actual);
     }
+
     @Test
     public void add_OnlyNumberLessThanOrEqualsTo1000_1002() {
         calculator = new Calculator();
@@ -81,6 +104,7 @@ public class CalculatorTest {
         int actual = calculator.add("2,1000");
         Assert.assertEquals(expected,actual);
     }
+    
     @Test
     public void add_OnlyNumberLessThanOrEqualsTo1000_0() {
         calculator = new Calculator();
