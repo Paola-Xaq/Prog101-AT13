@@ -13,4 +13,11 @@ public class CalculatorTest {
         Assert.assertEquals(expected,actual);
     }
 
+    @Test
+    public void sum_OneTwoThree_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sum("1,2,3");
+        Assert.assertEquals(expected,actual);
+    }
 }
