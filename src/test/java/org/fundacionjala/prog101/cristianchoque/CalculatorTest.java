@@ -28,4 +28,15 @@ public class CalculatorTest {
         // Verification
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_StringWithTwoNumberOneAndTwo_Three() {
+        // prerequisites
+        Calculator calculator = new Calculator();
+        // Actions
+        int expected = 3;
+        int actual = calculator.add("1,2");
+        // Verification
+        Assert.assertEquals(expected,actual);
+    }
 }
