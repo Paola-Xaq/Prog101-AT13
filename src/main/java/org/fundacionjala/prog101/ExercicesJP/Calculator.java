@@ -6,33 +6,14 @@ public class Calculator {
      * Method for sum numbers into a String .
      */
     public int add(String numbers) {
-
-
-        String delimiter = ",|\n";
-
         if (numbers.isEmpty()) {
             return 0;
         }
-
-        if (numbers.startsWith("//")) {
-            String[] parts = numbers.split("\n");
-            delimiter = parts[0].substring(2);
-            numbers = parts[1];
-        }
-
-        if (delimiter.startsWith("[")) {
-            delimiter = delimiter.substring(1, delimiter.length() - 1);
-        }
-        delimiter = delimiter.replace("][", "|");
-        delimiter = "[" + delimiter + "]";
-
-
-        String[] arrayNumbers = numbers.split(delimiter);
+        String[] arrayNumbers = numbersStarWith(numbers);
         String negativesNumbers = verifyNegativeNumbers(arrayNumbers);
         if (!negativesNumbers.isEmpty()) {
             throw new IllegalArgumentException("negatives not allowed " + negativesNumbers);
         }
-
         return sum(arrayNumbers);
     }
 
@@ -49,6 +30,24 @@ public class Calculator {
             }
         }
         return sum;
+    }
+
+    /**
+     * Method return a String[] with separated a number each position .
+     */
+    public String[] numbersStarWith(String numbers) {
+        String delimiter = ",|\n";
+        if (numbers.startsWith("//")) {
+            String[] parts = numbers.split("\n");
+            delimiter = parts[0].substring(2);
+            numbers = parts[1];
+        }
+        if (delimiter.startsWith("[")) {
+            delimiter = delimiter.substring(1, delimiter.length() - 1);
+        }
+        delimiter = delimiter.replace("][", "|");
+        delimiter = "[" + delimiter + "]";
+        return numbers.split(delimiter);
     }
 
     /**

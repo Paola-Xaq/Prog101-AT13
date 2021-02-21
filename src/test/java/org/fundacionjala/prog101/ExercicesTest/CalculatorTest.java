@@ -106,7 +106,7 @@ public class CalculatorTest {
     }
     
     @Test
-    public void add_OnlyNumberLessThanOrEqualsTo1000_0() {
+    public void add_OnlyNumberLessThanOrEqualsTo1000_Zero() {
         calculator = new Calculator();
         int expected = 0;
         int actual = calculator.add("1201,1001");
@@ -115,6 +115,22 @@ public class CalculatorTest {
 
     @Test
     public void add_NumberWithManyDifferentDelimiters_Six() {
+        calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.add("//[-]\n1-2-3");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void add_NumberWithManyDifferentDelimiters_Seven() {
+        calculator = new Calculator();
+        int expected = 7;
+        int actual = calculator.add("//[-][%]\n1-3%3");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void add_NumberWithManyDifferentDelimiters_Eleven() {
         calculator = new Calculator();
         int expected = 11;
         int actual = calculator.add("//[-][%][@]\n1-2%3@5");
