@@ -39,4 +39,15 @@ public class CalculatorTest {
         // Verification
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_StringWithManyNumbersOneTwoThreeFourFiveSixSeven_TwentyEight() {
+        // prerequisites
+        Calculator calculator = new Calculator();
+        // Actions
+        int expected = 28;
+        int actual = calculator.add("1,2,3,4,5,6,7");
+        // Verification
+        Assert.assertEquals(expected,actual);
+    }
 }
