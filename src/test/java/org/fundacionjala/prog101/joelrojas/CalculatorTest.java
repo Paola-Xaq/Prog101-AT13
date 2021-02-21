@@ -68,6 +68,15 @@ public class CalculatorTest {
     }
 
     @Test
+    public void sumIntArray_OneThousandTwoAndNegativeFiveAndFour_Four() {
+        Calculator calculator = new Calculator();
+        int[] inputNumbers = {1001,-5,4};
+        int expected = 4; 
+        int actual = calculator.sumIntArray(inputNumbers);
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void isUnderLimit_TwentyOne_True() {
         Calculator calculator = new Calculator();
         int inputNumber = 21;
@@ -100,6 +109,16 @@ public class CalculatorTest {
         int inputNumber = 7;
         boolean expected = false; 
         boolean actual = calculator.isNegative(inputNumber);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void separateNumberString_AStringWithOneTwoThree_StringArray() {
+        Calculator calculator = new Calculator();
+        String inputStringNumbers = "2,5,7";
+        String delimiter = ",";
+        String[] expected = {"2","5","7"}; 
+        String[] actual = calculator.separateNumberString(inputStringNumbers, delimiter);
         assertEquals(expected, actual);
     }
 }

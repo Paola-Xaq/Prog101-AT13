@@ -95,4 +95,34 @@ public class Calculator {
     public boolean isNegative(int inputNumber) {
         return inputNumber < 0;
     }
+
+    /**
+     *
+     */
+    public String obtainNumberString(String numbers) {
+        String format = "//;\n";
+        if (numbers.substring(0, 2).equals("//")
+         && numbers.substring(2 + 1, 2 + 2).equals("\n")) {
+            String delimiter = numbers.substring(2, 2 + 1);
+        }
+        return numbers.substring(2 + 1);
+    }
+
+    /**
+     *
+     */
+    public String[] separateNumberString(String numberString, String delimiter) {
+        return numberString.split(delimiter);
+    }
+
+    /**
+     *
+     */
+    public int[] convertNumberStringToInteger(String[] stringNumbers) {
+        int[] numbers = new int[stringNumbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = Integer.parseInt(stringNumbers[i]);
+        }
+        return numbers;
+    }
 }
