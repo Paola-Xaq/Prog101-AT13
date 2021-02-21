@@ -17,4 +17,15 @@ public class CalculatorTest {
         // Verification
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_StringWithOneNumber_Two() {
+        // prerequisites
+        Calculator calculator = new Calculator();
+        // Actions
+        int expected = 2;
+        int actual = calculator.add("2");
+        // Verification
+        Assert.assertEquals(expected,actual);
+    }
 }
