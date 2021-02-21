@@ -1,4 +1,5 @@
 package org.fundacionjala.prog101.joelrojas;
+
 public class Calculator {
     /** */
     public int sum(String numbers) {
@@ -50,5 +51,18 @@ public class Calculator {
         String numbersWithoutDelimeter = numbers.substring(posNumbersBegin);
         String[] numbersString = numbersWithoutDelimeter.split(delimiter);
         return sum(numbersString);
+    }
+
+    /** */
+    public String sumWithNegativeOnes(String numbers) {
+        String[] numbersString = numbers.split(",");
+        String negativeNumbers = "negatives not allowed ";
+        for (String number : numbersString) {
+            int numberInt = Integer.parseInt(number);
+            if (numberInt < 0) {
+                negativeNumbers += numberInt + ", ";
+            }
+        }
+        return negativeNumbers;
     }
 }

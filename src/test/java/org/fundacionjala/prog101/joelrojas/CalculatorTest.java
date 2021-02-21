@@ -43,10 +43,18 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sum_OneTwoAndWithDifferentDelimeter_Six() {
+    public void sum_OneTwoAndWithDifferentDelimeter_three() {
         Calculator calculator = new Calculator();
         int expected = 3;
         int actual = calculator.sumWithDelimiter("//;\n1;2");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sum_OneNegativeTwoAndThree_ExceptionWithNegativeNumbers() {
+        Calculator calculator = new Calculator();
+        String expected = "negatives not allowed -2, ";
+        String actual = calculator.sumWithNegativeOnes("1,-2,3");
         assertEquals(expected, actual);
     }
 }
