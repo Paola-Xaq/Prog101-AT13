@@ -9,7 +9,7 @@ public class Calculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        String[] arrayNumbers = numbersStarWith(numbers);
+        String[] arrayNumbers = separateNumbersInArray(numbers);
         String negativesNumbers = verifyNegativeNumbers(arrayNumbers);
         if (!negativesNumbers.isEmpty()) {
             throw new IllegalArgumentException("negatives not allowed " + negativesNumbers);
@@ -35,7 +35,7 @@ public class Calculator {
     /**
      * Method return a String[] with separated a number each position .
      */
-    public String[] numbersStarWith(String numbers) {
+    public String[] separateNumbersInArray(String numbers) {
         String delimiter = ",|\n";
         if (numbers.startsWith("//")) {
             String[] parts = numbers.split("\n");
