@@ -33,4 +33,12 @@ public class CalculatorTest {
         int actual = calculator.sum("-2,1");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void sum_OneTwoAndThreeWithDelimeterNextLine_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sum("1\n2,3");
+        assertEquals(expected, actual);
+    }
 }
