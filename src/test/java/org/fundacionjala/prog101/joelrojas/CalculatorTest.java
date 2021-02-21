@@ -29,7 +29,7 @@ public class CalculatorTest {
     @Test
     public void sum_NumberNegativeTwoAndOne_NegativeOne() {
         Calculator calculator = new Calculator();
-        int expected = -1;
+        int expected = 1;
         int actual = calculator.sum("-2,1");
         assertEquals(expected, actual);
     }
@@ -125,9 +125,10 @@ public class CalculatorTest {
     @Test
     public void sumWithDelimitersInBrackets_AStringWithDelimiterAndTwoFiveSeven_Fourteen() {
         Calculator calculator = new Calculator();
-        String inputStringNumbers = "//[,]\n2,5,7";
+        String inputStringNumbers = "//[,,,]\n2,,,5,,,7";
         int expected = 14; 
         int actual = calculator.sumWithDelimitersInBrackets(inputStringNumbers);
         assertEquals(expected, actual);
     }
+
 }

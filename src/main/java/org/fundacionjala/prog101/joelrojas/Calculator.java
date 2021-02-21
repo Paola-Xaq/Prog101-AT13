@@ -2,49 +2,27 @@ package org.fundacionjala.prog101.joelrojas;
 
 public class Calculator {
     public static final int LIMIT = 1000;
+    public static final String COMMA = ",";
+    public static final String NEXT_LINE = "\n";
     /** */
     public int sum(String numbers) {
-        if (isEmpty(numbers)) {
+        if (numbers.isEmpty()) {
             return 0;
-        } else {
-            String delimiters = "[,\n]";
-            int sum = sum(numbers, delimiters);
-            return sum;
+        } else if (startsWithNumber(numbers)) {
+            return sum(separateNumberString(convertToOneDelimiter(numbers)));
+        } else if (startsWithSlashes(numbers)) {
+            if (startsWithBracket(numbers)) {
+                return sum(separateNumberString(getCleanStringNumbers(numbers), obtaindelimiter(numbers)));
+            } else {
+                return sumWithDelimiter(numbers);
+            }
         }
-    }
-    /** */
-    public int sum(String[] numbersString) {
-        int sum = 0;
-        for (String number : numbersString) {
-            sum += Integer.parseInt(number);
-        }
-        return sum;
-    }
-    /**
-     * @return true if numbers is a empty string.
-    */
-    public boolean isEmpty(String numbers) {
-        return numbers.equals("");
+        return 0;
 
     }
     /** */
-    public int sum(String numbers, String delimiters) {
-        int sum = 0;
-        String number = "";
-        for (int i = 0; i < numbers.length(); i++) {
-            String character = numbers.substring(i, i + 1);
-            if (!character.matches(delimiters)) {
-                number += character;
-            } else {
-                sum += Integer.parseInt(number);
-                number = "";
-            }
-            if (i == numbers.length() - 1) {
-                sum += Integer.parseInt(number);
-                number = "";
-            }
-        }
-        return sum;
+    public int sum(String[] numbersString) {
+        return sumIntArray(convertNumberStringToInteger(numbersString));
     }
     /** */
     public int sumWithDelimiter(String numbers) {
@@ -71,7 +49,7 @@ public class Calculator {
 
     /** */
     public int sumWithDelimitersInBrackets(String numbers) {
-        return sumIntArray(convertNumberStringToInteger(getStringnumbersArray(numbers)));
+        return sum(getStringnumbersArray(numbers));
 
     }
 
@@ -102,18 +80,6 @@ public class Calculator {
         return inputNumber < 0;
     }
 
-    /**
-     *
-     */
-    public String obtainNumberString(String numbers) {
-        String format = "//;\n";
-        if (numbers.substring(0, 2).equals("//")
-         && numbers.substring(2 + 1, 2 + 2).equals("\n")) {
-            String delimiter = numbers.substring(2, 2 + 1);
-        }
-        return numbers.substring(2 + 1);
-    }
-
     /** */
     public String getCleanStringNumbers(String numbers) {
         return numbers.substring(numbers.indexOf("\n") + 1);
@@ -123,11 +89,11 @@ public class Calculator {
     public String[] getStringnumbersArray(String numbers) {
         String realNumbers = getCleanStringNumbers(numbers);
         String delimiters = obtaindelimiter(numbers);
-        String[] numbs = null;
         if (!delimiters.contains("\n")) {
-            numbs = separateNumberString(realNumbers, delimiters);
+            return separateNumberString(realNumbers, delimiters);
+        } else {
+            return separateNumberString(realNumbers, separateNumberString(delimiters, "\n"));
         }
-        return numbs;
     }
     /**
      *
@@ -151,12 +117,26 @@ public class Calculator {
         } while (!esta);
         return delimitersWithSpaces;
     }
-
+    /**
+     *
+     */
+    public String[] separateNumberString(String numberString) {
+        return separateNumberString(numberString, COMMA);
+    }
     /**
      *
      */
     public String[] separateNumberString(String numberString, String delimiter) {
         return numberString.split(delimiter);
+    }
+    /**
+     *
+     */
+    public String[] separateNumberString(String numberString, String[] delimiters) {
+        for (String delimiter : delimiters) {
+            convertToOneDelimiter(numberString, delimiter);
+        }
+        return numberString.split(numberString);
     }
 
     /**
@@ -168,5 +148,26 @@ public class Calculator {
             numbers[i] = Integer.parseInt(stringNumbers[i]);
         }
         return numbers;
+    }
+
+    /** */
+    public Boolean startsWithSlashes(String numbers) {
+        return numbers.startsWith("//");
+    }
+    /** */
+    public Boolean startsWithBracket(String numbers) {
+        return numbers.startsWith("[");
+    }
+    /** */
+    public Boolean startsWithNumber(String numbers) {
+        return numbers.substring(0, 1).matches("[0-9]") || numbers.substring(0, 1).matches("-");
+    }
+    /** */
+    public String convertToOneDelimiter(String numbers) {
+        return numbers.replaceAll(NEXT_LINE, COMMA);
+    }
+    /** */
+    public String convertToOneDelimiter(String numbers, String delimiter) {
+        return numbers.replaceAll(delimiter, COMMA);
     }
 }
