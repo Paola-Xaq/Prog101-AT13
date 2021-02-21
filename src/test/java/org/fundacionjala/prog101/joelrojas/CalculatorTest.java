@@ -68,11 +68,38 @@ public class CalculatorTest {
     }
 
     @Test
-    public void underLimit_TwentyOne_True() {
+    public void isUnderLimit_TwentyOne_True() {
         Calculator calculator = new Calculator();
         int inputNumber = 21;
         boolean expected = true; 
-        boolean actual = calculator.underLimit(inputNumber);
+        boolean actual = calculator.isUnderLimit(inputNumber);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void isUnderLimit_OneThousandOne_False() {
+        Calculator calculator = new Calculator();
+        int inputNumber = 1001;
+        boolean expected = false; 
+        boolean actual = calculator.isUnderLimit(inputNumber);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void isNegative_Negativefive_True() {
+        Calculator calculator = new Calculator();
+        int inputNumber = -5;
+        boolean expected = true; 
+        boolean actual = calculator.isNegative(inputNumber);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void isNegative_Seven_False() {
+        Calculator calculator = new Calculator();
+        int inputNumber = 7;
+        boolean expected = false; 
+        boolean actual = calculator.isNegative(inputNumber);
         assertEquals(expected, actual);
     }
 }

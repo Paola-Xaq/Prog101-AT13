@@ -20,7 +20,9 @@ public class Calculator {
         }
         return sum;
     }
-    /** */
+    /**
+     * @return true if numbers is a empty string.
+    */
     public boolean isEmpty(String numbers) {
         return numbers.equals("");
 
@@ -67,17 +69,30 @@ public class Calculator {
         return negativeNumbers;
     }
 
-    /** */
+    /**
+     * sum every number inside the array.
+    */
     public int sumIntArray(int[] numbers) {
         int sum = 0;
         for (int number : numbers) {
-            sum += number;
+            if (!isNegative(number) && isUnderLimit(number)) {
+                sum += number;
+            }
         }
         return sum;
     }
 
-    /** */
-    public boolean underLimit(int inputNumber) {
+    /**
+     * @return a true if inputNumber is under or equal to LIMIT.
+    */
+    public boolean isUnderLimit(int inputNumber) {
         return inputNumber <= LIMIT;
+    }
+
+    /**
+     * @return a true if inputNumber is negative number.
+    */
+    public boolean isNegative(int inputNumber) {
+        return inputNumber < 0;
     }
 }
