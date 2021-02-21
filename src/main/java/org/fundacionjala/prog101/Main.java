@@ -11,7 +11,7 @@ public final class Main {
         Sum practice1 = new Sum();
         final int number1 = 2;
         final int number2 = 3;
-        System.out.println(practice1.sumTwoNumbers(number1, number2));
+        System.out.println("the sum is " + practice1.sumTwoNumbers(number1, number2));
 
     }
 }
