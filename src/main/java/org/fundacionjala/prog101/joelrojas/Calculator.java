@@ -1,6 +1,7 @@
 package org.fundacionjala.prog101.joelrojas;
 
 public class Calculator {
+    public static final int LIMIT = 1000;
     /** */
     public int sum(String numbers) {
         if (isEmpty(numbers)) {
@@ -64,5 +65,19 @@ public class Calculator {
             }
         }
         return negativeNumbers;
+    }
+
+    /** */
+    public int sumIntArray(int[] numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return sum;
+    }
+
+    /** */
+    public boolean underLimit(int inputNumber) {
+        return inputNumber <= LIMIT;
     }
 }

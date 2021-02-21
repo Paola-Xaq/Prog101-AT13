@@ -43,7 +43,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sum_OneTwoAndWithDifferentDelimeter_three() {
+    public void sumWithDelimiter_OneTwoAndWithDifferentDelimeter_three() {
         Calculator calculator = new Calculator();
         int expected = 3;
         int actual = calculator.sumWithDelimiter("//;\n1;2");
@@ -51,10 +51,28 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sum_OneNegativeTwoAndThree_ExceptionWithNegativeNumbers() {
+    public void sumWithNegativeOnes_OneNegativeTwoAndThree_ExceptionWithNegativeNumbers() {
         Calculator calculator = new Calculator();
         String expected = "negatives not allowed -2, ";
         String actual = calculator.sumWithNegativeOnes("1,-2,3");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sumIntArray_OneTwoThreeInArray_Six() {
+        Calculator calculator = new Calculator();
+        int[] inputNumbers = {1,2,3};
+        int expected = 6; 
+        int actual = calculator.sumIntArray(inputNumbers);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void underLimit_TwentyOne_True() {
+        Calculator calculator = new Calculator();
+        int inputNumber = 21;
+        boolean expected = true; 
+        boolean actual = calculator.underLimit(inputNumber);
         assertEquals(expected, actual);
     }
 }
