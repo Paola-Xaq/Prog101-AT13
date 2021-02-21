@@ -35,10 +35,18 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sum_OneTwoAndThreeWithDelimeterNextLine_Six() {
+    public void sum_OneTwoAndThreeWithNewLineBetween_Six() {
         Calculator calculator = new Calculator();
         int expected = 6;
         int actual = calculator.sum("1\n2,3");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sum_OneTwoAndWithDifferentDelimeter_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 3;
+        int actual = calculator.sumWithDelimiter("//;\n1;2");
         assertEquals(expected, actual);
     }
 }

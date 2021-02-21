@@ -42,4 +42,13 @@ public class Calculator {
         }
         return sum;
     }
+    /** */
+    public int sumWithDelimiter(String numbers) {
+        int posDelimeter = 2;
+        int posNumbersBegin = 2 + 2;
+        String delimiter = numbers.substring(2, posDelimeter + 1);
+        String numbersWithoutDelimeter = numbers.substring(posNumbersBegin);
+        String[] numbersString = numbersWithoutDelimeter.split(delimiter);
+        return sum(numbersString);
+    }
 }
