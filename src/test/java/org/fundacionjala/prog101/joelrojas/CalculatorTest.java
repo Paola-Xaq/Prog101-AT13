@@ -43,36 +43,36 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sumWithDelimiter_OneTwoAndWithDifferentDelimeter_three() {
+    public void sum_OneTwoAndWithDifferentDelimeter_three() {
         Calculator calculator = new Calculator();
         int expected = 3;
-        int actual = calculator.sumWithDelimiter("//;\n1;2");
+        int actual = calculator.sum("//;\n1;2");
         assertEquals(expected, actual);
     }
 
     @Test
-    public void sumWithNegativeOnes_OneNegativeTwoAndThree_ExceptionWithNegativeNumbers() {
+    public void sum_OneNegativeTwoAndThree_ExceptionWithNegativeNumbers() {
         Calculator calculator = new Calculator();
-        String expected = "negatives not allowed -2, ";
-        String actual = calculator.sumWithNegativeOnes("1,-2,3");
+        int expected = 4;
+        int actual = calculator.sum("1,-2,3");
         assertEquals(expected, actual);
     }
 
     @Test
-    public void sumIntArray_OneTwoThreeInArray_Six() {
+    public void sum_OneTwoThreeInArray_Six() {
         Calculator calculator = new Calculator();
-        int[] inputNumbers = {1,2,3};
+        String inputNumbers = "1,2,3";
         int expected = 6; 
-        int actual = calculator.sumIntArray(inputNumbers);
+        int actual = calculator.sum(inputNumbers);
         assertEquals(expected, actual);
     }
 
     @Test
-    public void sumIntArray_OneThousandTwoAndNegativeFiveAndFour_Four() {
+    public void sum_OneThousandTwoAndNegativeFiveAndFour_Four() {
         Calculator calculator = new Calculator();
-        int[] inputNumbers = {1001,-5,4};
+        String inputNumbers = "1001,-5,4";
         int expected = 4; 
-        int actual = calculator.sumIntArray(inputNumbers);
+        int actual = calculator.sum(inputNumbers);
         assertEquals(expected, actual);
     }
 
@@ -123,12 +123,20 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sumWithDelimitersInBrackets_AStringWithDelimiterAndTwoFiveSeven_Fourteen() {
+    public void sum_AStringWithDelimiterAndTwoFiveSeven_Fourteen() {
         Calculator calculator = new Calculator();
         String inputStringNumbers = "//[,,,]\n2,,,5,,,7";
         int expected = 14; 
-        int actual = calculator.sumWithDelimitersInBrackets(inputStringNumbers);
+        int actual = calculator.sum(inputStringNumbers);
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void sum_AStringWithDifferentDelimitersAndFiveFiveTen_twenty() {
+        Calculator calculator = new Calculator();
+        String inputStringNumbers = "//[,][;]\n5,5;10";
+        int expected = 20; 
+        int actual = calculator.sum(inputStringNumbers);
+        assertEquals(expected, actual);
+    }
 }

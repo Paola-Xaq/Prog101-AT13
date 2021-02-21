@@ -2,68 +2,41 @@ package org.fundacionjala.prog101.joelrojas;
 
 public class Calculator {
     public static final int LIMIT = 1000;
+    public static final int POS_INI_DELIMITER = 3;
     public static final String COMMA = ",";
     public static final String NEXT_LINE = "\n";
+
     /** */
     public int sum(String numbers) {
         if (numbers.isEmpty()) {
             return 0;
-        } else if (startsWithNumber(numbers)) {
-            return sum(separateNumberString(convertToOneDelimiter(numbers)));
-        } else if (startsWithSlashes(numbers)) {
-            if (startsWithBracket(numbers)) {
-                return sum(separateNumberString(getCleanStringNumbers(numbers), obtaindelimiter(numbers)));
-            } else {
-                return sumWithDelimiter(numbers);
-            }
+        } else if (!numbers.startsWith("//")) {
+            return sumWoD(numbers);
+        } else if (!numbers.startsWith("//[")) {
+            return sumWASD(numbers);
+        } else {
+            return sumWDD(numbers);
         }
-        return 0;
-
-    }
-    /** */
-    public int sum(String[] numbersString) {
-        return sumIntArray(convertNumberStringToInteger(numbersString));
-    }
-    /** */
-    public int sumWithDelimiter(String numbers) {
-        int posDelimeter = 2;
-        int posNumbersBegin = 2 + 2;
-        String delimiter = numbers.substring(2, posDelimeter + 1);
-        String numbersWithoutDelimeter = numbers.substring(posNumbersBegin);
-        String[] numbersString = numbersWithoutDelimeter.split(delimiter);
-        return sum(numbersString);
     }
 
     /** */
-    public String sumWithNegativeOnes(String numbers) {
-        String[] numbersString = numbers.split(",");
-        String negativeNumbers = "negatives not allowed ";
-        for (String number : numbersString) {
-            int numberInt = Integer.parseInt(number);
-            if (numberInt < 0) {
-                negativeNumbers += numberInt + ", ";
-            }
-        }
-        return negativeNumbers;
+    public int sumWoD(String numbers) {
+        return sumIntArray(separateNumberString(numbers));
     }
 
     /** */
-    public int sumWithDelimitersInBrackets(String numbers) {
-        return sum(getStringnumbersArray(numbers));
-
+    public int sumWASD(String numbers) {
+        String delimiter = numbers.substring(2, numbers.indexOf("\n"));
+        String newNumbers = cleanNumbers(numbers);
+        return sumIntArray(separateNumberString(newNumbers, delimiter));
     }
 
-    /**
-     * sum every number inside the array.
-    */
-    public int sumIntArray(int[] numbers) {
-        int sum = 0;
-        for (int number : numbers) {
-            if (!isNegative(number) && isUnderLimit(number)) {
-                sum += number;
-            }
-        }
-        return sum;
+    /** */
+    public int sumWDD(String numbers) {
+        String delimiters = numbers.substring(POS_INI_DELIMITER, numbers.indexOf("\n"));
+        String[] delimitersListos = obtaindelimiter(delimiters);
+        String newNumbers = cleanNumbers(numbers);
+        return sumIntArray(separateNumberString(newNumbers, delimitersListos));
     }
 
     /**
@@ -81,87 +54,51 @@ public class Calculator {
     }
 
     /** */
-    public String getCleanStringNumbers(String numbers) {
+    public String cleanNumbers(String numbers) {
         return numbers.substring(numbers.indexOf("\n") + 1);
-    }
-
-    /** */
-    public String[] getStringnumbersArray(String numbers) {
-        String realNumbers = getCleanStringNumbers(numbers);
-        String delimiters = obtaindelimiter(numbers);
-        if (!delimiters.contains("\n")) {
-            return separateNumberString(realNumbers, delimiters);
-        } else {
-            return separateNumberString(realNumbers, separateNumberString(delimiters, "\n"));
-        }
     }
     /**
      *
      */
-    public String obtaindelimiter(String numbers) {
-        String delimiters = numbers.substring(0, numbers.indexOf("\n"));
-        int openedBracket = 0;
+    public String[] obtaindelimiter(String delimiters) {
         int closedBracket = 0;
         boolean esta = false;
         String delimitersWithSpaces = "";
         do {
-            openedBracket = delimiters.indexOf("[");
             closedBracket = delimiters.indexOf("]");
-            delimitersWithSpaces += delimiters.substring(openedBracket + 1, closedBracket);
+            delimitersWithSpaces += delimiters.substring(0, closedBracket);
             if (closedBracket != delimiters.length() - 1) {
-                delimiters = delimiters.substring(closedBracket + 1);
+                delimiters = delimiters.substring(closedBracket + 2);
                 delimitersWithSpaces += "\n";
             } else {
                 esta = true;
             }
         } while (!esta);
-        return delimitersWithSpaces;
+        return delimitersWithSpaces.split("\n");
     }
     /**
      *
      */
     public String[] separateNumberString(String numberString) {
-        return separateNumberString(numberString, COMMA);
+        return separateNumberString(convertToOneDelimiter(numberString), COMMA);
     }
     /**
      *
      */
     public String[] separateNumberString(String numberString, String delimiter) {
-        return numberString.split(delimiter);
+        return numberString.split("\\" + delimiter);
     }
     /**
      *
      */
     public String[] separateNumberString(String numberString, String[] delimiters) {
+        String numStrings1 = numberString;
         for (String delimiter : delimiters) {
-            convertToOneDelimiter(numberString, delimiter);
+            numStrings1 = convertToOneDelimiter(numStrings1, delimiter);
         }
-        return numberString.split(numberString);
+        return separateNumberString(numStrings1);
     }
 
-    /**
-     *
-     */
-    public int[] convertNumberStringToInteger(String[] stringNumbers) {
-        int[] numbers = new int[stringNumbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = Integer.parseInt(stringNumbers[i]);
-        }
-        return numbers;
-    }
-
-    /** */
-    public Boolean startsWithSlashes(String numbers) {
-        return numbers.startsWith("//");
-    }
-    /** */
-    public Boolean startsWithBracket(String numbers) {
-        return numbers.startsWith("[");
-    }
-    /** */
-    public Boolean startsWithNumber(String numbers) {
-        return numbers.substring(0, 1).matches("[0-9]") || numbers.substring(0, 1).matches("-");
-    }
     /** */
     public String convertToOneDelimiter(String numbers) {
         return numbers.replaceAll(NEXT_LINE, COMMA);
@@ -169,5 +106,20 @@ public class Calculator {
     /** */
     public String convertToOneDelimiter(String numbers, String delimiter) {
         return numbers.replaceAll(delimiter, COMMA);
+    }
+
+    /**
+     * sum every number inside the array.
+    */
+    public int sumIntArray(String[] stringNumbers) {
+        int sum = 0;
+        for (String numberS : stringNumbers) {
+            System.out.println(numberS);
+            int number = Integer.parseInt(numberS);
+            if (!isNegative(number) && isUnderLimit(number)) {
+                sum += number;
+            }
+        }
+        return sum;
     }
 }
