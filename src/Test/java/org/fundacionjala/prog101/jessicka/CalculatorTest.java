@@ -20,4 +20,12 @@ public class CalculatorTest {
         int actual = calculator.sum("1,2,3");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void sum_EmptyString_Zero() {
+        Calculator calculator = new Calculator();
+        int expected = 0;
+        int actual = calculator.sum("");
+        Assert.assertEquals(expected,actual);
+    }
 }
