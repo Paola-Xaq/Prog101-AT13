@@ -69,6 +69,12 @@ public class Calculator {
         return negativeNumbers;
     }
 
+    /** */
+    public int sumWithDelimitersInBrackets(String numbers) {
+        return sumIntArray(convertNumberStringToInteger(getStringnumbersArray(numbers)));
+
+    }
+
     /**
      * sum every number inside the array.
     */
@@ -106,6 +112,44 @@ public class Calculator {
             String delimiter = numbers.substring(2, 2 + 1);
         }
         return numbers.substring(2 + 1);
+    }
+
+    /** */
+    public String getCleanStringNumbers(String numbers) {
+        return numbers.substring(numbers.indexOf("\n") + 1);
+    }
+
+    /** */
+    public String[] getStringnumbersArray(String numbers) {
+        String realNumbers = getCleanStringNumbers(numbers);
+        String delimiters = obtaindelimiter(numbers);
+        String[] numbs = null;
+        if (!delimiters.contains("\n")) {
+            numbs = separateNumberString(realNumbers, delimiters);
+        }
+        return numbs;
+    }
+    /**
+     *
+     */
+    public String obtaindelimiter(String numbers) {
+        String delimiters = numbers.substring(0, numbers.indexOf("\n"));
+        int openedBracket = 0;
+        int closedBracket = 0;
+        boolean esta = false;
+        String delimitersWithSpaces = "";
+        do {
+            openedBracket = delimiters.indexOf("[");
+            closedBracket = delimiters.indexOf("]");
+            delimitersWithSpaces += delimiters.substring(openedBracket + 1, closedBracket);
+            if (closedBracket != delimiters.length() - 1) {
+                delimiters = delimiters.substring(closedBracket + 1);
+                delimitersWithSpaces += "\n";
+            } else {
+                esta = true;
+            }
+        } while (!esta);
+        return delimitersWithSpaces;
     }
 
     /**

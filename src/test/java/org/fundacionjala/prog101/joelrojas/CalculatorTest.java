@@ -121,4 +121,13 @@ public class CalculatorTest {
         String[] actual = calculator.separateNumberString(inputStringNumbers, delimiter);
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void sumWithDelimitersInBrackets_AStringWithDelimiterAndTwoFiveSeven_Fourteen() {
+        Calculator calculator = new Calculator();
+        String inputStringNumbers = "//[,]\n2,5,7";
+        int expected = 14; 
+        int actual = calculator.sumWithDelimitersInBrackets(inputStringNumbers);
+        assertEquals(expected, actual);
+    }
 }
