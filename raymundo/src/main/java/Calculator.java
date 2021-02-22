@@ -2,7 +2,12 @@ public class Calculator {
     public String defaultDelimiter = ",|\n";
     public String[] numbersArray;
     public int result;
-    
+
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        calculator.add("-1,-2,-3");
+    }
+
     public int add(String numbers) {
         int sum = 0;
         if (numbers == "") {
@@ -35,7 +40,9 @@ public class Calculator {
         String negativeNumbersArray = "";
         for (String number : numbersArray) {
             if (notNegative(number)) {
-                sum += Integer.parseInt(number);
+                if (notHigherThanAThousand(number)) {
+                    sum += Integer.parseInt(number);
+                }
             } else {
                 negativeNumbersArray += number + " ";
             }
@@ -48,5 +55,9 @@ public class Calculator {
 
     public Boolean notNegative(String number) {
         return (Integer.parseInt(number) >= 0);
+    }
+
+    public Boolean notHigherThanAThousand(String number) {
+        return (Integer.parseInt(number) <= 1000);
     }
 }

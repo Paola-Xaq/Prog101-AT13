@@ -52,4 +52,12 @@ class CalculatorTest {
         int actual = calculator.add("1,2,-1");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void add_TwoAndAThousandAndOne_Two() {
+        Calculator calculator = new Calculator();
+        int expected = 2;
+        int actual = calculator.add("2,1001");
+        assertEquals(expected, actual);
+    }
 }
