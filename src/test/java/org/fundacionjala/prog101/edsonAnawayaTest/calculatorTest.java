@@ -49,4 +49,13 @@ public class calculatorTest {
         int result = calculator.sumNumbers(NUMBERS);
         assertEquals(EXPECTED, result);
     }
+
+    @Test
+    public void sumNumbersWithLineJump_MoreWhatTwoNumbersWithSaltJump_sumAllNumbers(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "1\n2,3";
+        final int EXPECTED = 6;
+        int result = calculator.sumNumbersWithLineJump(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
 }
