@@ -16,11 +16,9 @@ public class Calculator {
     public String[] splitStringOfNumbersIntoArray(String numbers) {
         String delimiter = ",|\n";
         if (numbers.startsWith("//")) {
-//            delimiter = String.valueOf(numbers.charAt(2));
-//            delimiter = numbers.charAt(2) + "\n";
             String[] segments = numbers.split("\n");
             numbers = segments[1];
-            delimiter = String.valueOf(segments[0].charAt(2));
+            delimiter = new StringBuilder().append("\\").append(segments[0].charAt(2)).toString();
         }
         String[] numbersString = numbers.split(delimiter);
         return  numbersString;
