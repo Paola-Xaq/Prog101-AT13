@@ -13,8 +13,7 @@ public class Sum {
         if (nums.isEmpty()) {
             return 0;
         }
-        int result = caculationSum(selectNumber(nums));
-        return result;
+        return caculationSum(selectNumber(nums));
     }
 
     /**
@@ -49,9 +48,21 @@ public class Sum {
             if (number.isEmpty()) {
                 return 0;
             }
-            sum += Integer.parseInt(number);
+            try {
+                if (Integer.parseInt(number) >= 0) {
+                    sum += Integer.parseInt(number);
+                } else {
+                    negativeNumber(number);
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
         return sum;
+    }
+
+    private void negativeNumber(final String numeber) {
+        throw new IllegalArgumentException("Negatives not allowed " + numeber);
     }
 }
 

@@ -64,17 +64,17 @@ public class SumTest {
         assertEquals(expected,actual);
     }
     @Test
-    public void caculation_stringWithNegativeNumber_Zero() {
+    public void caculation_stringWithNegativeNumber_three() {
         Sum nums1 = new Sum();
         int actual = nums1.caculation("//;\n1;2,-3");
-        int expected = 0;
+        int expected = 3;
         assertEquals(expected,actual);
     }
     @Test
-    public void caculation_stringWithNegativeNumber_NegativeNine() {
+    public void caculation_stringWithNegativeNumber_four() {
         Sum nums1 = new Sum();
-        int actual = nums1.caculation("//;\n1;2,-3;-9");
-        int expected = -9;
+        int actual = nums1.caculation("//;\n3;2,-3;-9");
+        int expected = 5;
         assertEquals(expected,actual);
     }
 }
