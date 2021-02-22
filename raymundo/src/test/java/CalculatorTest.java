@@ -27,4 +27,12 @@ class CalculatorTest {
         int actual = calculator.add("1,2");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void add_NumbersOneTwoAndThreeWithNewLineDelimiter_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.add("1\n2,3");
+        assertEquals(expected, actual);
+    }
 }
