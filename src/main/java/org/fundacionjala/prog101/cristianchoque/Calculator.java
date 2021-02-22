@@ -10,7 +10,11 @@ public class Calculator {
     public int add(final String numbers) {
         String[] numbersString;
         if (!numbers.isEmpty()) {
-            numbersString = numbers.split(",");
+            String aux;
+            String jumpLine = System.getProperty("line.separator");
+            aux = numbers;
+            aux = aux.replace(jumpLine, ",");
+            numbersString = aux.split(",");
             return resultAdd(numbersString);
         }
         return 0;
