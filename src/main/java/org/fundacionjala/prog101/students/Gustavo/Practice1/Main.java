@@ -1,8 +1,11 @@
 package org.fundacionjala.prog101.students.Gustavo.Practice1;
 
-public class Main {
+public final class Main {
 
-    public static void main(String[] args) {
+    private Main() {
+    }
 
+    public static void main(final String[] args) {
+        System.out.println("hola");
     }
 }
