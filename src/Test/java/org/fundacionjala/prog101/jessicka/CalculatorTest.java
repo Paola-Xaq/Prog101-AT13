@@ -36,4 +36,12 @@ public class CalculatorTest {
         int actual = calculator.sum("1\n2,3");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void sum_WithDifferentDelimiters_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 3;
+        int actual = calculator.sum("//;\n1;2");
+        Assert.assertEquals(expected,actual);
+    }
 }
