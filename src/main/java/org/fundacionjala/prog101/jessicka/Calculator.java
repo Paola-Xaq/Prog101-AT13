@@ -11,8 +11,11 @@ public class Calculator {
             throw new IllegalArgumentException("negatives not allowed" + negativeNumbers);
         }
         int sum = 0;
+        final int upperLimit = 1000;
         for (String number : numbersString) {
-            sum += Integer.parseInt(number);
+            if (Integer.parseInt(number) <= upperLimit) {
+                sum += Integer.parseInt(number);
+            }
         }
         return sum;
     }

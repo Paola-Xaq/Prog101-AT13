@@ -72,4 +72,28 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         int actual = calculator.sum("-5,-6,2");
     }
+
+    @Test
+    public void sum_NumberBiggerThanOneThousandPlusTwo_Two() {
+        Calculator calculator = new Calculator();
+        int expected = 2;
+        int actual = calculator.sum("2,1001");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void sum_TwoPlusOneThousand_OneThousandTwo() {
+        Calculator calculator = new Calculator();
+        int expected = 1002;
+        int actual = calculator.sum("2,1000");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void sum_NumberBiggerThanOneThousand_Zero() {
+        Calculator calculator = new Calculator();
+        int expected = 0;
+        int actual = calculator.sum("1002");
+        Assert.assertEquals(expected,actual);
+    }
 }
