@@ -60,4 +60,12 @@ class CalculatorTest {
         int actual = calculator.add("2,1001");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void add_OneTwoAndThreeWithDoubleDelimiter_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.add("//[--]\n1--2--3");
+        assertEquals(expected, actual);
+    }
 }

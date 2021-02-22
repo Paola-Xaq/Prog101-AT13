@@ -9,13 +9,13 @@ public class Calculator {
     }
 
     public int add(String numbers) {
-        int sum = 0;
         if (numbers == "") {
             return 0;
         } else {
             if (numbers.startsWith("//")) {
                 String[] delimiterNumbers = numbers.split("\n", 2);
-                String delimiter = Character.toString(delimiterNumbers[0].charAt(2));
+                String delimiterString = delimiterNumbers[0];
+                String delimiter = getDelimiter(delimiterString);
                 numbers = delimiterNumbers[1];
                 numbersArray = separateString(numbers, delimiter);
             } else {
@@ -59,5 +59,17 @@ public class Calculator {
 
     public Boolean notHigherThanAThousand(String number) {
         return (Integer.parseInt(number) <= 1000);
+    }
+
+    public String getDelimiter(String string) {
+        String delimiter;
+        if (string.contains("[") && string.contains("]")) {
+            int firstPosition = string.indexOf("[");
+            int lastPosition = string.indexOf("]");
+            delimiter = string.substring(firstPosition + 1, lastPosition);
+        } else {
+            delimiter = Character.toString(string.charAt(2));
+        }
+        return delimiter;
     }
 }
