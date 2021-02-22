@@ -68,4 +68,20 @@ class CalculatorTest {
         int actual = calculator.add("//[--]\n1--2--3");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void add_OneTwoAndThreeWithDifferentDelimiters_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.add("//[-][%]\n1-2%3");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getMultipleDelimiter_TwoForwardSlashFourBracketsHyphenPercentage_HyphenPercentage() {
+        Calculator calculator = new Calculator();
+        String string = "-|%";
+        String actual = calculator.getMultipleDelimiter("//[-][%]");
+        assertEquals(string, actual);
+    }
 }

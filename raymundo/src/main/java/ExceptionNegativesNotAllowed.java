@@ -1,4 +1,4 @@
-public class ExceptionNegativesNotAllowed extends RuntimeException {
+public class ExceptionNegativesNotAllowed extends Exception {
     public ExceptionNegativesNotAllowed() {
         this(" ");
     }
