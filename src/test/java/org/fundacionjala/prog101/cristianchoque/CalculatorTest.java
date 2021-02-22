@@ -61,4 +61,15 @@ public class CalculatorTest {
         // Verification
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_StringWithDifferentDelimiterOneTwo_Three() {
+        // prerequisites
+        Calculator calculator = new Calculator();
+        // Actions
+        int expected = 3;
+        int actual = calculator.add("//;\n1;2");
+        // Verification
+        Assert.assertEquals(expected,actual);
+    }
 }

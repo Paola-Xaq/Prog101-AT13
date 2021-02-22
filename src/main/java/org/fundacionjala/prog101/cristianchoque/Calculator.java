@@ -10,10 +10,22 @@ public class Calculator {
     public int add(final String numbers) {
         String[] numbersString;
         if (!numbers.isEmpty()) {
+            if (numbers.charAt(0) == '/' && numbers.charAt(1) == '/') {
+                String[] stringNumbersAndDelimiter;
+                char delimiter;
+                String stringNumbersWithOtherDelimiters;
+                stringNumbersAndDelimiter = numbers.split("\n");
+                delimiter = stringNumbersAndDelimiter[0].charAt(stringNumbersAndDelimiter[0].length() - 1);
+                stringNumbersWithOtherDelimiters = stringNumbersAndDelimiter[1];
 
-            String onlyNumbersWithComas = replaceCaracterIntoString(numbers);
-            numbersString = onlyNumbersWithComas.split(",");
-            return resultAdd(numbersString);
+                String onlyNumbersWithComas = replaceCaracterIntoString(stringNumbersWithOtherDelimiters, delimiter);
+                numbersString = onlyNumbersWithComas.split(",");
+                return resultAdd(numbersString);
+            } else {
+                String onlyNumbersWithComas = replaceJumpLineIntoString(numbers);
+                numbersString = onlyNumbersWithComas.split(",");
+                return resultAdd(numbersString);
+            }
         }
         return 0;
     }
@@ -32,15 +44,28 @@ public class Calculator {
     }
 
     /**
-     * Method to replace caracteres into the string
-     * @param stringNumeros
+     * Method to replace \n to coma into the string
+     * @param stringNumbers
      * @return string with only Numbers and comas
      */
-    public String replaceCaracterIntoString(final String stringNumeros) {
+    public String replaceJumpLineIntoString(final String stringNumbers) {
         String onlyNumbersWithComas;
         String jumpLine = System.getProperty("line.separator");
-        onlyNumbersWithComas = stringNumeros;
+        onlyNumbersWithComas = stringNumbers;
         onlyNumbersWithComas = onlyNumbersWithComas.replace(jumpLine, ",");
+        return onlyNumbersWithComas;
+    }
+
+    /**
+     * Method to replace delimiter to coma into the string
+     * @param stringNumbers
+     * @param delimiter
+     * @return string with only Numbers and comas
+     */
+    public String replaceCaracterIntoString(final String stringNumbers, final char delimiter) {
+        String onlyNumbersWithComas;
+        onlyNumbersWithComas = stringNumbers;
+        onlyNumbersWithComas = onlyNumbersWithComas.replace(String.valueOf(delimiter), ",");
         return onlyNumbersWithComas;
     }
 
