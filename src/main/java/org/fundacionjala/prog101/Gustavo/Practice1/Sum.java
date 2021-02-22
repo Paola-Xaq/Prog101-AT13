@@ -66,6 +66,9 @@ public class Sum {
         return sum;
     }
 
+    /**
+     * @return throw expection.
+     */
     private void negativeNumber(final String numeber) {
         throw new IllegalArgumentException("Negatives not allowed " + numeber);
     }
