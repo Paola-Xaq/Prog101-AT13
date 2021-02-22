@@ -82,4 +82,20 @@ public class CalculatorTest {
         int actual = calculator.sumNumberswithDelimetersofAnyLength("//[;;;]\n1;;;;;;2;;;3");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void sumNumbersWithMultipleDelimeters_OnePlusETwoPlusThree_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sumNumbersWithMultipleDelimeters("//[-][%]\n1-2%3");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sumNumbersWithMultipleDelimeters_OnePlusEmptyNumberPLusTwoPlusThree_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sumNumbersWithMultipleDelimeters("//[-][%]\n1--2%3");
+        assertEquals(expected, actual);
+    }
 }

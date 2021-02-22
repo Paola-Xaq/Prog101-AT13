@@ -1,5 +1,7 @@
 package org.fundacionjala.prog101.DanielaSC;
 
+import java.util.ArrayList;
+
 public class Calculator {
     /**
      * Take 0, 1 or 2 numbers, and will return their sum .
@@ -67,6 +69,37 @@ public class Calculator {
         String delimeter = part1.substring(initSubString, part1.length() - 1);
         int sum = 0;
         String[] numbersString2 = part2.split(delimeter);
+        for (String number : numbersString2) {
+            if (number.equals("")) {
+                number = "0";
+            }
+            sum += Integer.parseInt(number);
+        }
+        return sum;
+    }
+
+    /**
+     * Sum numbers minors than tousand with multiple delimeters.
+     */
+    public int sumNumbersWithMultipleDelimeters(final String numbers) {
+        String[] numbersString = numbers.split("\n");
+        String part1 = numbersString[0];
+        String part2 = numbersString[1];
+        int initSubString = 2;
+        String subStringPart1 = part1.substring(initSubString);
+        ArrayList<Character> delimeters = new ArrayList<Character>();
+        int sum = 0;
+        for (int i = 0; i < subStringPart1.length(); i++) {
+            if (subStringPart1.charAt(i) == '[') {
+                delimeters.add(subStringPart1.charAt(i + 1));
+            }
+        }
+        for (int j = 0; j < delimeters.size(); j++) {
+            char delimeterChar = delimeters.get(j);
+            String delimeterString = String.valueOf(delimeterChar);
+            part2 = part2.replaceAll(delimeterString, ",");
+        }
+        String[] numbersString2 = part2.split(",");
         for (String number : numbersString2) {
             if (number.equals("")) {
                 number = "0";
