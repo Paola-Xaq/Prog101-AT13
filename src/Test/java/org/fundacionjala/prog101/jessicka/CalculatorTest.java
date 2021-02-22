@@ -29,4 +29,11 @@ public class CalculatorTest {
         Assert.assertEquals(expected,actual);
     }
 
+    @Test
+    public void sum_NewLinesBetweenNumbers_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sum("1\n2,3");
+        Assert.assertEquals(expected,actual);
+    }
 }

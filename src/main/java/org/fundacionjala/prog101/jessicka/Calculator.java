@@ -14,7 +14,7 @@ public class Calculator {
     }
 
     public String[] splitStringOfNumbersIntoArray(String numbers) {
-        String[] numbersString = numbers.split(",");
+        String[] numbersString = numbers.split(",|\\\n");
         return  numbersString;
     }
 }
