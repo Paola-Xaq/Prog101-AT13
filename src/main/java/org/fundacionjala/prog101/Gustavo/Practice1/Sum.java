@@ -3,6 +3,8 @@ package org.fundacionjala.prog101.Gustavo.Practice1;
 import java.util.ArrayList;
 
 public class Sum {
+    static final int MAX_NUMBER = 1000;
+
     Sum() {
     }
 
@@ -44,13 +46,16 @@ public class Sum {
      */
     private int caculationSum(final ArrayList<String> numbersString) {
         int sum = 0;
+
         for (String number : numbersString) {
             if (number.isEmpty()) {
                 return 0;
             }
             try {
                 if (Integer.parseInt(number) >= 0) {
-                    sum += Integer.parseInt(number);
+                    if (Integer.parseInt(number) < MAX_NUMBER) {
+                        sum += Integer.parseInt(number);
+                    }
                 } else {
                     negativeNumber(number);
                 }
