@@ -27,4 +27,11 @@ public class SumTest {
         int expected = 0;
         assertEquals(expected,actual);
     }
+    @Test
+    public void caculation_SumSixNineFivefour_Twentyfour() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("6,9,5,4");
+        int expected = 24;
+        assertEquals(expected,actual);
+    }
 }
