@@ -84,4 +84,18 @@ public class SumTest {
         int expected = 9;
         assertEquals(expected,actual);
     }
+    @Test
+    public void caculation_StringWithOtherSymbols_six() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("//[-]\n1─2─3");
+        int expected = 6;
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void caculation_StringWithOtherSymbols2_six() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("//[-][%]\n1─2%3");
+        int expected = 6;
+        assertEquals(expected,actual);
+    }
 }
