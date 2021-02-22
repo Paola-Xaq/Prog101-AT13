@@ -35,6 +35,10 @@ public class Calculator {
         if (numbers.startsWith("//")) {
             final int inferiorLimit = 2;
             final int superiorLimit = 3;
+            if (numbers.startsWith("//[")) {
+                delimiter = "\\r?\\n|\\" + numbers.substring(superiorLimit, numbers.indexOf(']'));
+                return numbers.substring(numbers.indexOf(']') + 1).split(delimiter);
+            }
             delimiter = "\\r?\\n|\\" + numbers.substring(inferiorLimit, superiorLimit);
             return numbers.substring(superiorLimit).split(delimiter);
         }

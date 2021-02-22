@@ -117,4 +117,20 @@ public class CalculatorTest {
         int actual = calculator.sum("//;1001\n4000;1\n5");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void sum_SeveralDelimitersOnePlusTwoPlusThree_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sum("//[--]\n1--2--3");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sum_SeveralDelimitersTwoPlusTwoPlusOne_Five() {
+        Calculator calculator = new Calculator();
+        int expected = 5;
+        int actual = calculator.sum("//[:::]\n2:::2:::1:::");
+        assertEquals(expected, actual);
+    }
 }
