@@ -13,4 +13,11 @@ public class SumTest {
         int expected = 9;
         assertEquals(expected,actual);
     }
+    @Test
+    public void caculation_onlyOneNumberTen_Ten() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("10");
+        int expected = 10;
+        assertEquals(expected,actual);
+    }
 }
