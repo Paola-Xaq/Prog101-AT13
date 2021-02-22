@@ -66,4 +66,20 @@ public class CalculatorTest {
         int actual = calculator.sumWithDiferentDelimeter("//;\n1;;2");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void sumNumbersMinorsThanTousand_OnePlusTwoPlusThree_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sumNumberswithDelimetersofAnyLength("//[;;;]\n1;;;2;;;3");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sumNumbersMinorsThanTousand_OnePlusEmptyNumberPlusTwoPlusThree_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sumNumberswithDelimetersofAnyLength("//[;;;]\n1;;;;;;2;;;3");
+        assertEquals(expected, actual);
+    }
 }

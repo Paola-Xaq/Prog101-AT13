@@ -55,4 +55,24 @@ public class Calculator {
         }
         return sum;
     }
+
+    /**
+     * Sum numbers minors than tousand with delimeters of any length.
+     * */
+    public int sumNumberswithDelimetersofAnyLength(final String numbers) {
+        String[] numbersString = numbers.split("\n");
+        String part1 = numbersString[0];
+        String part2 = numbersString[1];
+        int initSubString = 2 + 1;
+        String delimeter = part1.substring(initSubString, part1.length() - 1);
+        int sum = 0;
+        String[] numbersString2 = part2.split(delimeter);
+        for (String number : numbersString2) {
+            if (number.equals("")) {
+                number = "0";
+            }
+            sum += Integer.parseInt(number);
+        }
+        return sum;
+    }
 }
