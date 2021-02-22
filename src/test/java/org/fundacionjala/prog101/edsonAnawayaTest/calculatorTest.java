@@ -76,4 +76,22 @@ public class calculatorTest {
         int result = calculator.sumNumbersWithoutNumbersNegatives(NUMBERS);
         assertEquals(EXPECTED, result);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void sumNumbersLessThan1001_NumberPositivesAndGreaterThan1001_sumOnlyNumbersLessThan1000(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "//[—]\n1001—2—3";
+        final int EXPECTED = 5;
+        int result = calculator.sumNumbersWithoutNumbersNegatives(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void sumNumbersWithMultiplesDelimiters_NumbersWithMultiplesDelimiter_sumAllNumbers(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "//[-][%]\n1-2%3";
+        final int EXPECTED = 6;
+        int result = calculator.sumNumbersWithoutNumbersNegatives(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
 }
