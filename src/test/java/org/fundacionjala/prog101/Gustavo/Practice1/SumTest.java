@@ -1,6 +1,7 @@
 package org.fundacionjala.prog101.Gustavo.Practice1;
 
 import org.junit.Test;
+import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.*;
 
@@ -32,6 +33,13 @@ public class SumTest {
         Sum nums1 = new Sum();
         int actual = nums1.caculation("6,9,5,4");
         int expected = 24;
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void caculation_stringWithNewlineCommasAndNumber_six() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("1\n2,3");
+        int expected = 6;
         assertEquals(expected,actual);
     }
 }
