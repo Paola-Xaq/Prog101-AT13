@@ -70,4 +70,28 @@ public class Calculator {
         }
         return sumTotal;
     }
+
+    /**
+     * Function for sum a string with number or numbers with salt jump
+     */
+    public int sumNumbersWithoutNumbersNegatives(final String numbers) {
+        int sumTotal = 0;
+        String newDelimiter = numbers.substring(numbers.indexOf("//") + 2, DELIMITER_END);
+        String newStringNumbers = numbers.substring(numbers.indexOf("//") + DELIMITER_END + 1);
+        String[] arrayNumbers = newStringNumbers.split(newDelimiter);
+        String negativesNumbers = "";
+        boolean switchNegativeNumbers = false;
+        for (String number : arrayNumbers) {
+            if (Integer.parseInt(number) > 0) {
+                sumTotal += Integer.parseInt(number);
+            } else {
+                negativesNumbers += number + " ";
+                switchNegativeNumbers = true;
+            }
+        }
+        if (switchNegativeNumbers) {
+            throw new IllegalArgumentException("Negatives not allowed :" + negativesNumbers);
+        }
+        return sumTotal;
+    }
 }

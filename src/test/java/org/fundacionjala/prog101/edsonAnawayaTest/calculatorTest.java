@@ -67,4 +67,13 @@ public class calculatorTest {
         int result = calculator.sumNumbersWithCustomerDelimiter(NUMBERS);
         assertEquals(EXPECTED, result);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void sumNumbersWithoutNumbersNegatives_NumberPositivesAndNegatives_sumOnlyNumbersPositives(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "//;\n1;2;-1";
+        final String EXPECTED = "Negatives not allowed :-1 ";
+        int result = calculator.sumNumbersWithoutNumbersNegatives(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
 }
