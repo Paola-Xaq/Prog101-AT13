@@ -1,7 +1,10 @@
 package org.fundacionjala.prog101.Excercies_Jorge;
-
 public class StringCalculator {
-    public int add (String numsToSum){
+    private final int delimiterSpecial = 3;
+    /**
+     * Method to sum numbers in a String
+     * */
+    public int add(final String numsToSum) {
         if (numsToSum.isEmpty()) {
             return 0;
         }
@@ -9,30 +12,42 @@ public class StringCalculator {
         String negativeNumbers = getNegatives(arrayofNumbers);
         if (negativeNumbers.equals("Negatives are :")) {
             return sumNums(arrayofNumbers);
-        }else{
+        } else {
             throw new IllegalArgumentException("negatives not allowed " + negativeNumbers);
         }
 
     }
-    public String[] getArrayOfNums(String nums){
-        String delimiter ="";
+    /**
+     * Method to convert to Arrays to a String
+     * */
+    public String[] getArrayOfNums(final String nums) {
+        String delimiter = "";
         String[] arrayStringNumbers;
-        if(hasDelimiter(nums)){
-            delimiter= getDelimiter(nums);
+        if (hasDelimiter(nums)) {
+            delimiter = getDelimiter(nums);
             arrayStringNumbers = nums.split("\n");
             return arrayStringNumbers[1].split(delimiter);
-        }else {
+        } else {
             delimiter = ",|\n";
             return nums.split(delimiter);
         }
     }
-    public boolean hasDelimiter(String limiter){
+    /**
+     * Method that says if a String has a special delimiter
+     * */
+    public boolean hasDelimiter(final String limiter) {
         return limiter.startsWith("//");
     }
-    public String getDelimiter(String limiter){
-        return limiter.substring(2,3);
+    /**
+     * Method that returns the delimiter
+     * */
+    public String getDelimiter(final String limiter) {
+        return limiter.substring(2, delimiterSpecial);
     }
-    public int sumNums(String[] nums){
+    /**
+     * Method to sum numbers in a array of Strings
+     * */
+    public int sumNums(final String[] nums) {
         int sum = 0;
         final int maxLimit = 1000;
         for (String number : nums) {
@@ -43,8 +58,11 @@ public class StringCalculator {
         }
         return sum;
     }
-    public String getNegatives(String[] numbers){
-        String negativesNumbers= "Negatives are :";
+    /**
+     * Method to take notes of negative numbers
+     * */
+    public String getNegatives(final String[] numbers) {
+        String negativesNumbers = "Negatives are :";
         for (String negative : numbers) {
             int num = Integer.parseInt(negative);
             if (num < 0) {
