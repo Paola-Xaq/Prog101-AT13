@@ -40,4 +40,13 @@ public class calculatorTest {
         int result = calculator.sumNumbers(NUMBERS);
         assertEquals(EXPECTED, result);
     }
+
+    @Test
+    public void sumNumbers_MoreWhatTwoNumbers_sumAllNumbers(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "1,2,3,4,5";
+        final int EXPECTED = 15;
+        int result = calculator.sumNumbers(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
 }
