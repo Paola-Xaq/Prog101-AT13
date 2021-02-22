@@ -8,15 +8,19 @@ public class Calculator {
      *
      */
     public int sum(final String numbers) {
-        int sum = 0;
         if (numbers.isEmpty()) {
             return 0;
         }
         String[] numbersArray = getNumbers(numbers);
+        int sum = 0;
         for (String number: numbersArray) {
             if (!(number.length() == 0)) {
                 sum += Integer.parseInt(number);
             }
+        }
+        String negativesNumbers = negativeNumbers(numbersArray);
+        if (!negativesNumbers.isEmpty()) {
+            throw new IllegalArgumentException("Negatives not allowed " + negativesNumbers);
         }
         return sum;
     }
@@ -32,5 +36,20 @@ public class Calculator {
             return numbers.substring(superiorLimit).split(delimiter);
         }
         return numbers.split(delimiter);
+    }
+
+    /**
+     *
+     * */
+    public String negativeNumbers(final String[] numbers) {
+        String negativeNumbers = "";
+        for (String negativesNumbers: numbers) {
+            if (!negativesNumbers.isEmpty()) {
+                if (Integer.parseInt(negativesNumbers) < 0) {
+                    negativeNumbers +=  negativesNumbers + ",";
+                }
+            }
+        }
+        return negativeNumbers;
     }
 }
