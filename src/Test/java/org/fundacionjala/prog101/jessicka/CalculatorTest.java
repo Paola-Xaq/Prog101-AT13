@@ -96,4 +96,28 @@ public class CalculatorTest {
         int actual = calculator.sum("1002");
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void sum_WithDelimitersOfAnyLength_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sum("//[-]\n1-2-3");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void sum_WithMultipleDelimiters_Six() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sum("//[-][%]\n1-2%3");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void sum_WithMultipleDelimiters_Ten() {
+        Calculator calculator = new Calculator();
+        int expected = 10;
+        int actual = calculator.sum("//[;][*]\n1;2*3*4");
+        Assert.assertEquals(expected,actual);
+    }
 }
