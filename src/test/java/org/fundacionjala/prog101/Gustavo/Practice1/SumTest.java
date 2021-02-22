@@ -42,4 +42,11 @@ public class SumTest {
         int expected = 6;
         assertEquals(expected,actual);
     }
+    @Test
+    public void caculation_stringWithNewline_Zero() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("\n");
+        int expected = 0;
+        assertEquals(expected,actual);
+    }
 }
