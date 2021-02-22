@@ -58,4 +58,13 @@ public class calculatorTest {
         int result = calculator.sumNumbersWithLineJump(NUMBERS);
         assertEquals(EXPECTED, result);
     }
+
+    @Test
+    public void sumNumbersWithCustomerDelimiter_DelimiterCustomerAndNumbers_sumAllNumbers(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "//;\n1;2";
+        final int EXPECTED = 3;
+        int result = calculator.sumNumbersWithCustomerDelimiter(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
 }

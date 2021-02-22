@@ -4,6 +4,8 @@ public class Calculator {
 
     private static final int CHARACTER_CODE_0 = 48;
     private static final int CHARACTER_CODE_9 = 57;
+    private static final int DELIMITER_END = 3;
+
     public Calculator() {
     }
 
@@ -15,7 +17,7 @@ public class Calculator {
     }
 
     /**
-     * Function sum a string with number or numbers
+     * Function for sum a string with number or numbers
      */
     public int sumNumbers(final String numbers) {
         if (numbers == "") {
@@ -31,7 +33,7 @@ public class Calculator {
     }
 
     /**
-     * Function sum a string with number or numbers with salt jump
+     * Function for sum a string with number or numbers with salt jump
      */
     public int sumNumbersWithLineJump(final String numbers) {
         if (numbers == "") {
@@ -51,6 +53,21 @@ public class Calculator {
             return sumTotal;
         }
         sumTotal += Integer.parseInt(numberString);
+        return sumTotal;
+    }
+
+    /**
+     * Function for sum a string with number or numbers with salt jump
+     */
+    public int sumNumbersWithCustomerDelimiter(final String numbers) {
+        int sumTotal = 0;
+        String newDelimiter = numbers.substring(numbers.indexOf("//") + 2, DELIMITER_END);
+        String newStringNumbers = numbers.substring(numbers.indexOf("//") + DELIMITER_END + 1);
+        String[] arrayNumbers = newStringNumbers.split(newDelimiter);
+
+        for (String number : arrayNumbers) {
+            sumTotal += Integer.parseInt(number);
+        }
         return sumTotal;
     }
 }
