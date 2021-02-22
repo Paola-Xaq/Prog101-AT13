@@ -63,4 +63,18 @@ public class SumTest {
         int expected = 3;
         assertEquals(expected,actual);
     }
+    @Test
+    public void caculation_stringWithNegativeNumber_Zero() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("//;\n1;2,-3");
+        int expected = 0;
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void caculation_stringWithNegativeNumber_NegativeNine() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("//;\n1;2,-3;-9");
+        int expected = -9;
+        assertEquals(expected,actual);
+    }
 }
