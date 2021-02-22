@@ -1,7 +1,5 @@
 package org.fundacionjala.prog101.Saul;
 
-import java.util.ArrayList;
-
 public class Calculator {
     /**
      * Method to add numbers in a string.
@@ -38,15 +36,14 @@ public class Calculator {
      * @return the delimiter char.
      */
     public String[] getDelimiters(final String numbers) {
-        String[]stringSplit = numbers.split("\n|[|]|//");
-        ArrayList<String> delimiters = new ArrayList<String>();
-        for (int pos = 0; pos < stringSplit.length; pos++) {
-            String delimiter = stringSplit[pos];
-            if (delimiter.matches("\\D")) {
-                delimiters.add(delimiter);
-            }
+        String[]stringSplit = numbers.split("\n");
+        String delimiterString = stringSplit[0];
+        delimiterString = delimiterString.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("/", "");
+        String[]res = new String[delimiterString.length()];
+        for (int pos = 0; pos < delimiterString.length(); pos++) {
+            char delim = delimiterString.charAt(pos);
+            res[pos] = String.valueOf(delim);
         }
-        String[]res = delimiters.toArray(new String[0]);
         return res;
     }
 }

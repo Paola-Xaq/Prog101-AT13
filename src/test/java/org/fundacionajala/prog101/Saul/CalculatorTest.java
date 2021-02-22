@@ -50,4 +50,18 @@ public class CalculatorTest {
         String[]actual = calculator.getDelimiters("//+\n2,3");
         assertArrayEquals(expected, actual);
     }
+    @Test
+    public void getDelimiter_StringWithDelimiterBetweenBrackets_returnDelimiter() {
+        Calculator calculator = new Calculator();
+        String[]expected = {"+"};
+        String[]actual = calculator.getDelimiters("//[+]\n2,3");
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void getDelimiter_StringWithMultipleDelimiters_returnDelimiters() {
+        Calculator calculator = new Calculator();
+        String[]expected = {"+","-"};
+        String[]actual = calculator.getDelimiters("//[+][-]\n2,3");
+        assertArrayEquals(expected, actual);
+    }
 }
