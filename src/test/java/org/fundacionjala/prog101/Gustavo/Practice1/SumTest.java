@@ -43,10 +43,24 @@ public class SumTest {
         assertEquals(expected,actual);
     }
     @Test
+    public void caculation_stringWithNewlineCommasAndNumber_sixty() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("4,21\n32,3");
+        int expected = 60;
+        assertEquals(expected,actual);
+    }
+    @Test
     public void caculation_stringWithNewline_Zero() {
         Sum nums1 = new Sum();
         int actual = nums1.caculation("\n");
         int expected = 0;
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void caculation_stringWithNewlineCommasDelimiterAndNumber_three() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("//;\n1;2");
+        int expected = 3;
         assertEquals(expected,actual);
     }
 }
