@@ -6,6 +6,10 @@ public class Calculator {
             return 0;
         }
         String[] numbersString = splitStringOfNumbersIntoArray(numbers);
+        String negativeNumbers = thereAreNegatives(numbersString);
+        if (!negativeNumbers.isEmpty()) {
+            throw new IllegalArgumentException("negatives not allowed" + negativeNumbers);
+        }
         int sum = 0;
         for (String number : numbersString) {
             sum += Integer.parseInt(number);
@@ -22,5 +26,15 @@ public class Calculator {
         }
         String[] numbersString = numbers.split(delimiter);
         return  numbersString;
+    }
+
+    public String thereAreNegatives(String[] numbersString)  {
+        String negativeNumbers = "";
+        for (String number : numbersString) {
+            if (Integer.parseInt(number) < 0) {
+                negativeNumbers = negativeNumbers + "," + number;
+            }
+        }
+        return negativeNumbers;
     }
 }

@@ -61,4 +61,15 @@ public class CalculatorTest {
         Assert.assertEquals(expected,actual);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void sum_OneNegativeNumber_IllegalArgumentException() {
+        Calculator calculator = new Calculator();
+        int actual = calculator.sum("-5");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void sum_MoreNegativeNumber_IllegalArgumentException() {
+        Calculator calculator = new Calculator();
+        int actual = calculator.sum("-5,-6,2");
+    }
 }
