@@ -10,11 +10,9 @@ public class Calculator {
     public int add(final String numbers) {
         String[] numbersString;
         if (!numbers.isEmpty()) {
-            String aux;
-            String jumpLine = System.getProperty("line.separator");
-            aux = numbers;
-            aux = aux.replace(jumpLine, ",");
-            numbersString = aux.split(",");
+
+            String onlyNumbersWithComas = replaceCaracterIntoString(numbers);
+            numbersString = onlyNumbersWithComas.split(",");
             return resultAdd(numbersString);
         }
         return 0;
@@ -31,6 +29,19 @@ public class Calculator {
             addNumbers += Integer.parseInt(number);
         }
         return addNumbers;
+    }
+
+    /**
+     * Method to replace caracteres into the string
+     * @param stringNumeros
+     * @return string with only Numbers and comas
+     */
+    public String replaceCaracterIntoString(final String stringNumeros) {
+        String onlyNumbersWithComas;
+        String jumpLine = System.getProperty("line.separator");
+        onlyNumbersWithComas = stringNumeros;
+        onlyNumbersWithComas = onlyNumbersWithComas.replace(jumpLine, ",");
+        return onlyNumbersWithComas;
     }
 
 }
