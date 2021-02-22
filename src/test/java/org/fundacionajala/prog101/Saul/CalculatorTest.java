@@ -1,6 +1,8 @@
 package org.fundacionjala.prog101.Saul;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class CalculatorTest {
@@ -39,6 +41,13 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         int[]expected = {1,2,3};
         int[] actual = calculator.split("1\n2,3");
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void getDelimiter_StringWithGivenDelimiter_returnDelimiter() {
+        Calculator calculator = new Calculator();
+        String[]expected = {"+"};
+        String[]actual = calculator.getDelimiters("//+\n2,3");
         assertArrayEquals(expected, actual);
     }
 }
