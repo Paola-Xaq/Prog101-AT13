@@ -13,7 +13,9 @@ public class Calculator {
             if (numbers.charAt(0) == '/' && numbers.charAt(1) == '/') {
                 String[] delimiterAndNumbers = separateNumbersAndDelimiters(numbers);
                 String[] delimiters = getDelimiters(delimiterAndNumbers[0]);
-                String onlyNumbersWithComas = replaceCaracterIntoString(delimiterAndNumbers[1], delimiters[0]);
+
+                String onlyNumbersWithComas = replaceCaracterIntoString(delimiterAndNumbers[1], delimiters);
+                System.out.println(onlyNumbersWithComas);
                 numbersString = onlyNumbersWithComas.split(",");
                 return resultAdd(numbersString);
             } else {
@@ -57,11 +59,29 @@ public class Calculator {
      * @param delimiter
      * @return string with only Numbers and comas
      */
-    public String replaceCaracterIntoString(final String stringNumbers, final String delimiter) {
+    public String replaceCaracterIntoString(final String stringNumbers, final String[] delimiter) {
         String onlyNumbersWithComas;
         onlyNumbersWithComas = stringNumbers;
-        onlyNumbersWithComas = onlyNumbersWithComas.replace(delimiter, ",");
+        int countDelimiters = getCountDelimiters(delimiter);
+        for (int i = 0; i < countDelimiters; i++) {
+            onlyNumbersWithComas = onlyNumbersWithComas.replace(delimiter[i], ",");
+        }
         return onlyNumbersWithComas;
+    }
+
+    /**
+     *
+     * @param delimiter
+     * @return count of the delimiters
+     */
+    public int getCountDelimiters(final String[] delimiter) {
+        int cont = 0;
+        for (int j = 0; j < delimiter.length; j++) {
+            if (delimiter[j] != null) {
+                cont++;
+            }
+        }
+        return cont;
     }
 
     /**
@@ -86,7 +106,14 @@ public class Calculator {
         String[] delimitersArray = new String[sizeDelimiterArray];
         if (delimiters.length() == sizeWithOneDelimiter) {
             delimitersArray[0] = String.valueOf(delimiters.charAt(delimiters.length() - 1));
+            return delimitersArray;
+        } else {
+            int j = 0;
+            for (int i = sizeWithOneDelimiter; i < delimiters.length(); i = i + sizeWithOneDelimiter) {
+                delimitersArray[j] = String.valueOf(delimiters.charAt(i));
+                j++;
+            }
+            return delimitersArray;
         }
-        return delimitersArray;
     }
 }

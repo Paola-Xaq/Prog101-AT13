@@ -63,12 +63,23 @@ public class CalculatorTest {
     }
 
     @Test
-    public void add_StringWithDifferentDelimiterOneTwo_Three() {
+    public void add_StringWithOtherDelimiterOneTwo_Three() {
         // prerequisites
         Calculator calculator = new Calculator();
         // Actions
         int expected = 3;
         int actual = calculator.add("//;\n1;2");
+        // Verification
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void add_StringWithDifferentDelimiterOneTwoThreeFour_Then() {
+        // prerequisites
+        Calculator calculator = new Calculator();
+        // Actions
+        int expected = 10;
+        int actual = calculator.add("//[-][%]\n1-2%3-4");
         // Verification
         Assert.assertEquals(expected,actual);
     }
