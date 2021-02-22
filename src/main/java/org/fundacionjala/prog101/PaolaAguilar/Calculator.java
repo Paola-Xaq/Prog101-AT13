@@ -3,6 +3,7 @@ package org.fundacionjala.prog101.PaolaAguilar;
 public class Calculator {
 
     private String delimiter = "\\r?\\n|\\,";
+    private final int limit = 1000;
 
     /**
      *
@@ -15,7 +16,9 @@ public class Calculator {
         int sum = 0;
         for (String number: numbersArray) {
             if (!(number.length() == 0)) {
-                sum += Integer.parseInt(number);
+                if (Integer.parseInt(number) < limit) {
+                    sum += Integer.parseInt(number);
+                }
             }
         }
         String negativesNumbers = negativeNumbers(numbersArray);
@@ -30,8 +33,8 @@ public class Calculator {
      * */
     public String[] getNumbers(final String numbers) {
         if (numbers.startsWith("//")) {
-            int inferiorLimit = 2;
-            int superiorLimit = 3;
+            final int inferiorLimit = 2;
+            final int superiorLimit = 3;
             delimiter = "\\r?\\n|\\" + numbers.substring(inferiorLimit, superiorLimit);
             return numbers.substring(superiorLimit).split(delimiter);
         }

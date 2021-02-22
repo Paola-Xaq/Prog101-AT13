@@ -101,4 +101,20 @@ public class CalculatorTest {
         int actual = calculator.sum("-5\n-7,-1");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void sum_BigNumberPlusOne_One() {
+        Calculator calculator = new Calculator();
+        int expected = 1;
+        int actual = calculator.sum("1001,1");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sum_BigNumbersPlusOnePlus5_One() {
+        Calculator calculator = new Calculator();
+        int expected = 6;
+        int actual = calculator.sum("//;1001\n4000;1\n5");
+        assertEquals(expected, actual);
+    }
 }
