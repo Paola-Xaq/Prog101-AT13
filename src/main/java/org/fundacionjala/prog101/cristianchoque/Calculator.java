@@ -11,14 +11,9 @@ public class Calculator {
         String[] numbersString;
         if (!numbers.isEmpty()) {
             if (numbers.charAt(0) == '/' && numbers.charAt(1) == '/') {
-                String[] stringNumbersAndDelimiter;
-                char delimiter;
-                String stringNumbersWithOtherDelimiters;
-                stringNumbersAndDelimiter = numbers.split("\n");
-                delimiter = stringNumbersAndDelimiter[0].charAt(stringNumbersAndDelimiter[0].length() - 1);
-                stringNumbersWithOtherDelimiters = stringNumbersAndDelimiter[1];
-
-                String onlyNumbersWithComas = replaceCaracterIntoString(stringNumbersWithOtherDelimiters, delimiter);
+                String[] delimiterAndNumbers = separateNumbersAndDelimiters(numbers);
+                String[] delimiters = getDelimiters(delimiterAndNumbers[0]);
+                String onlyNumbersWithComas = replaceCaracterIntoString(delimiterAndNumbers[1], delimiters[0]);
                 numbersString = onlyNumbersWithComas.split(",");
                 return resultAdd(numbersString);
             } else {
@@ -62,11 +57,36 @@ public class Calculator {
      * @param delimiter
      * @return string with only Numbers and comas
      */
-    public String replaceCaracterIntoString(final String stringNumbers, final char delimiter) {
+    public String replaceCaracterIntoString(final String stringNumbers, final String delimiter) {
         String onlyNumbersWithComas;
         onlyNumbersWithComas = stringNumbers;
-        onlyNumbersWithComas = onlyNumbersWithComas.replace(String.valueOf(delimiter), ",");
+        onlyNumbersWithComas = onlyNumbersWithComas.replace(delimiter, ",");
         return onlyNumbersWithComas;
     }
 
+    /**
+     * This method is for separate the delimiters and Numbers
+     * @param stringNumbersDelimiters
+     * @return array with delimiters and Numbers
+     */
+    public String[] separateNumbersAndDelimiters(final String stringNumbersDelimiters) {
+        String[] stringNumbersAndDelimiter;
+        stringNumbersAndDelimiter = stringNumbersDelimiters.split("\n");
+        return stringNumbersAndDelimiter;
+    }
+
+    /**
+     * this method get all the delimiters in an array
+     * @param delimiters
+     * @return array the all the delimiters
+     */
+    public String[] getDelimiters(final String delimiters) {
+        final int sizeDelimiterArray = 10;
+        final int sizeWithOneDelimiter = 3;
+        String[] delimitersArray = new String[sizeDelimiterArray];
+        if (delimiters.length() == sizeWithOneDelimiter) {
+            delimitersArray[0] = String.valueOf(delimiters.charAt(delimiters.length() - 1));
+        }
+        return delimitersArray;
+    }
 }
