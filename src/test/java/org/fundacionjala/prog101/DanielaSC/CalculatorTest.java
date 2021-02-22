@@ -50,4 +50,20 @@ public class CalculatorTest {
         int actual = calculator.sumManyNumbers("1\n2,,5");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void sumWithDiferentDelimeter_OnePlus2_Three() {
+        Calculator calculator = new Calculator();
+        int expected = 3;
+        int actual = calculator.sumWithDiferentDelimeter("//;\n1;2");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sumWithDiferentDelimeter_OnePlusEmptyNumberPlusTwo_Three() {
+        Calculator calculator = new Calculator();
+        int expected = 3;
+        int actual = calculator.sumWithDiferentDelimeter("//;\n1;;2");
+        assertEquals(expected, actual);
+    }
 }

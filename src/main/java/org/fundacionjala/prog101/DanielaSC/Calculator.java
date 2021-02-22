@@ -35,4 +35,24 @@ public class Calculator {
         }
         return sum;
     }
+
+    /**
+     * Sum an unknown amount of numbers and handles diferent delimeters.
+     * */
+    public int sumWithDiferentDelimeter(final String numbers) {
+        int positionDelimeter = 2;
+        int initSubString = 2 + 2;
+        char delimeterChar = numbers.charAt(positionDelimeter);
+        String delimeterString = String.valueOf(delimeterChar);
+        String numbersOnly = numbers.substring(initSubString);
+        String[] numbersString = numbersOnly.split(delimeterString);
+        int sum = 0;
+        for (String number : numbersString) {
+            if (number.equals("")) {
+                number = "0";
+            }
+            sum += Integer.parseInt(number);
+        }
+        return sum;
+    }
 }
