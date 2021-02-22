@@ -44,4 +44,12 @@ class CalculatorTest {
         int actual = calculator.add("//" + delimiter + "\n1" + delimiter + "2");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void add_NegativeOneAndTwo_Zero() {
+        Calculator calculator = new Calculator();
+        int expected = 0;
+        int actual = calculator.add("1,2,-1");
+        assertEquals(expected, actual);
+    }
 }
