@@ -28,4 +28,5 @@ public class CalculatorTest {
         int actual = calculator.sum("");
         Assert.assertEquals(expected,actual);
     }
+
 }
