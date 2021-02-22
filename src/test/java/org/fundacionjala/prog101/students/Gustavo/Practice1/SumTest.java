@@ -7,17 +7,24 @@ import static org.junit.Assert.*;
 public class SumTest {
 
     @Test
-    public void caculation_fiveAndfour_Nine() {
+    public void caculation_FiveAndfour_Nine() {
         Sum nums1 = new Sum();
         int actual = nums1.caculation("5,4");
         int expected = 9;
         assertEquals(expected,actual);
     }
     @Test
-    public void caculation_onlyOneNumberTen_Ten() {
+    public void caculation_OnlyOneNumberTen_Ten() {
         Sum nums1 = new Sum();
         int actual = nums1.caculation("10");
         int expected = 10;
+        assertEquals(expected,actual);
+    }
+    @Test
+    public void caculation_Emply_Zero() {
+        Sum nums1 = new Sum();
+        int actual = nums1.caculation("");
+        int expected = 0;
         assertEquals(expected,actual);
     }
 }
