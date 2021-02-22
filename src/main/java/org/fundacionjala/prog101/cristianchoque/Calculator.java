@@ -13,7 +13,6 @@ public class Calculator {
             if (numbers.charAt(0) == '/' && numbers.charAt(1) == '/') {
                 String[] delimiterAndNumbers = separateNumbersAndDelimiters(numbers);
                 String[] delimiters = getDelimiters(delimiterAndNumbers[0]);
-
                 String onlyNumbersWithComas = replaceCaracterIntoString(delimiterAndNumbers[1], delimiters);
                 System.out.println(onlyNumbersWithComas);
                 numbersString = onlyNumbersWithComas.split(",");
@@ -33,9 +32,12 @@ public class Calculator {
      * @return result of the add
      */
     public int resultAdd(final String[] arrayNumbers) {
+        final int bigNumbers = 1000;
         int addNumbers = 0;
         for (String number : arrayNumbers) {
-            addNumbers += Integer.parseInt(number);
+            if (Integer.parseInt(number) <= bigNumbers) {
+                addNumbers += Integer.parseInt(number);
+            }
         }
         return addNumbers;
     }

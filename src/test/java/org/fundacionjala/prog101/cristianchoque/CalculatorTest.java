@@ -83,4 +83,15 @@ public class CalculatorTest {
         // Verification
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void add_StringWithDifferentDelimiter1001TwoThreeFour_Nine() {
+        // prerequisites
+        Calculator calculator = new Calculator();
+        // Actions
+        int expected = 9;
+        int actual = calculator.add("//[-][%]\n1001-2%3-4");
+        // Verification
+        Assert.assertEquals(expected,actual);
+    }
 }
