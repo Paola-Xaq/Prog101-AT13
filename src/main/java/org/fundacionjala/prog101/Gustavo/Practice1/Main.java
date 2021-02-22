@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.students.Gustavo.Practice1;
+package org.fundacionjala.prog101.Gustavo.Practice1;
 
 public final class Main {
 
