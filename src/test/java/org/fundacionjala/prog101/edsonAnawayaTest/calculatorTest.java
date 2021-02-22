@@ -6,11 +6,38 @@ import org.fundacionjala.prog101.edsonAnawaya.*;
 
 public class calculatorTest {
     @Test
-    public void add_NumbersVoid_Cero(){
+    public void add_EmptyNumbers_Zero(){
         Calculator calculator = new Calculator();
         final String NUMBERS = "";
         final int EXPECTED = 0;
         int result = calculator.add(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
+
+    @Test
+    public void sumNumbers_EmptyNumbers_Zero(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "";
+        final int EXPECTED = 0;
+        int result = calculator.sumNumbers(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
+
+    @Test
+    public void sumNumbers_OnlyOneNumber_SameNumber(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "1";
+        final int EXPECTED = 1;
+        int result = calculator.sumNumbers(NUMBERS);
+        assertEquals(EXPECTED, result);
+    }
+
+    @Test
+    public void sumNumbers_TwoNumbers_sumNumbers(){
+        Calculator calculator = new Calculator();
+        final String NUMBERS = "1,2";
+        final int EXPECTED = 3;
+        int result = calculator.sumNumbers(NUMBERS);
         assertEquals(EXPECTED, result);
     }
 }
