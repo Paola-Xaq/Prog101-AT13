@@ -35,4 +35,13 @@ class CalculatorTest {
         int actual = calculator.add("1\n2,3");
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void add_NumbersOneTwoWithDifferentDelimiter_Three() {
+        Calculator calculator = new Calculator();
+        int expected = 3;
+        String delimiter = ";";
+        int actual = calculator.add("//" + delimiter + "\n1" + delimiter + "2");
+        assertEquals(expected, actual);
+    }
 }
