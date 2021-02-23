@@ -1,4 +1,21 @@
 package org.fundacionjala.prog101.Saul;
+/*
+ * Program: Calculator
+ *
+ * Author: Saul Caspa
+ *
+ * Written: February, 2021
+ *
+ * Course: AT13
+ *
+ * Prog101 Assignment No. 1
+ *
+ * Description:
+ * This is a simple calculator that receives numbers as string
+ * then sums the digits contained in the string.
+ */
+
+import java.util.ArrayList;
 
 public class Calculator {
     /**
@@ -6,15 +23,25 @@ public class Calculator {
      * @param numbers.
      * @return the sum of the numbers in the string.
      */
-    public int add(final String numbers) {
-        String[] numbersString = numbers.split(",");
+    public int add(final String inputString) {
         int sum = 0;
-        System.out.println(numbersString.length);
-            for (String number : numbersString) {
-                if (!number.equals("")) {
-                    sum += Integer.parseInt(number);
-                }
+        int[]numbersToOperateWith;
+        String[]delimiters;
+        String stringOfNumbers;
+        if (!inputString.equals("")) {
+            if (hasGivenDelimiters(inputString)) {
+                delimiters = getDelimiters(inputString);
+                stringOfNumbers = getNumbers(inputString);
+                numbersToOperateWith = splitWithGivenDelimiters(stringOfNumbers, delimiters);
+            } else {
+                numbersToOperateWith = split(inputString);
             }
+            //System.out.println(numbersArray.length);
+            for (int number : numbersToOperateWith) {
+                sum += number;
+            }
+            return sum;
+        }
         return sum;
     }
 
@@ -31,6 +58,26 @@ public class Calculator {
         }
         return intRes;
     }
+
+    /**
+     * Method to split a string by the retrieved delimiters.
+     * @param numbers.
+     * @return an array of numbers.
+     */
+    public int[]splitWithGivenDelimiters(final String numbers, final String[] delimiters) {
+        String delimitersToSplitby = "";
+        for (int dpos = 0; dpos < delimiters.length; dpos++) {
+            if (dpos < delimiters.length - 1) {
+                delimitersToSplitby += delimiters[dpos] + "|";
+            }
+        }
+        String[]stringRes = numbers.split(delimitersToSplitby);
+        int[]intRes = new int[stringRes.length];
+        for (int pos = 0; pos < intRes.length; pos++) {
+            intRes[pos] = Integer.parseInt(stringRes[pos]);
+        }
+        return intRes;
+    }
     /**
      * Method to get the delimiter in the string if has one.
      * @return the delimiter char.
@@ -38,12 +85,40 @@ public class Calculator {
     public String[] getDelimiters(final String numbers) {
         String[]stringSplit = numbers.split("\n");
         String delimiterString = stringSplit[0];
-        delimiterString = delimiterString.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("/", "");
-        String[]res = new String[delimiterString.length()];
+        delimiterString = delimiterString.replaceAll("/", "");
+        ArrayList<String> delimitersSection = new ArrayList<String>();
+        String delimiter = "";
         for (int pos = 0; pos < delimiterString.length(); pos++) {
-            char delim = delimiterString.charAt(pos);
-            res[pos] = String.valueOf(delim);
+            char charAtPos = delimiterString.charAt(pos);
+            if (charAtPos == ']') {
+                if (!delimiter.equals("")) {
+                    delimitersSection.add(delimiter);
+                    delimiter = "";
+                }
+            }
+            if (charAtPos != '[' && charAtPos != ']') {
+                delimiter += String.valueOf(charAtPos);
+            }
         }
+        String[] res = delimitersSection.toArray(new String[delimitersSection.size()]);
         return res;
+    }
+
+    /**
+     * Method to get the numbers section of an string with delimiters.
+     * @param numbers.
+     * @return numbers fto operate with rom an string.
+     */
+    public String getNumbers(final String numbers) {
+        String[]stringSplit = numbers.split("\n");
+        return stringSplit[1];
+    }
+    /**
+     * Method to check if a given string has delimiters.
+     * @param numbers.
+     * @return boolean.
+     */
+    public boolean hasGivenDelimiters(final String numbers) {
+            return getDelimiters(numbers).length != 0;
     }
 }
