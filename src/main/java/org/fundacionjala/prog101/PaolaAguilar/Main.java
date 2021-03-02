@@ -7,10 +7,7 @@ import java.util.List;
 //import java.awt.*;
 
 public final class Main {
-
-    private Main() {
-    }
-
+/*
     public static void main(final String[] args) {
         // Abstraction Test
 
@@ -58,6 +55,6 @@ public final class Main {
             if (i % 2 == 0)
                 sum += i;
         return sum;
-    }
+    }*/
 
 }
