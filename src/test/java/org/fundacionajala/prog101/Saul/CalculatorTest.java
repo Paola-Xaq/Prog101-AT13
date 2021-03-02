@@ -64,4 +64,11 @@ public class CalculatorTest {
         String[]actual = calculator.getDelimiters("//[++][--]\n2,3");
         assertArrayEquals(expected, actual);
     }
+//    @Test
+//    public void add_addThreeAndTwoWithGivenDelimliter_returnFive() {
+//        Calculator calculator = new Calculator();
+//        int expected = 5;
+//        int actual = calculator.add("//[+]\n3+2");
+//        assertEquals(expected, actual);
+//    }
 }

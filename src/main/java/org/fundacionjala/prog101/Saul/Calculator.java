@@ -54,7 +54,9 @@ public class Calculator {
         String[]stringRes = numbers.split("\n|,");
         int[]intRes = new int[stringRes.length];
         for (int pos = 0; pos < intRes.length; pos++) {
-            intRes[pos] = Integer.parseInt(stringRes[pos]);
+            if (!stringRes[pos].equals("")) {
+                intRes[pos] = Integer.parseInt(stringRes[pos]);
+            }
         }
         return intRes;
     }
@@ -65,10 +67,17 @@ public class Calculator {
      * @return an array of numbers.
      */
     public int[]splitWithGivenDelimiters(final String numbers, final String[] delimiters) {
+        ArrayList<Integer> numbersRetrieved = new ArrayList<Integer>();
         String delimitersToSplitby = "";
-        for (int dpos = 0; dpos < delimiters.length; dpos++) {
-            if (dpos < delimiters.length - 1) {
-                delimitersToSplitby += delimiters[dpos] + "|";
+        String number = "";
+        for (int sPos = 0; sPos < numbers.length(); sPos++) {
+            String chartAtPos = String.valueOf(numbers.charAt(sPos));
+            for (int dPos = 0; dPos < delimiters.length; dPos++) {
+                if (chartAtPos.equals(delimiters[dPos])) {
+                    numbersRetrieved.add(Integer.parseInt(number));
+                } else {
+                    number += chartAtPos;
+                }
             }
         }
         String[]stringRes = numbers.split(delimitersToSplitby);
