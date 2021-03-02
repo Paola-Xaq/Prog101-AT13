@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Student;
+package org.fundacionjala.prog101.PaolaAguilar.Student;
 
 public class Student {
     public static int NUM_OF_TESTS = 5;
@@ -24,19 +24,15 @@ public class Student {
         return name;
     }
 
-    public int getTestScore(int score) {
-        return 1;
+    public int getTestScore(int testScore) {
+        return test[testScore];
     }
 
-    public void setTestScore() {
-
+    public void setTestScore(int score, int test) {
+        this.test[test] = score;
     }
 
     public String computeCourseGrade(String grade) {
-        if() {
-            this.courseGrade =  "Aprobado";
-        }
-        this.courseGrade =  "Reprobado";
         return courseGrade;
     }
 }
