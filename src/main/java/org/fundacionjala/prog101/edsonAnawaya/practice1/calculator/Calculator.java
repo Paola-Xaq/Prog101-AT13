@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.edsonAnawaya;
+package org.fundacionjala.prog101.edsonAnawaya.practice1.calculator;
 
 public class Calculator {
 

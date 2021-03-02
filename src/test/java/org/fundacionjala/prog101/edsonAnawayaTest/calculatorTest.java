@@ -1,8 +1,8 @@
 package org.fundacionjala.prog101.edsonAnawayaTest;
 import static org.junit.Assert.*;
 
+import org.fundacionjala.prog101.edsonAnawaya.practice1.calculator.Calculator;
 import org.junit.Test;
-import org.fundacionjala.prog101.edsonAnawaya.*;
 
 public class calculatorTest {
     @Test
