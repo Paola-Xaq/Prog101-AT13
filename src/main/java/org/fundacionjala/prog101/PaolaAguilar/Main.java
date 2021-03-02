@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101;
+package org.fundacionjala.prog101.PaolaAguilar;
 
 import org.fundacionjala.prog101.PaolaAguilar.*;
 
