@@ -2,15 +2,28 @@ package org.fundacionjala.prog101;
 
 import org.fundacionjala.prog101.Research.Car;
 import org.fundacionjala.prog101.Research.Boxing;
-import org.fundacionjala.prog101.Research.IntWrapper;
-import org.fundacionjala.prog101.Research.Student;
+import org.fundacionjala.prog101.Research.PolymorphismSub;
+import org.fundacionjala.prog101.Research.PolymorphismSuper;
+import org.fundacionjala.prog101.Wrapper.IntWrapper;
 
 import java.util.ArrayList;
 
 public final class Main {
 
     public static void main(final String[] args) {
-        boxing();
+        polymorphism();
+    }
+    /**
+     * Function to review polymorphism
+     */
+    public static void polymorphism() {
+        PolymorphismSuper poly = new PolymorphismSuper();
+        poly.printValue("Hola");
+        poly.printValue(1000);
+        poly.printValue(1000.99);
+
+        PolymorphismSuper polySub = new PolymorphismSub();
+        polySub.printValue(1000);
     }
     /**
      * Function to prove boxing concepts
@@ -29,6 +42,8 @@ public final class Main {
         //casting, explicit boxing
         int casting = (int)234.99;
         System.out.println("Casting: " + casting);
+
+
         //CustomWrapper
         IntWrapper cIntWrapper = new IntWrapper(value);
         ArrayList<IntWrapper> numbers = new ArrayList<IntWrapper>();
@@ -39,12 +54,11 @@ public final class Main {
         IntWrapper e = new IntWrapper(value3);
         System.out.println("Equals IntWrapper values 1000 and 1000: " + cIntWrapper.equals(d));
         System.out.println("Equals IntWrapper values 1000 and 3000: " + d.equals(e));
+        System.out.println("Equals same IntWrapper: " + (cIntWrapper == cIntWrapper));
         System.out.println("Compare IntWrapper values 1000 and 1000: " + (cIntWrapper == d));
         System.out.println("Compare IntWrapper values 1000 and 3000: " + (d == e));
         //Compare IntWrapper with Integer
-        System.out.println(cIntWrapper.equals(integerObject));
-        //Operations with Wrapper values
-        System.out.println(cIntWrapper.intValue() + d.intValue());
+        System.out.println("Compare IntWrapper to Integer with same values: " + cIntWrapper.equals(integerObject));
     }
 
     /**

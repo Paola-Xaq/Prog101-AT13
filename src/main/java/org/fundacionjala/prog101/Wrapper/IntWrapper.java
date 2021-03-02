@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Research;
+package org.fundacionjala.prog101.Wrapper;
 
 public final class IntWrapper {
     private final int value;
@@ -21,7 +21,7 @@ public final class IntWrapper {
             return value == ((IntWrapper)obj).intValue();
         }
         if (obj instanceof Integer) {
-            return value == ((Integer)obj).intValue();
+            return value == ((Integer) obj).intValue();
         }
         return false;
     }
@@ -42,7 +42,7 @@ public final class IntWrapper {
      * @return an int that represents boolean true or false.
      */
     public int compare(final int x, final int y) {
-        if(x < y || x > y) {
+        if (x < y || x > y) {
             return 0;
         } else {
             return 1;

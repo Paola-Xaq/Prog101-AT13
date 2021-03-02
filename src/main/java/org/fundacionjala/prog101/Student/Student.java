@@ -1,11 +1,20 @@
-package org.fundacionjala.prog101.Research;
+package org.fundacionjala.prog101.Student;
 
 public class Student {
     public final int NUM_OF_TESTS = 10;
     protected String name;
     protected int[] test = new int[NUM_OF_TESTS];
     protected String courseGrade;
-    /**
+    private static final int SCORE_7 = 7;
+    private static final int SCORE_8 = 8;
+    private static final int SCORE_9 = 9;
+    private static final int SCORE_10 = 10;
+    private static final String SCORE_A = "A";
+    private static final String SCORE_B = "B";
+    private static final String SCORE_C = "C";
+    private static final String SCORE_D = "D";
+    private static final String SCORE_F = "F";
+        /**
      * Class student that stores scores of tests
      */
     public Student() {
@@ -66,11 +75,11 @@ public class Student {
         }
         courseGrade /= NUM_OF_TESTS;
         switch (courseGrade) {
-            case 7: this.courseGrade = "D"; break;
-            case 8: this.courseGrade = "C"; break;
-            case 9: this.courseGrade = "B"; break;
-            case 10: this.courseGrade = "A"; break;
-            default : this.courseGrade = "F";
+            case SCORE_7: this.courseGrade = SCORE_D; break;
+            case SCORE_8: this.courseGrade = SCORE_C; break;
+            case SCORE_9: this.courseGrade = SCORE_B; break;
+            case SCORE_10: this.courseGrade = SCORE_A; break;
+            default : this.courseGrade = SCORE_F;
         }
     }
 }

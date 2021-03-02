@@ -9,7 +9,7 @@ public class Boxing {
      * @param integerObject
      * @return
      */
-    public int getIntValue(Integer integerObject) {
+    public int getIntValue(final Integer integerObject) {
         //unboxing
         int res = integerObject;
         return res;
@@ -20,7 +20,7 @@ public class Boxing {
      * @param value
      * @return
      */
-    public Integer createObjectInteger(int value) {
+    public Integer createObjectInteger(final int value) {
         //boxing
         Integer object = value;
         return object;

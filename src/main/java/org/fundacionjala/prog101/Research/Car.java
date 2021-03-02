@@ -5,7 +5,7 @@ public class Car {
     /**
      * class Car with atribute brand.
      */
-    public Car (final String brand) {
+    public Car(final String brand) {
         this.brand = brand;
     }
 
