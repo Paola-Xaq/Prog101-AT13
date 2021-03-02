@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Student;
+package org.fundacionjala.prog101.Saul.Student;
 
 public class Student {
     public final int NUM_OF_TESTS = 10;

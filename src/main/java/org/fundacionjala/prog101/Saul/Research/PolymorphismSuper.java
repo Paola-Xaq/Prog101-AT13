@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Research;
+package org.fundacionjala.prog101.Saul.Research;
 
 /**
  * Class to prove polymorphism.

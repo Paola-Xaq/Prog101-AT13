@@ -1,10 +1,10 @@
 package org.fundacionjala.prog101;
 
-import org.fundacionjala.prog101.Research.Car;
-import org.fundacionjala.prog101.Research.Boxing;
-import org.fundacionjala.prog101.Research.PolymorphismSub;
-import org.fundacionjala.prog101.Research.PolymorphismSuper;
-import org.fundacionjala.prog101.Wrapper.IntWrapper;
+import org.fundacionjala.prog101.Saul.Research.Car;
+import org.fundacionjala.prog101.Saul.Research.Boxing;
+import org.fundacionjala.prog101.Saul.Research.PolymorphismSub;
+import org.fundacionjala.prog101.Saul.Research.PolymorphismSuper;
+import org.fundacionjala.prog101.Saul.Wrapper.IntWrapper;
 
 import java.util.ArrayList;
 

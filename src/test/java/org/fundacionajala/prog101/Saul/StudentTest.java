@@ -1,5 +1,5 @@
 package org.fundacionajala.prog101.Saul;
-import org.fundacionjala.prog101.Student.Student;
+import org.fundacionjala.prog101.Saul.Student.Student;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
