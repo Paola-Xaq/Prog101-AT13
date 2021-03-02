@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Wrapper;
+package org.fundacionjala.prog101.Excercies_Jorge.Wrapper;
 
 public class IntegerValue {
     private int i;

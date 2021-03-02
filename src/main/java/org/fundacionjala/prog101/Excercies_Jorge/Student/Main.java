@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Student;
+package org.fundacionjala.prog101.Excercies_Jorge.Student;
 
     public final class Main {
         private Main() {
