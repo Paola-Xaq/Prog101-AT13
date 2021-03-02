@@ -10,37 +10,37 @@ public class Student {
         this.courseGrade = sCourseGrade;
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method that returns grade of the student
      * */
     public String getCourseGrade() {
         return courseGrade;
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method that returns the name of the student
      * */
     public String getName() {
         return name;
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method that returns the score of an specific examn
      * */
     public int getTestScore(final int tesNumber) {
         return test[tesNumber - 1];
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method to set the students name
      * */
     public void setName(final String sName) {
         this.name = sName;
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method to set the specific score of an exam
      * */
     public void setTestScore(final int testNumber, final int score) {
         test[testNumber - 1] = score;
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method that returns the average score
      * */
     public float computeCourseGrade() {
         int sum = 0;

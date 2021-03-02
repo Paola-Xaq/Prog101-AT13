@@ -6,13 +6,13 @@ public class IntegerValue {
         i = a;
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method that increments by one the value of the IntegerValue
      * */
     public void increment() {
         i++;
     }
     /**
-     * Method that says if a String has a special delimiter
+     * Method that says converts to String an Integer
      * */
     @Override
     public String toString() {
