@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Excercies_Jorge;
+package org.fundacionjala.prog101.Excercies_Jorge.Calculadora;
 public class StringCalculator {
     private final int delimiterSpecial = 3;
     /**
