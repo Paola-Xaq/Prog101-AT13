@@ -7,3 +7,8 @@ bin/
 .idea/
 .vscode/
 *.class
+*.gradle
+gradle/
+gradlew
+*.bat
+*.jar
