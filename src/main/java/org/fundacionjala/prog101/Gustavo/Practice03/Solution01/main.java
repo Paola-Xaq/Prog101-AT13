@@ -6,5 +6,7 @@ public class main {
         r1.drawn();
         RightTriangle t1=new RightTriangle(10,5);
         t1.drawn();
+        Circle c1=new Circle(10);
+        c1.drawn();
     }
 }
