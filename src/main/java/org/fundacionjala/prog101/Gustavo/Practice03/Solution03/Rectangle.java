@@ -4,15 +4,18 @@ public class Rectangle extends Figure {
     private int high;
     private int base;
     FigurePlane figurePlane;
-    Rectangle(int high, int base){
-        this.base=base;
-        this.high=high;
-        figurePlane=new FigurePlane(base,high);
+
+    Rectangle(int high, int base) {
+        this.base = base;
+        this.high = high;
+        figurePlane = new FigurePlane(base, high);
     }
-    public double getArea(){
+
+    public double getArea() {
         return figurePlane.getArea();
     }
-    public void drawn(){
+
+    public void drawn() {
         figurePlane.drawn();
     }
 }
