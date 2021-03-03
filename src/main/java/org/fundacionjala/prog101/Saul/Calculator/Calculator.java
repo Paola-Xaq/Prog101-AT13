@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Saul;
+package org.fundacionjala.prog101.Saul.Calculator;
 /*
  * Program: Calculator
  *
