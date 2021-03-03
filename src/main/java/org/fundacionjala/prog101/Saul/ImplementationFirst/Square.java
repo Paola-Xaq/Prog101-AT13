@@ -1,9 +1,12 @@
 package org.fundacionjala.prog101.Saul.ImplementationFirst;
 
-public class Square extends Figure{
+import org.fundacionjala.prog101.Saul.ImplementationSecond.FlatFigure;
+
+public class Square extends Figure {
     private int side;
-    public Square() {
+    public Square(int side) {
         type = "Square";
+        this.side = side;
     }
     public void setSide(int side) {
         this.side = side;
