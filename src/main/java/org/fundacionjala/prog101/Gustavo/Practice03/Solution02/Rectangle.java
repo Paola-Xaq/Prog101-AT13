@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.Gustavo.Practice03.Solution01;
+package org.fundacionjala.prog101.Gustavo.Practice03.Solution02;
 
-public class Rectangle extends Figure{
+public class Rectangle extends Figure {
     private int high;
     private int base;
     Rectangle(int high, int base){

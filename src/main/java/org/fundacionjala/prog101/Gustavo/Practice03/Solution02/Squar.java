@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.Gustavo.Practice03.Solution01;
+package org.fundacionjala.prog101.Gustavo.Practice03.Solution02;
 
-public class Squar extends Figure{
+public class Squar extends Figure {
 
     private int side;
 

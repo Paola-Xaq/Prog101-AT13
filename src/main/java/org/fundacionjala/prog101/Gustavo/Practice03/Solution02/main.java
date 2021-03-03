@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Gustavo.Practice03.Solution01;
+package org.fundacionjala.prog101.Gustavo.Practice03.Solution02;
 
 import java.util.ArrayList;
 

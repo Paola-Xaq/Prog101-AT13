@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.Gustavo.Practice03.Solution01;
+package org.fundacionjala.prog101.Gustavo.Practice03.Solution02;
 
-public class Rhombus extends Figure{
+public class Rhombus extends Figure {
     int wide;
     int high;
 
