@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.edsonAnawaya.practice3.wrapper;
+package org.fundacionjala.prog101.edsonAnawaya.practice2.wrapper;
 
 public class IntString {
     protected int value;
