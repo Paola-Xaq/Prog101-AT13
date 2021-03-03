@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Figure rectangle = new Rectangle(5, 2);
@@ -6,20 +9,18 @@ public class Main {
         Figure circle = new Circle(3);
         Figure rhombus = new Rhombus(5, 5);
 
-        System.out.println(rectangle.getArea());
-        System.out.println(square.getArea());
-        System.out.println(triangle.getArea());
-        System.out.println(circle.getArea());
-        System.out.println(rhombus.getArea());
+        ArrayList<Figure> figures = new ArrayList<>();
+        figures.add(rectangle);
+        figures.add(square);
+        figures.add(triangle);
+        figures.add(circle);
+        figures.add(rhombus);
 
-        rectangle.draw();
-        System.out.println("----------");
-        square.draw();
-        System.out.println("----------");
-        triangle.draw();
-        System.out.println("----------");
-        rhombus.draw();
-        System.out.println("----------");
-        circle.draw();
+        for (Figure figure : figures) {
+            System.out.println(figure.getArea());
+            figure.draw();
+            System.out.println(figure);
+            System.out.println("----------");
+        }
     }
 }

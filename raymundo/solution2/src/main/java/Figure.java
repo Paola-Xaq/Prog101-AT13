@@ -9,4 +9,11 @@ public class Figure {
         return 0;
     }
     public void draw() { }
+
+    @Override
+    public String toString() {
+        return "Figure{" +
+                "type='" + type + '\'' +
+                '}';
+    }
 }
