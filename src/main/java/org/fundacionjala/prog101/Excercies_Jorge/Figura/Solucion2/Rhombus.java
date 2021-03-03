@@ -13,6 +13,10 @@ public class Rhombus extends Figure{
     }
 
     public void print() {
-        System.out.println();
+        System.out.println("******");
+        System.out.println(" ******");
+        System.out.println("  ******");
+        System.out.println("   ******");
+        System.out.println("    ******");
     }
 }

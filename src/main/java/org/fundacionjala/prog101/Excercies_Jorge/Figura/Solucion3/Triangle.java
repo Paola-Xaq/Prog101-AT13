@@ -14,6 +14,8 @@ public class Triangle extends Figure{
     }
     @Override
     void print() {
-        super.print();
+        System.out.println("  *  ");
+        System.out.println(" ***  ");
+        System.out.println("*****");
     }
 }
