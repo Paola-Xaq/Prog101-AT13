@@ -1,4 +1,5 @@
 package org.fundacionjala.prog101;
+
 public final class Main {
 
     private Main() {
