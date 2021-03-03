@@ -1,6 +1,6 @@
 package org.fundacionjala.prog101.Gustavo.Practice03.Solution01;
 
-public class Rectangle {
+public class Rectangle{
     private int high;
     private int base;
     Rectangle(int high, int base){
@@ -21,5 +21,4 @@ public class Rectangle {
             System.out.println();
         }
     }
-
 }
