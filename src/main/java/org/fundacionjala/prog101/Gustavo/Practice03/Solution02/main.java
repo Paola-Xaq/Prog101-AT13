@@ -10,7 +10,7 @@ public class main {
         RightTriangle triangle=new RightTriangle(10,5);
         Circle cir=new Circle(10);
         Rhombus rhomb=new Rhombus(4,5);
-        Squar sq=new Squar(5);
+        Squar sq=new Squar(7);
 
         ArrayList<Figure> figures=new ArrayList<Figure>();
         figures.add(rect);
