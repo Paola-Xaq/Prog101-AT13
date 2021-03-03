@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.Gustavo.Practice03.Solution02;
+package org.fundacionjala.prog101.Gustavo.Practice03.Solution03;
 
-abstract class FigurePlane extends Figure{
+abstract class FigurePlane extends Figure {
     private int high;
     private int base;
     FigurePlane(int high, int base){
