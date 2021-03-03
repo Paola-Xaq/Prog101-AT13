@@ -12,7 +12,7 @@ public class RightTriangle {
     {
         return (wide * high) / 2;
     }
-    public  void drawn()
+    public void drawn()
     {
         for (int i = 0; i <= high; i++)
         {

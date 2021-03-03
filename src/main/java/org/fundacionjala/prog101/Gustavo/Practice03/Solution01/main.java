@@ -8,5 +8,7 @@ public class main {
         t1.drawn();
         Circle c1=new Circle(10);
         c1.drawn();
+        Rhombus m1=new Rhombus(4,10);
+        m1.drawn();
     }
 }
