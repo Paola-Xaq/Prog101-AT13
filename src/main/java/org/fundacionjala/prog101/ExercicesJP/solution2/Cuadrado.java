@@ -1,6 +1,6 @@
 package org.fundacionjala.prog101.ExercicesJP.solution2;
 
-public class Cuadrado extends Figura {
+public class Cuadrado extends FiguraPlana {
 
     private int lado;
 

@@ -1,6 +1,6 @@
 package org.fundacionjala.prog101.ExercicesJP.solution2;
 
-public class Rectangulo extends Figura {
+public class Rectangulo extends FiguraPlana {
 
     private int altura;
     private int base;
