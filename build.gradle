@@ -11,10 +11,6 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
-//    // https://mvnrepository.com/artifact/com.sikulix/sikulixapi
-//    implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.0'
-// https://mvnrepository.com/artifact/com.sikulix/sikulixapi
-    implementation group: 'com.sikulix', name: 'sikulixapi', version: '2.0.4'
 }
 
 test {
@@ -27,9 +23,7 @@ test {
 jacocoTestReport {
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: ['org/fundacionjala/prog101/students/**',
-                                        'org/fundacionjala/prog101/sandbox/**',
-                                        'org/fundacionjala/prog101/authenticator/**'])
+            fileTree(dir: it, exclude: [''])
         }))
     }
 }
