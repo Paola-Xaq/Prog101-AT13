@@ -1,34 +1,20 @@
 package org.fundacionjala.prog101.Saul.ImplementationThird;
 
-public class Rectangle extends FlatFigure {
+public class Rectangle extends Figure {
     private int height;
     private int base;
+    private FlatFigure flatFigure;
     public Rectangle(int base, int height) {
         type = "Rectangle";
         this.height = height;
         this.base = base;
+        flatFigure = new FlatFigure();
     }
     public double getArea() {
-        return height * base;
-    }
-    public double getArea(int b, int a) {
-        return height * base;
+        return flatFigure.getArea(base, height);
     }
     public void draw() {
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < base; col++) {
-                System.out.print(" * ");
-            }
-            System.out.println("");
-        }
-    }
-    public void draw(int b, int a) {
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < base; col++) {
-                System.out.print(" * ");
-            }
-            System.out.println("");
-        }
+        flatFigure.draw(base, height);
     }
     @Override
     public String toString() {

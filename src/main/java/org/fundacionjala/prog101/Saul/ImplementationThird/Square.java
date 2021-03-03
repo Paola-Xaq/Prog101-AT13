@@ -1,38 +1,18 @@
 package org.fundacionjala.prog101.Saul.ImplementationThird;
 
-public class Square extends FlatFigure {
+public class Square extends Figure {
     private int side;
-    public Square() {
-        type = "Square";
-    }
+    private FlatFigure flatFigure;
     public Square(int side) {
         type = "Square";
         this.side = side;
-    }
-    public void setSide(int side) {
-        this.side = side;
-    }
-    public double getArea(int b, int a) {
-        return side * side;
+        flatFigure = new FlatFigure();
     }
     public double getArea() {
-        return side * side;
+        return flatFigure.getArea(side, side);
     }
-    void draw() {
-        for (int row = 0; row < side; row++) {
-            for (int col = 0; col < side; col++) {
-                System.out.print(" * ");
-            }
-            System.out.println("");
-        }
-    }
-    void draw(int b, int a) {
-        for (int row = 0; row < side; row++) {
-            for (int col = 0; col < side; col++) {
-                System.out.print(" * ");
-            }
-            System.out.println("");
-        }
+    public void draw() {
+        flatFigure.draw(side, side);
     }
     @Override
     public String toString() {
