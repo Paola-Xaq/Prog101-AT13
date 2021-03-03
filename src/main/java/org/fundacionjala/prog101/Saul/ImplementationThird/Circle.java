@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.Saul.ImplementationSecond;
+package org.fundacionjala.prog101.Saul.ImplementationThird;
 
-public class Circle extends AbstractFigure {
+public class Circle extends Figure {
     private int radius;
     public Circle(int radius) {
         type = "Circle";
@@ -10,7 +10,7 @@ public class Circle extends AbstractFigure {
         return Math.PI * radius * radius;
     }
     public void draw() {
-        System.out.println("          *          ");
+        System.out.println("           *          ");
         System.out.println("     * * * * * * *    ");
         System.out.println("   * * * * * * * * *  ");
         System.out.println("   * * * * * * * * *  ");

@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Saul.ImplementationSecond;
+package org.fundacionjala.prog101.Saul.ImplementationThird;
 
 public abstract class Figure {
     public String type;

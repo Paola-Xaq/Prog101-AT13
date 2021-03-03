@@ -8,28 +8,10 @@ public class Rectangle extends FlatFigure {
         this.height = height;
         this.base = base;
     }
-    public double getArea() {
-        return height * base;
-    }
-    public double getArea(int b, int a) {
-        return height * base;
-    }
     public void draw() {
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < base; col++) {
-                System.out.print(" * ");
-            }
-            System.out.println("");
-        }
+        super.draw(base, height);
     }
-    public void draw(int b, int a) {
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < base; col++) {
-                System.out.print(" * ");
-            }
-            System.out.println("");
-        }
-    }
+
     @Override
     public String toString() {
         return "Rectangle{" +

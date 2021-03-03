@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.Saul.ImplementationSecond;
+package org.fundacionjala.prog101.Saul.ImplementationThird;
 
-public class Diamond extends AbstractFigure {
+public class Diamond extends Figure {
     private int base;
     private int height;
     public Diamond(int base, int height) {

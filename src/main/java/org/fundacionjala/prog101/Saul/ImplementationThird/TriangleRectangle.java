@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.Saul.ImplementationSecond;
+package org.fundacionjala.prog101.Saul.ImplementationThird;
 
-public class TriangleRectangle extends AbstractFigure {
+public class TriangleRectangle extends Figure {
     private int base;
     private int height;
 
