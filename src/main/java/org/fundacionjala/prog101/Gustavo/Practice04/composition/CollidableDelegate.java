@@ -1,4 +1,5 @@
 package org.fundacionjala.prog101.Gustavo.Practice04.composition;
 
-public class CollidableDelegate {
+public interface CollidableDelegate {
+    void collide();
 }
