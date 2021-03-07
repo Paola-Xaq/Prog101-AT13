@@ -1,6 +1,6 @@
 package org.fundacionjala.prog101.Gustavo.Practice04.composition;
 
-public class GameObject implements VisibleDelegate, MovableDelegate,CollidableDelegate{
+public class GameObject implements VisibleDelegate, MovableDelegate, CollidableDelegate {
     private VisibleDelegate visibleDelegate;
     private MovableDelegate movableDelegate;
     public CollidableDelegate collidableDelegate;
