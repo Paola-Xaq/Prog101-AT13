@@ -6,4 +6,3 @@ public class NotMovable implements MovableDelegate{
         System.out.println("I can't move");
     }
 }
- 
