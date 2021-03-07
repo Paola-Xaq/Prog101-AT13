@@ -1,9 +1,9 @@
 package org.fundacionjala.prog101.Gustavo.Practice04.composition;
 
-public class GameObject implements VisibleDelegate, MovableDelegate{
-    VisibleDelegate visibleDelegate;
-    MovableDelegate movableDelegate;
-    CollidableDelegate collidableDelegate;
+public class GameObject implements VisibleDelegate, MovableDelegate,CollidableDelegate{
+    private VisibleDelegate visibleDelegate;
+    private MovableDelegate movableDelegate;
+    public CollidableDelegate collidableDelegate;
 
     GameObject(VisibleDelegate visibleDelegate, MovableDelegate movableDelegate, CollidableDelegate collidableDelegate) {
         this.collidableDelegate = collidableDelegate;
@@ -19,5 +19,10 @@ public class GameObject implements VisibleDelegate, MovableDelegate{
     @Override
     public void move() {
         movableDelegate.move();
+    }
+
+    @Override
+    public void collide() {
+        collidableDelegate.collide();
     }
 }
