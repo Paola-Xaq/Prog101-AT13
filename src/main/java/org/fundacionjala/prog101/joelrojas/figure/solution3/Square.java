@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.joelrojas.figure.composition;
+package org.fundacionjala.prog101.joelrojas.figure.solution3;
 
 public class Square extends Figure{
     private int side;

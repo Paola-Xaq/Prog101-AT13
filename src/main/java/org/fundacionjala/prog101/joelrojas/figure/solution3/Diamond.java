@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.joelrojas.figure.composition;
+package org.fundacionjala.prog101.joelrojas.figure.solution3;
 
 public class Diamond extends Figure{
     private int majorDiagonal;
@@ -10,7 +10,7 @@ public class Diamond extends Figure{
     }
 
     public double getArea() {
-        return majorDiagonal *minorDiagonal / 2;
+        return majorDiagonal * minorDiagonal / 2;
     }
 
     public void print() {

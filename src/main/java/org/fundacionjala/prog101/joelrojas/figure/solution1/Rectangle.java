@@ -1,22 +1,26 @@
-package org.fundacionjala.prog101.joelrojas.figure.composition;
+package org.fundacionjala.prog101.joelrojas.figure.solution1;
 
 public class Rectangle extends Figure{
     private int height;
     private int base;
-    private PlaneFigure planeFigure;
     public Rectangle(int base, int height) {
         super("Rectangle");
         this.height = height;
         this.base = base;
-        this.planeFigure = new PlaneFigure();
     }
 
     public double getArea() {
-        return planeFigure.getArea(base, height);
+        return base * height;
     }
 
     public void print() {
-        planeFigure.print(base, height);
+        System.out.println();
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < base; j++) {
+                System.out.print(" * ");
+            }
+            System.out.println();
+        }
     }
     public static void main(String[] args) {
         new Rectangle(8, 3).print();

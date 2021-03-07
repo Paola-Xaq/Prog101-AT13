@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.joelrojas.figure.directlyinheritance;
+package org.fundacionjala.prog101.joelrojas.figure.solution1;
 
 public abstract class Figure {
     String type;

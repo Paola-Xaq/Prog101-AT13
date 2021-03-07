@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.joelrojas.figure.directlyinheritance;
+package org.fundacionjala.prog101.joelrojas.figure.solution1;
 
 public class Circle extends Figure{
     private int radius;

@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.joelrojas.figure.intermediateinheritance;
+package org.fundacionjala.prog101.joelrojas.figure.solution1;
 
 public class Diamond extends Figure{
     private int majorDiagonal;

@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.joelrojas.figure.intermediateinheritance;
+package org.fundacionjala.prog101.joelrojas.figure.solution2;
 
 public class Square extends PlaneFigure{
     private int side;

@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.joelrojas.figure.composition;
+package org.fundacionjala.prog101.joelrojas.figure.solution2;
 
 public class RightTriangle extends Figure{
     private int height;
