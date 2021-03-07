@@ -1,6 +1,6 @@
 package org.fundacionjala.prog101.Gustavo.Practice04.composition;
 
-public class GameObject implements VisibleDelegate{
+public class GameObject implements VisibleDelegate, MovableDelegate{
     VisibleDelegate visibleDelegate;
     MovableDelegate movableDelegate;
     CollidableDelegate collidableDelegate;
@@ -13,6 +13,11 @@ public class GameObject implements VisibleDelegate{
 
     @Override
     public void draw() {
+        visibleDelegate.draw();
+    }
 
+    @Override
+    public void move() {
+        movableDelegate.move();
     }
 }
