@@ -10,15 +10,10 @@ public class Rectangle extends FlatFigure{
     }
 
     double getArea() {
-        return base * height;
+        return super.getArea(base, height);
     }
 
     void print() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < base; j++) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+        super.print(base, height);
     }
 }
