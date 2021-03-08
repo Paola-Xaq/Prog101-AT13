@@ -1,4 +1,4 @@
-package org.fundacionjala.prog101.Student;
+package org.fundacionjala.prog101.PaolaAguilar.Student;
 
 public class Student {
     public static int NUM_OF_TESTS = 5;
@@ -33,7 +33,7 @@ public class Student {
     }
 
     public String computeCourseGrade(String grade) {
-        if() {
+        if(4>5) {
             this.courseGrade =  "Aprobado";
         }
         this.courseGrade =  "Reprobado";

@@ -1,6 +1,6 @@
-package org.fundacionjala.prog101.edsonAnawaya.practice3;
+package org.fundacionjala.prog101.edsonAnawaya.practice2.wrapper;
 
-import org.fundacionjala.prog101.edsonAnawaya.practice3.wrapper.IntString;
+import org.fundacionjala.prog101.edsonAnawaya.practice2.wrapper.IntString;
 
 public class MainIntString {
     public static void main(final String[] args) {
