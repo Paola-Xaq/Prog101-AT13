@@ -7,4 +7,10 @@ public class ClassName implements Interface02,Interface03{
         Interface03.super.mesaggeRegards();
         Interface02.super.mesaggeRegards();
     }
+
+    @Override
+    public void triangle(int angleTotal) {
+            Interface02.super.triangle(angleTotal);
+            Interface03.super.triangle(angleTotal);
+    }
 }

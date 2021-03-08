@@ -4,4 +4,6 @@ public interface Interface01 {
     default void mesaggeRegards() {
         System.out.println("Hi, I am Interface01");
     }
+    default void triangle(int angle) {
+    }
 }
