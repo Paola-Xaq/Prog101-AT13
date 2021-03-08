@@ -1,6 +1,6 @@
 package org.fundacionjala.prog101.Excercies_Jorge.Game;
 
-public class GameObject implements CollidableDelegate,MovableDelegate,VisibleDelegate{
+public class GameObject implements CollidableDelegate,MovableDelegate,VisibleDelegate, GameIterfaceObject{
     VisibleDelegate visibleDelegate;
     CollidableDelegate collidableDelegate;
     MovableDelegate movableDelegate;
