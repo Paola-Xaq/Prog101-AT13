@@ -36,11 +36,11 @@ checkstyle {
 }
 
 checkstyleMain {
-    source = 'src/main/java'
+    source = 'src/main/java/org/fundacionjala/prog101/joelrojas/supermarket'
 }
 
 checkstyleTest {
-    source = 'src/main/java'
+    source = 'src/main/java/org/fundacionjala/prog101/joelrojas/supermarket'
 }
 
 check.dependsOn jacocoTestReport
