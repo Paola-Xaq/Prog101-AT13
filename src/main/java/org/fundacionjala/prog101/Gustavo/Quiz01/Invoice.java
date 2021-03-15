@@ -5,9 +5,6 @@ import java.util.ArrayList;
 public class Invoice {
     private ArrayList<Product> productsSold;
 
-    Invoice() {
-    }
-
     Invoice(final ArrayList<Product> productsSoldList) {
         this.productsSold = productsSoldList;
     }
@@ -33,6 +30,21 @@ public class Invoice {
         }
         res = res + "---------- " + "\n";
         res = res + "Total  $" + getTotalCost();
+
+        return res;
+    }
+
+    /**
+     * @return an string  of complete detail of each item.
+     */
+    public String getCompleteInvoiveDetail() {
+        String res = "Cant  Produtc   Price Total" + "\n" + "----------------------------" + "\n";
+        for (Product product1 : productsSold) {
+            res = res + product1.getQuantityOfProducts() + " -    " + product1.getName() + " -    " + "$" + product1.getprice() + "   $"
+                    + product1.getprice() * product1.getQuantityOfProducts() + "\n";
+        }
+        res = res + "----------------------------" + "\n";
+        res = res + "Total                  $" + getTotalCost();
 
         return res;
     }

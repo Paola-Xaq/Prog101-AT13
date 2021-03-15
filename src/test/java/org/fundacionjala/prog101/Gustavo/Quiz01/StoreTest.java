@@ -59,4 +59,18 @@ public class StoreTest {
         String actual = store.createInvoice().getCostOfEachItem();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void invoiceDetail_AddTwoProduct_ShowInvoiceDetail() {
+        Store store = new Store();
+        store.buy(new Product(new Bread(),3));
+        store.buy(new Product(new Milk(),2));
+        String expected = "Cant  Produtc   Price Total" + "\n" + "----------------------------" + "\n"+
+                 "3 -    Bread -    $1   $3" + "\n"+
+                "2 -    Milk -    $10   $20" + "\n"+
+                 "----------------------------" + "\n"+
+                "Total                  $11";
+        String actual = store.createInvoice().getCompleteInvoiveDetail();
+        assertEquals(expected, actual);
+    }
 }
