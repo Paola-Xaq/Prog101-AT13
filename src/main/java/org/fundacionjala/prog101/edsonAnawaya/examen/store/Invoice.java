@@ -11,16 +11,42 @@ public class Invoice {
     }
 
     public void addProduct(Product product) {
-        productsObjects.add(product);
+        if (!verifyExist(product)) {
+            productsObjects.add(product);
+        }
+    }
+
+    private boolean verifyExist(Product newProduct) {
+
+        for (Product product : productsObjects) {
+            if (product.getName() == newProduct.getName()) {
+                product.setCant(product.getCant() + 1);
+                return true;
+            }
+        }
+        return false;
     }
 
     public int getTotalCost() {
         int sum = 0;
+        int cant = 0;
+        String name = "";
+        int price = 0;
+        int sumTotal = 0;
+
+        System.out.println("Cant    Product    Price   Total");
+        System.out.println("--------------------------------");
         for (Product product : productsObjects) {
-            sum += product.getPrice();
-            System.out.println(product.getName() + " - $" + product.getPrice());
+            cant = product.getCant();
+            name = product.getName();
+            price = product.getPrice();
+            sumTotal = product.getPrice() * product.getCant();
+            sum += sumTotal;
+
+            System.out.println(cant + "       " + name + "  -     $" + price + "      $" + sumTotal);
         }
-        System.out.println("Total  $" + sum);
+        System.out.println("--------------------------------");
+        System.out.println("Total                        $" + sum);
         return sum;
     }
 }

@@ -11,20 +11,33 @@ public class StoreTest extends TestCase {
         int actual = store.createInvoice().getTotalCost();
         assertEquals(expect, actual);
     }
+
     @Test
     public void testTotalInvoiceWithOneProduct() {
         Store store = new Store();
-        store.buy(new Product("bread",1));
+        store.buy(new Product("bread", 1));
         int expect = 1;
         int actual = store.createInvoice().getTotalCost();
         assertEquals(expect, actual);
     }
+
     @Test
     public void testTotalInvoiceWithTwoProducts() {
         Store store = new Store();
-        store.buy(new Product("bread",1));
-        store.buy(new Product("milk",10));
+        store.buy(new Product("bread", 1));
+        store.buy(new Product("milk", 10));
         int expect = 11;
+        int actual = store.createInvoice().getTotalCost();
+        assertEquals(expect, actual);
+    }
+    @Test
+    public void testTotalInvoiceWithTwoProductsEquals() {
+        Store store = new Store();
+        store.buy(new Product("bread", 1));
+        store.buy(new Product("bread", 1));
+        store.buy(new Product("milk", 10));
+        store.buy(new Product("milk", 10));
+        int expect = 22;
         int actual = store.createInvoice().getTotalCost();
         assertEquals(expect, actual);
     }

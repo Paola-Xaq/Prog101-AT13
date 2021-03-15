@@ -3,7 +3,7 @@ apply plugin: 'application'
 apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
 
-mainClassName = 'org.fundacionjala.prog101.Main'
+mainClassName = 'org.fundacionjala.prog101.edsonAnawaya.examen.Main'
 
 repositories {
     mavenCentral()
