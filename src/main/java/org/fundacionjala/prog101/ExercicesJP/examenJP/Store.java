@@ -50,8 +50,6 @@ public class Store {
         System.out.println("-----------------------------");
         return detail;
     }
-
-
 }
 
 
