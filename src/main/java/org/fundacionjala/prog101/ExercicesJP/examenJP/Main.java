@@ -7,8 +7,8 @@ public class Main {
 
 
         ItemInvoice[] items = {
-                new ItemInvoice(1,producto1),
-                new ItemInvoice(1,producto2)
+                new ItemInvoice(3,producto1),
+                new ItemInvoice(2,producto2)
         };
 
 

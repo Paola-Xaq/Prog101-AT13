@@ -36,21 +36,25 @@ public class Store {
 
     public String showDetail() {
         StringBuilder sb = new StringBuilder();
+        sb.append("Cant\tProduct\t\t\tPrice\tTotal\n");
+        sb.append("-------------------------------------\n");
         for(ItemInvoice item: this.items){
             if(item == null){
                 continue;
             }
-            sb.append(item.getProduct().getName())
+            sb.append(item.getCant())
+                    .append(" - ")
                     .append("\t")
-                    .append("-")
-                    .append("\t")
-                    .append("\t")
-                    .append("$")
+                    .append(item.getProduct().getName())
+                    .append("\t-\t\t$")
                     .append(item.getProduct().getPrice())
+                    .append("\t\t")
+                    .append("$")
+                    .append(item.getTotalCost())
                     .append("\n");
         }
-        sb.append("---------------------");
-        sb.append("\nTotal").append("\t\t\t").append("$").append(totalCost());
+        sb.append("-------------------------------------");
+        sb.append("\nTotal").append("\t\t\t\t\t\t\t").append("$").append(totalCost());
         return sb.toString();
     }
 }
