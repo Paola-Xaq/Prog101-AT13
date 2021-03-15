@@ -22,4 +22,18 @@ public class Invoice {
         }
         return sum;
     }
+
+    /**
+     * @return an string  of Cost of each item.
+     */
+    public String getCostOfEachItem() {
+        String res = "";
+        for (Product product1 : productsSold) {
+            res = res + product1.getName() + " - " + "$" + product1.getprice() + "\n";
+        }
+        res = res + "---------- " + "\n";
+        res = res + "Total  $" + getTotalCost();
+
+        return res;
+    }
 }

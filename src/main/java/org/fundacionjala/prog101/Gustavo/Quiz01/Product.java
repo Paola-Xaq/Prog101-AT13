@@ -1,25 +1,33 @@
 package org.fundacionjala.prog101.Gustavo.Quiz01;
 
-public class Product {
-    private String name;
-    private int price;
+public class Product implements ProductStore {
+    private ProductStore productStore;
 
-    Product(final String nameProduct, final int priceProduct) {
-        this.name = nameProduct;
-        this.price = priceProduct;
+    Product(final ProductStore productStoreActual) {
+        this.productStore = productStoreActual;
     }
 
     /**
      * @return a name
      */
-    String getName() {
-        return name;
+    @Override
+    public String getName() {
+        return productStore.getName();
     }
 
     /**
      * @return a price
      */
-    int getprice() {
-        return price;
+    @Override
+    public int getprice() {
+        return productStore.getprice();
+    }
+
+    /**
+     * @return a unit
+     */
+    @Override
+    public String getUnit() {
+        return productStore.getUnit();
     }
 }
