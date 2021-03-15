@@ -1,9 +1,9 @@
 package org.fundacionjala.prog101.jessicka.exam;
 
 public class Product {
-    Integer price;
-    String name;
-    Category category;
+    private Integer price;
+    private String name;
+    private Category category;
 
     Product(String name, Integer price) {
         this.name = name;
@@ -16,9 +16,5 @@ public class Product {
 
     public String getName() {
         return this.name;
-    }
-
-    public String toString(){
-        return "[" + name + "," + price + "]";
     }
 }

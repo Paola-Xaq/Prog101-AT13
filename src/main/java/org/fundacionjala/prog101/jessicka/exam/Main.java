@@ -5,7 +5,6 @@ public class Main {
         Store store = new Store();
         store.buy(new Product("bread", 1));
         store.buy(new Product("milk", 10));
-        store.createInvoice();
-        System.out.println(store.getTotalCost());
+        System.out.println(store.createInvoice());
     }
 }
