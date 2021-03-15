@@ -17,8 +17,8 @@ public class StoreTest {
     @Test
     public void testTotalInvoiceWithOneProduct() {
         Store store = new Store();
-        store.buy(new Product("bread", 1));
-        int expected = 1;
+        store.buy(new Product("bread", 1, 5));
+        int expected = 5;
         int actual = store.getTotalCost();
         assertEquals(expected, actual);
     }
@@ -26,9 +26,9 @@ public class StoreTest {
     @Test
     public void testTotalInvoiceWithTwoProduct() {
         Store store = new Store();
-        store.buy(new Product("bread", 1));
-        store.buy(new Product("milk", 10));
-        int expected = 11;
+        store.buy(new Product("bread", 1, 2));
+        store.buy(new Product("milk", 10, 3));
+        int expected = 32;
         int actual = store.getTotalCost();
         assertEquals(expected, actual);
     }
@@ -36,9 +36,9 @@ public class StoreTest {
     @Test
     public void createInvoice_Product_StringOfProducts() {
         Store store = new Store();
-        store.buy(new Product("bread", 1));
-        store.buy(new Product("milk", 10));
-        String expected = "bread - $1\nmilk - $10\n---------------\nTotal:    11";
+        store.buy(new Product("bread", 1, 6));
+        store.buy(new Product("milk", 10, 10));
+        String expected = "Cant Product Price Total\n--------------------------\n6  -  bread  -  $1  6\n10  -  milk  -  $10  100\n--------------------------\nTotal:              106";
         String actual = store.createInvoice();
         assertEquals(expected, actual);
     }

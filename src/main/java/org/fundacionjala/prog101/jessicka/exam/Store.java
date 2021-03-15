@@ -3,6 +3,8 @@ package org.fundacionjala.prog101.jessicka.exam;
 import java.util.ArrayList;
 
 public class Store {
+    String header = "Cant Product Price Total\n--------------------------\n";
+    String footer = "--------------------------\nTotal:              ";
     ArrayList<Product> order = new ArrayList<>();
 
     public void buy(Product product) {
@@ -12,15 +14,15 @@ public class Store {
     public String createInvoice() {
         String invoice = "";
         for (Product product: order) {
-            invoice += product.getName() + " - $" + product.getPrice() + "\n";
+            invoice += product.getQuantity() + "  -  " + product.getName() + "  -  $" + product.getPrice() + "  " + product.getPriceQuantity() + "\n";
         }
-        return invoice + "---------------\nTotal:    " + getTotalCost();
+        return header + invoice + footer + getTotalCost();
     }
 
     public Integer getTotalCost() {
         Integer totalCost = 0;
         for (Product product: order) {
-            totalCost += product.getPrice();
+            totalCost += product.getPriceQuantity();
         }
         return totalCost;
     }
