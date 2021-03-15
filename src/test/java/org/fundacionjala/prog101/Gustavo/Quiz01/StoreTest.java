@@ -61,15 +61,17 @@ public class StoreTest {
     }
 
     @Test
-    public void invoiceDetail_AddTwoProduct_ShowInvoiceDetail() {
+    public void invoiceDetail_AddThreeProduct_ShowInvoiceDetail() {
         Store store = new Store();
         store.buy(new Product(new Bread(),3));
         store.buy(new Product(new Milk(),2));
-        String expected = "Cant  Produtc   Price Total" + "\n" + "----------------------------" + "\n"+
-                 "3 -    Bread -    $1   $3" + "\n"+
-                "2 -    Milk -    $10   $20" + "\n"+
-                 "----------------------------" + "\n"+
-                "Total                  $11";
+        store.buy(new Product(new Rice(),5));
+        String expected = "Cant  Produtc   Price    Total" + "\n" + "------------------------------" + "\n"+
+                 "3 u - \tBread -\t$1\t\t $3" + "\n"+
+                 "2 lt - \tMilk -\t$10\t\t $20" + "\n"+
+                 "5 kg - \tRice -\t$5\t\t $25" + "\n"+
+                 "------------------------------" + "\n"+
+                "Total                    $48";
         String actual = store.createInvoice().getCompleteInvoiveDetail();
         assertEquals(expected, actual);
     }

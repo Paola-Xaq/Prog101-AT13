@@ -15,7 +15,7 @@ public class Invoice {
     public int getTotalCost() {
         int sum = 0;
         for (Product product1 : productsSold) {
-            sum = sum + product1.getprice();
+            sum = sum + product1.getprice() * product1.getQuantityOfProducts();
         }
         return sum;
     }
@@ -38,13 +38,15 @@ public class Invoice {
      * @return an string  of complete detail of each item.
      */
     public String getCompleteInvoiveDetail() {
-        String res = "Cant  Produtc   Price Total" + "\n" + "----------------------------" + "\n";
+
+        String res = "Cant  Produtc   Price    Total" + "\n" + "------------------------------" + "\n";
         for (Product product1 : productsSold) {
-            res = res + product1.getQuantityOfProducts() + " -    " + product1.getName() + " -    " + "$" + product1.getprice() + "   $"
+            res = res + product1.getQuantityOfProducts() + " " + product1.getUnit() + " - \t"
+                    + product1.getName() + " -\t" + "$" + product1.getprice() + "\t\t $"
                     + product1.getprice() * product1.getQuantityOfProducts() + "\n";
         }
-        res = res + "----------------------------" + "\n";
-        res = res + "Total                  $" + getTotalCost();
+        res = res + "------------------------------" + "\n";
+        res = res + "Total                    $" + getTotalCost();
 
         return res;
     }
