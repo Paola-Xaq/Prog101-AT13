@@ -7,8 +7,8 @@ public class Main {
 
 
         ItemInvoice[] items = {
-                new ItemInvoice(3,producto1),
-                new ItemInvoice(2,producto2)
+                new ItemInvoice(1,producto1),
+                new ItemInvoice(1,producto2)
         };
 
 
@@ -17,12 +17,14 @@ public class Main {
         Store invoice = new Store();
         invoice.buy(items);
         invoice.setItems(items);
-        System.out.println(invoice.showDetail());
+        //System.out.println(invoice.showDetail());
 
         Store invoice1 = new Store();
         invoice1.buy(noproduct);
         invoice1.setItems(noproduct);
-        System.out.println(invoice1.showDetail());
+       // System.out.println(invoice1.showDetail());
+
+        System.out.println(invoice.showDetail());
 
     }
 }

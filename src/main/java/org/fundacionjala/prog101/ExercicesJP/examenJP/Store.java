@@ -1,7 +1,5 @@
 package org.fundacionjala.prog101.ExercicesJP.examenJP;
 
-import org.fundacionjala.prog101.ExercicesJP.wrapperClass.Cliente;
-
 import java.text.SimpleDateFormat;
 
 public class Store {
@@ -27,10 +25,6 @@ public class Store {
         this.items = items;
     }
 
-    public String showDetail() {
-        return "\n" + invoiceDetail() + "TOTAL: \t\t" + totalCost();
-    }
-
     public int totalCost() {
         int total = 0;
         if( items==null) return total;
@@ -40,15 +34,24 @@ public class Store {
         return total;
     }
 
-    private String invoiceDetail() {
-        String detail = "";
-        System.out.println("Cant Product Price Total");
-        System.out.println("-----------------------------");
-        for (ItemInvoice item : this.items) {
-            detail = detail + item.getCant()+" - \t  "+item.getProduct().getName()+"  - \t"+item.getProduct().getPrice()+" "+item.getTotalCost()+"\n";
+    public String showDetail() {
+        StringBuilder sb = new StringBuilder();
+        for(ItemInvoice item: this.items){
+            if(item == null){
+                continue;
+            }
+            sb.append(item.getProduct().getName())
+                    .append("\t")
+                    .append("-")
+                    .append("\t")
+                    .append("\t")
+                    .append("$")
+                    .append(item.getProduct().getPrice())
+                    .append("\n");
         }
-        System.out.println("-----------------------------");
-        return detail;
+        sb.append("---------------------");
+        sb.append("\nTotal").append("\t\t\t").append("$").append(totalCost());
+        return sb.toString();
     }
 }
 
