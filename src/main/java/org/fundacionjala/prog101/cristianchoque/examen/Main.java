@@ -1,5 +1,7 @@
 package org.fundacionjala.prog101.cristianchoque.examen;
 
+//https://app.diagrams.net/#G1PdtEfLXbYZBFDCfOmud5BFzDYhT-oAt2
+
 public final class Main {
 
     private Main() {
