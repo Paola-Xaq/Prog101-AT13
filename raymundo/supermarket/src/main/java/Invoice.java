@@ -1,27 +1,43 @@
 import java.util.ArrayList;
 
 public class Invoice {
-    private ArrayList<Product> productList = new ArrayList<>();
+    private ArrayList<InvoiceDetail> invoiceDetails = new ArrayList<>();
 
     public int getTotalCost() {
         int sum = 0;
-        for (Product product : productList) {
-            sum += product.getPrice();
+        for (InvoiceDetail invoiceDetail : invoiceDetails) {
+            sum += invoiceDetail.getTotal();
         }
         return sum;
     }
 
-    public void setProductList(ArrayList<Product> products) {
-        for (Product product : products) {
-            this.productList.add(product);
+    public void setInvoiceDetails(ArrayList<InvoiceDetail> invoiceDetails) {
+        for (InvoiceDetail invoiceDetail : invoiceDetails) {
+            this.invoiceDetails.add(invoiceDetail);
         }
     }
 
-    public ArrayList<Integer> getUnitPrice() {
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for (Product product : productList) {
-            arrayList.add(product.getPrice());
+    public ArrayList<String> getProductAndUnitFromInvoiceDetail() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        for (InvoiceDetail invoiceDetail : invoiceDetails) {
+            arrayList.add(invoiceDetail.showProductAndUnitPrice());
         }
         return arrayList;
+    }
+
+    public ArrayList<String> getFullInvoiceDetail() {
+        ArrayList<String> stringArrayList = new ArrayList<>();
+        for (InvoiceDetail invoiceDetail : invoiceDetails) {
+            stringArrayList.add(invoiceDetail.showFullInvoiceDetail());
+        }
+        return stringArrayList;
+    }
+
+    public ArrayList<String> getFullInvoiceDetailWithUnitOfMeasurement() {
+        ArrayList<String> stringArrayList = new ArrayList<>();
+        for (InvoiceDetail invoiceDetail : invoiceDetails) {
+            stringArrayList.add(invoiceDetail.showFullInvoiceDetailWithUnitOfMeasurement());
+        }
+        return stringArrayList;
     }
 }

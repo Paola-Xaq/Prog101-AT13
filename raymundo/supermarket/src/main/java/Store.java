@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 
 public class Store {
-    private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<InvoiceDetail> invoiceDetails = new ArrayList<>();
 
     public Invoice createInvoice() {
         Invoice invoice = new Invoice();
-        invoice.setProductList(products);
+        invoice.setInvoiceDetails(invoiceDetails);
         return invoice;
     }
 
-    public void buy(Product product) {
-        this.products.add(product);
+    public void buy(Product product, int quantity) {
+        InvoiceDetail invoiceDetail = new InvoiceDetail(product, quantity);
+        invoiceDetails.add(invoiceDetail);
     }
 }

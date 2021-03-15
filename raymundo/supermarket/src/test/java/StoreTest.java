@@ -1,4 +1,3 @@
-import com.sun.jdi.ArrayReference;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ public class StoreTest {
     @Test
     public void testTotalInvoiceWithOneProduct() {
         Store store = new Store();
-        store.buy(new Product("bread", 1));
+        store.buy(new Product("bread", 1), 1);
         int expected = 1;
         int actual = store.createInvoice().getTotalCost();
         assertEquals(expected, actual);
@@ -26,32 +25,103 @@ public class StoreTest {
     @Test
     public void testTotalInvoiceWithTwoProducts() {
         Store store = new Store();
-        store.buy(new Product("bread", 1));
-        store.buy(new Product("milk", 10));
+        store.buy(new Product("bread", 1),1);
+        store.buy(new Product("milk", 10),1);
         int expected = 11;
         int actual = store.createInvoice().getTotalCost();
         assertEquals(expected, actual);
     }
 
     @Test
+    public void testGetUnitPriceOnEmptyInvoice() {
+        Store store = new Store();
+        ArrayList<String> expected = new ArrayList<>();
+        ArrayList<String> actual = store.createInvoice().getProductAndUnitFromInvoiceDetail();
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetOneProductUnitPriceFromInvoice() {
         Store store = new Store();
-        store.buy(new Product("milk", 10));
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(10);
-        ArrayList<Integer> actual = store.createInvoice().getUnitPrice();
+        store.buy(new Product("milk", 10), 1);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("milk - 10");
+        ArrayList<String> actual = store.createInvoice().getProductAndUnitFromInvoiceDetail();
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetTwoProductUnitPriceFromInvoice() {
         Store store = new Store();
-        store.buy(new Product("milk", 10));
-        store.buy(new Product("bread", 1));
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(10);
-        expected.add(1);
-        ArrayList<Integer> actual = store.createInvoice().getUnitPrice();
+        store.buy(new Product("milk", 10), 1);
+        store.buy(new Product("bread", 1), 1);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("milk - 10");
+        expected.add("bread - 1");
+        ArrayList<String> actual = store.createInvoice().getProductAndUnitFromInvoiceDetail();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testGetFullInvoiceDetailOnEmptyInvoice() {
+        Store store = new Store();
+        ArrayList<String> expected = new ArrayList<>();
+        ArrayList<String> actual = store.createInvoice().getFullInvoiceDetail();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetOneProductFullInvoiceDetail() {
+        Store store = new Store();
+        store.buy(new Product("milk", 10), 2);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("2 milk - 10 20");
+        ArrayList<String> actual = store.createInvoice().getFullInvoiceDetail();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTwoProductsFullInvoiceDetail() {
+        Store store = new Store();
+        store.buy(new Product("milk", 10), 2);
+        store.buy(new Product("bread", 1), 3);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("2 milk - 10 20");
+        expected.add("3 bread - 1 3");
+        ArrayList<String> actual = store.createInvoice().getFullInvoiceDetail();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetFullInvoiceDetailOnEmptyInvoiceWithUnitOfMeasurement() {
+        Store store = new Store();
+        ArrayList<String> expected = new ArrayList<>();
+        ArrayList<String> actual = store.createInvoice().getFullInvoiceDetailWithUnitOfMeasurement();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetOneProductFullInvoiceDetailWithUnitOfMeasurement() {
+        Store store = new Store();
+        store.buy(new Product("milk", 10, "lt"), 2);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("2 lt milk - 10 20");
+        ArrayList<String> actual = store.createInvoice().getFullInvoiceDetailWithUnitOfMeasurement();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetThreeProductsFullInvoiceDetailWithUnitOfMeasurement() {
+        Store store = new Store();
+        store.buy(new Product("milk", 10, "lt"), 2);
+        store.buy(new Product("bread", 1, "u"), 3);
+        store.buy(new Product("rice",5, "kg"), 5);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("2 lt milk - 10 20");
+        expected.add("3 u bread - 1 3");
+        expected.add("5 kg rice - 5 25");
+        ArrayList<String> actual = store.createInvoice().getFullInvoiceDetailWithUnitOfMeasurement();
+        assertEquals(expected, actual);
+    }
+
 }
