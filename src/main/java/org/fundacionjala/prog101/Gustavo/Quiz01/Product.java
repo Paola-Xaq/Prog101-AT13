@@ -1,18 +1,25 @@
 package org.fundacionjala.prog101.Gustavo.Quiz01;
 
 public class Product {
-   private String name;
-   private int price;
+    private String name;
+    private int price;
 
-   Product(String name, int price){
-       this.name=name;
-       this.price =price;
-   }
+    Product(final String nameProduct, final int priceProduct) {
+        this.name = nameProduct;
+        this.price = priceProduct;
+    }
 
-   String getName(){
-       return name;
-   }
-   int getprice(){
-       return price;
+    /**
+     * @return a name
+     */
+    String getName() {
+        return name;
+    }
+
+    /**
+     * @return a price
+     */
+    int getprice() {
+        return price;
     }
 }

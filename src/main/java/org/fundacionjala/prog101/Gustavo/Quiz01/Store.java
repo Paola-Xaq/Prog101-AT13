@@ -1,19 +1,25 @@
 package org.fundacionjala.prog101.Gustavo.Quiz01;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Store {
-    Invoice invoice;
-    ArrayList<Product> ListProduct=new ArrayList<Product>();
-    Product product;
+    private Invoice invoice;
+    private ArrayList<Product> listProduct = new ArrayList<Product>();
+    private Product product;
 
-    void buy(Product product){
-        this.product=product;
-        ListProduct.add(product);
+    /**
+     * Add a new product in list
+     * @return nothing
+     */
+    void buy(final Product productNew) {
+        this.product = productNew;
+        listProduct.add(product);
     }
 
-    Invoice createInvoice(){
-        return new Invoice(ListProduct);
+    /**
+     * @return new Invoice
+     */
+    Invoice createInvoice() {
+        return new Invoice(listProduct);
     }
 }
