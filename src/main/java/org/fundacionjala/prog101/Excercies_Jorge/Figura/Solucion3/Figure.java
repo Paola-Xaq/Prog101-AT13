@@ -14,8 +14,6 @@ public class Figure {
 
     @Override
     public String toString() {
-        return "Figure{" +
-                "type='" + type + '\'' +
-                '}';
+        return "Figure{" + "type='" + type + '\'' + '}';
     }
 }
