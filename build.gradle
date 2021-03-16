@@ -31,16 +31,16 @@ jacocoTestReport {
 checkstyle {
     toolVersion '8.34'
     configFile file('config/checkstyle/checkstyle.xml')
-    checkstyleMain.source = "src/main/"
-    checkstyleMain.excludes = ["**/src/test/**"]
+    checkstyleMain.source = "src/main/java/org/fundacionjala/prog101/joelrojas/supermarket"
+    checkstyleMain.excludes = ["**/src/**"]
 }
 
 checkstyleMain {
-    source = 'src/main/java'
+    source = 'src/main/java/org/fundacionjala/prog101/joelrojas/supermarket'
 }
 
 checkstyleTest {
-    source = 'src/main/java'
+    source = 'src/main/java/org/fundacionjala/prog101/joelrojas/supermarket'
 }
 
 check.dependsOn jacocoTestReport
