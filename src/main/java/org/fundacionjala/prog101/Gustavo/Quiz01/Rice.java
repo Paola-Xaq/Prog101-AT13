@@ -4,6 +4,8 @@ public class Rice implements ProductStore {
     private static final String NAME = "Rice";
     private static final int PRICE = 5;
     private static final String UNIT = "kg";
+    private static final int CANT_PROMO = 20;
+    private static final int VALUE_PROMP = 10;
 
     Rice() {
         super();
@@ -21,7 +23,7 @@ public class Rice implements ProductStore {
      * @return a price
      */
     @Override
-    public int getprice() {
+    public int getPrice() {
         return PRICE;
     }
 
@@ -31,5 +33,13 @@ public class Rice implements ProductStore {
     @Override
     public String getUnit() {
         return UNIT;
+    }
+
+    /**
+     * @return a discount next to each item
+     */
+    @Override
+    public int getDiscount(final int quantity) {
+        return (quantity / CANT_PROMO) * VALUE_PROMP;
     }
 }

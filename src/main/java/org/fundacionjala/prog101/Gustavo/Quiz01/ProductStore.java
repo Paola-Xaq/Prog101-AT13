@@ -9,10 +9,15 @@ public interface ProductStore {
     /**
      * @return a price
      */
-    int getprice();
+    int getPrice();
 
     /**
      * @return a price
      */
     String getUnit();
+
+    /**
+     * @return a discount next to each item
+     */
+    int getDiscount(int unit);
 }

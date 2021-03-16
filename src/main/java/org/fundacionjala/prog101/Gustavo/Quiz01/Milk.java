@@ -4,7 +4,8 @@ public class Milk implements ProductStore {
     private static final String NAME = "Milk";
     private static final int PRICE = 10;
     private static final String UNIT = "lt";
-
+    private static final int CANT_PROMO = 5;
+    private static final int VALUE_PROMP = 5;
     Milk() {
         super();
     }
@@ -21,7 +22,7 @@ public class Milk implements ProductStore {
      * @return a price
      */
     @Override
-    public int getprice() {
+    public int getPrice() {
         return PRICE;
     }
 
@@ -31,5 +32,13 @@ public class Milk implements ProductStore {
     @Override
     public String getUnit() {
         return UNIT;
+    }
+
+    /**
+     * @return a discount next to each item
+     */
+    @Override
+    public int getDiscount(final int quantity) {
+        return (quantity / CANT_PROMO) * VALUE_PROMP;
     }
 }

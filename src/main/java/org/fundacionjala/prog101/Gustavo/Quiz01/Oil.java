@@ -1,13 +1,13 @@
 package org.fundacionjala.prog101.Gustavo.Quiz01;
 
-public class Bread implements ProductStore {
-    private static final String NAME = "Bread";
-    private static final int PRICE = 1;
-    private static final String UNIT = "u";
+public class Oil implements ProductStore {
+    private static final String NAME = "Oil";
+    private static final int PRICE = 10;
+    private static final String UNIT = "l";
     private static final int CANT_PROMO = 10;
-    private static final int VALUE_PROMP = 1;
+    private static final int VALUE_PROMP = 10;
 
-    Bread() {
+    Oil() {
         super();
     }
 
