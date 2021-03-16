@@ -9,7 +9,7 @@ public class ProductBuilder {
         switch (name) {
             case "Milk" : product = new Milk(name, price);
             break;
-            case "Bread" : product = new Milk(name, price);
+            case "Bread" : product = new Bread(name, price);
             break;
         }
         return product;
