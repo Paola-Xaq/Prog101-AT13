@@ -1,21 +1,48 @@
 package org.fundacionjala.prog101.PaolaAguilar.Exam.src;
 
+import java.util.List;
+
 public class Product {
-    String name;
-    int price;
+    private String name;
+    private int price;
+    private int amount = 1;
     Category category;
 
-    public void Product(String productName, int productPrice) {
+    public Product(String productName, int productPrice, int cant, Category category) {
         this.name = productName;
         this.price = productPrice;
-        //this.category = category;
+        this.amount = cant;
+        this.category = category;
     }
 
-    public String getName() {
-        return name;
+    /**
+     * Get name of a Product
+     * @return name
+     */
+    public String getProductName() {
+        return this.name;
     }
 
-    public int getPrice() {
-        return price;
+    /**
+     * Get price of a Product
+     * @return price
+     */
+    public int getProductPrice() {
+        return this.price;
     }
+
+    /**
+     * Get amount of a Product
+     * @return amount
+     */
+    public int getAmount() { return this.amount; }
+
+    /**
+     * Get category of a Product
+     * @return Category unit
+     */
+    public String getCategory() {
+        return category.getUnit();
+    }
+
 }
