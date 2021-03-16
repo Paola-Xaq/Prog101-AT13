@@ -1,16 +1,25 @@
 package org.fundacionjala.prog101.Saul.Exam;
 
-import java.util.ArrayList;
-
 public class Store {
-    private ArrayList<Product> cart;
+    private Inventory inventory;
+    private Cart cart;
     public Store() {
-        cart = new ArrayList<Product>();
+        cart = new Cart();
+        inventory = new Inventory();
+        initializeInventory();
     }
-    public void buy(String productName, int price) {
+    /**
+     * Add products to the inventory
+     */
+    public void initializeInventory() {
         ProductBuilder productBuilder = new ProductBuilder();
-        Product productBought = productBuilder.getProduct(productName, price);
-        cart.add(productBought);
+        inventory.addProduct(productBuilder.getProduct("Bread", 1, "Food", "Impasa", "Unit"));
+        inventory.addProduct(productBuilder.getProduct("Milk", 10, "Lactose", "Pil", "Liters"));
+        inventory.addProduct(productBuilder.getProduct("Rice", 5, "Cooking", "Rayuela", "Kilogram"));
+    }
+    public void buy(String productName, int quantity) {
+        Product product = inventory.getProduct(productName);
+        cart.addPurchase(product, quantity);
     }
     public Invoice createInvoice() {
         Invoice invoice = new Invoice(cart);

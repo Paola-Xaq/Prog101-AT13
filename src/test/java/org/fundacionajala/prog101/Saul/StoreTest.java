@@ -47,4 +47,16 @@ public class StoreTest {
         String actual = store.createInvoice().getItemsCost();
         assertEquals(expected, actual);
     }
+    @Test
+    public void testGetItemsCostWith1Product() {
+        Store store = new Store();
+        store.buy ("Milk", 3);
+        store.buy ("Bread", 14);
+        store.buy ("Bread", 3);
+        String expected = "Cant   Product      Price   Total\n";
+        expected += "------------------------\n";
+        expected += "1   Bread   -   $1"
+        String actual = store.createInvoice().getItemsCost();
+        assertEquals(expected, actual);
+    }
 }

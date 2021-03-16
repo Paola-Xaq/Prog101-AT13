@@ -3,11 +3,16 @@ package org.fundacionjala.prog101.Saul.Exam;
 public abstract class Product {
     private int price;
     private String name;
-    private String typeOfProduct;
+    private String category;
     private String brand;
-    public Product(String name, int price) {
+    private ProductUnit productUnit;
+    public Product(String name, int price, String category, String brand, String productUnit) {
+        ProductUnitBuilder productUnitBuilder= new ProductUnitBuilder();
         this.name = name;
         this.price = price;
+        this.category = category;
+        this.brand = brand;
+        this.productUnit = productUnitBuilder.getProductUnit(productUnit);
     }
     public void setPrice(int price) {
         this.price = price;

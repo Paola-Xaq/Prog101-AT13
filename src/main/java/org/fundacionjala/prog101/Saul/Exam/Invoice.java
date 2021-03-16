@@ -4,26 +4,34 @@ import java.util.ArrayList;
 
 public class Invoice {
     private String productsInformation;
-    private ArrayList<Product> productList;
+    private ArrayList<Purchase> purchaseList;
 
-    public Invoice(ArrayList<Product> productList) {
-        this.productList = productList;
+    public Invoice(Cart cart) {
+        this.purchaseList = cart.getPurchases();
     }
     public int getTotalCost() {
         int totalCost = 0;
-        for (Product product : productList) {
-            totalCost += product.getPrice();
+        for (Purchase purchase : purchaseList) {
+            int cost = purchase.getProduct().getPrice();
+            int quantity = purchase.getQuantity();
+            totalCost += (int)(cost * quantity);
         }
         return totalCost;
     }
     public String getItemsCost() {
-        String itemsCost = "";
-        for (Product product : productList) {
-            itemsCost += product.getName() + "   -   ";
-            itemsCost += "$" + product.getPrice() + "\n";
+        String itemsCost = "Cant   Product      Price   Total\n";
+        itemsCost += "---------------------------------\n";
+        for (Purchase purchase : purchaseList) {
+            String name = purchase.getProduct().getName();
+            int price = purchase.getProduct().getPrice();
+            int quantity = purchase.getQuantity();
+            itemsCost += quantity + "     ";
+            itemsCost += name + "    -    ";
+            itemsCost += "$" + price + "    -    ";
+            itemsCost += "$" + (int)(price * quantity) + "\n";
         }
-        itemsCost += "----------------\n";
-        itemsCost += "Total" + "       $" + getTotalCost();
+        itemsCost += "---------------------------------\n";
+        itemsCost += "Total" + "                          $" + getTotalCost();
         return itemsCost;
     }
 }
