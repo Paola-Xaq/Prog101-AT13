@@ -23,13 +23,17 @@ public class InvoiceTest {
         products.add(new Product("Beer", 12));
         products.add(new Product("Cookies", 6));
         Invoice invoice = new Invoice(products);
-        String expected = "Beer     12" + "\n" + "Cookies     6" + "\n" +"Total                 18";
+        String expected = "Cant      Product        Price     Total\n"
+                + "----------------------------------------\n"
+                + "Beer           $12       " + "\n" + "Cookies        $6        " + "\n"
+                + "----------------------------------------\n"
+                + "Total                              $18";
         String actual = invoice.toString();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testToString2() {
+    public void testAmountsOfProducts() {
         ArrayList<Product> products = new ArrayList<>();
         products.add(new Product("Beer", 12));
         products.add(new Product("Cookies", 6));
@@ -37,8 +41,31 @@ public class InvoiceTest {
         amounts.add(2);
         amounts.add(3);
         Invoice invoice = new Invoice(products, amounts);
-        String expected = "2      Beer     12     24" + "\n" + "3      Cookies     6     18"
-                + "\n" +"Total                 42";
+        String expected = "Cant      Product        Price     Total\n"
+                + "----------------------------------------\n"
+                + "2         Beer           $12       $24" + "\n"
+                + "3         Cookies        $6        $18" + "\n"
+                + "----------------------------------------\n"
+                + "Total                              $42";
+        String actual = invoice.toString();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testClompleteInformationOfProducts() {
+        ArrayList<Product> products = new ArrayList<>();
+        products.add(new Product("Beer", 12, "l"));
+        products.add(new Product("Cookies", 6, "kg"));
+        ArrayList<Integer> amounts = new ArrayList<>();
+        amounts.add(2);
+        amounts.add(3);
+        Invoice invoice = new Invoice(products, amounts);
+        String expected = "Cant      Product        Price     Total\n"
+                + "----------------------------------------\n"
+                + "2 l       Beer           $12       $24" + "\n"
+                + "3 kg      Cookies        $6        $18" + "\n"
+                + "----------------------------------------\n"
+                + "Total                              $42";
         String actual = invoice.toString();
         assertEquals(expected, actual);
     }

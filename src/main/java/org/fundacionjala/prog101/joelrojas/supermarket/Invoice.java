@@ -35,26 +35,23 @@ public class Invoice {
         }
     }
 
-    /*   public String toString() {
-        String res = "";
-        for (int i = 0; i < products.size(); i++) {
-            res += products.get(i).toString() + "\n";
-        }
-        res += "Total             " + totalcost;
-        return res;
-    }
-*/
     public String toString() {
         String res = "";
+        res = Format.complete("Cant") + Format.complete("Product", 15)
+                + Format.complete("Price") + "Total" + "\n";
+        res += "----------------------------------------\n";
         for (int i = 0; i < products.size(); i++) {
             if (amounts.isEmpty()) {
                 res += products.get(i).toString() + "\n";
             } else {
-                res += amounts.get(i) + "      " + products.get(i).toString()
-                        + "     " + amounts.get(i) * products.get(i).getPrice() + "\n";
+                res += Format.complete(amounts.get(i) + " " + products.get(i).getUnitOfMeasurement())
+                        + products.get(i).toString()
+                        + "$" + amounts.get(i) * products.get(i).getPrice() + "\n";
             }
         }
-        res += "Total                 " + totalcost;
+        res += "----------------------------------------\n";
+        res += Format.complete("Total", 35) + "$" + totalcost;
         return res;
     }
+
 }
