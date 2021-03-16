@@ -14,7 +14,7 @@ public class Store {
     public String createInvoice() {
         String invoice = "";
         for (Product product: order) {
-            invoice += product.getQuantity() + "  -  " + product.getName() + "  -  $" + product.getPrice() + "  " + product.getPriceQuantity() + "\n";
+            invoice += product.getQuantity() + " " + product.getCategoryUnit() + "  -  " + product.getName() + "  -  $" + product.getPrice() + "  " + product.getPriceQuantity() + "\n";
         }
         return header + invoice + footer + getTotalCost();
     }
