@@ -3,9 +3,9 @@ package org.fundacionjala.prog101.Gustavo.Quiz01;
 import java.util.ArrayList;
 
 public class Invoice {
-    private ArrayList<Product> productsSold;
+    private ArrayList<PurchasedItem> productsSold;
 
-    Invoice(final ArrayList<Product> productsSoldList) {
+    Invoice(final ArrayList<PurchasedItem> productsSoldList) {
         this.productsSold = productsSoldList;
     }
 
@@ -14,8 +14,8 @@ public class Invoice {
      */
     public int getTotalCost() {
         int sum = 0;
-        for (Product product1 : productsSold) {
-            sum = sum + product1.getPrice() * product1.getQuantityOfProducts();
+        for (PurchasedItem product1 : productsSold) {
+            sum = sum + product1.getTotalPrice();
         }
         return sum;
     }
@@ -25,7 +25,7 @@ public class Invoice {
      */
     public String getCostOfEachItem() {
         String res = "";
-        for (Product product1 : productsSold) {
+        for (PurchasedItem product1 : productsSold) {
             res = res + product1.getName() + " - " + "$" + product1.getPrice() + "\n";
         }
         res = res + "---------- " + "\n";
@@ -40,7 +40,7 @@ public class Invoice {
     public String getCompleteInvoiceDetail() {
 
         String res = "Cant  Produtc   Price    Total" + "\n" + "------------------------------" + "\n";
-        for (Product product1 : productsSold) {
+        for (PurchasedItem product1 : productsSold) {
             res = res + product1.getQuantityOfProducts() + " " + product1.getUnit() + " - \t"
                     + product1.getName() + " -\t" + "$" + product1.getPrice() + "\t\t $"
                     + product1.getTotalPrice() + "\n";
@@ -56,7 +56,7 @@ public class Invoice {
      */
     public int getTotalCostPriceWithDiscount() {
         int sum = 0;
-        for (Product product1 : productsSold) {
+        for (PurchasedItem product1 : productsSold) {
             sum = sum + product1.getTotalPriceWithDiscount();
         }
         return sum;
@@ -69,7 +69,7 @@ public class Invoice {
 
         String res = "Cant  Product   Price    Total  %DisCount   Total"
                 + "\n" + "------------------------------------------------------------" + "\n";
-        for (Product product1 : productsSold) {
+        for (PurchasedItem product1 : productsSold) {
             res = res + product1.getQuantityOfProducts() + " " + product1.getUnit() + " -\t"
                     + product1.getName() + " -\t" + "$" + product1.getPrice() + "\t\t $" + product1.getTotalPrice()
                     + "\t" + product1.getPercentageDiscount() + "%\t\t" + product1.getTotalPriceWithDiscount() + "\n";

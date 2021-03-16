@@ -1,14 +1,15 @@
 package org.fundacionjala.prog101.Gustavo.Quiz01;
 
-public class Product implements ProductStore {
+public class PurchasedItem {
     private ProductStore productStore;
     private int quantity = 1;
     private static final int VALUE_PERCENTAGE_MAX = 110;
-    Product(final ProductStore productStoreActual) {
+
+    PurchasedItem(final ProductStore productStoreActual) {
         this.productStore = productStoreActual;
     }
 
-    Product(final ProductStore productStoreActual, final int quantityActual) {
+    PurchasedItem(final ProductStore productStoreActual, final int quantityActual) {
         this.productStore = productStoreActual;
         this.quantity = quantityActual;
     }
@@ -16,7 +17,6 @@ public class Product implements ProductStore {
     /**
      * @return a name
      */
-    @Override
     public String getName() {
         return productStore.getName();
     }
@@ -24,7 +24,6 @@ public class Product implements ProductStore {
     /**
      * @return a price
      */
-    @Override
     public int getPrice() {
         return productStore.getPrice();
     }
@@ -32,7 +31,6 @@ public class Product implements ProductStore {
     /**
      * @return a unit
      */
-    @Override
     public String getUnit() {
         return productStore.getUnit();
     }
@@ -40,7 +38,6 @@ public class Product implements ProductStore {
     /**
      * @return a discount next to each item
      */
-    @Override
     public int getDiscount(final int quantityTotal) {
         return productStore.getDiscount(quantityTotal);
     }
