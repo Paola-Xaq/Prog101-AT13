@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Store {
     private Invoice invoice;
     private ArrayList<PurchasedItem> purchasedItems = new ArrayList<PurchasedItem>();
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
 
     /**
      * Add a new product in list
@@ -29,5 +30,12 @@ public class Store {
      */
     Invoice createInvoice() {
         return new Invoice(purchasedItems);
+    }
+
+    /**
+     * @return add new Employee
+     */
+    void registerNewEmployee(final String nameEmployee, final String lastNameEmployee) {
+        employees.add(new Employee(nameEmployee, lastNameEmployee));
     }
 }
