@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class StoreTest {
 
     @Test
-    public void totalCost_AddNothigProduct_TotalPriceZero() {
+    public void totalCost_AddNothingProduct_TotalPriceZero() {
         Store store = new Store();
         int expected = 0;
         int actual = store.createInvoice().getTotalCost();
@@ -34,7 +34,7 @@ public class StoreTest {
     }
 
     @Test
-    public void costOfEachItem_AddNothigProduct_ShowOnlyTotal() {
+    public void costOfEachItem_AddNothingProduct_ShowOnlyTotal() {
         Store store = new Store();
         String expected = "---------- " + "\n" + "Total  $0";
         String actual = store.createInvoice().getCostOfEachItem();
