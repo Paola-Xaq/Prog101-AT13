@@ -23,16 +23,16 @@ public class Invoice {
     }
 
     public Product addDetail(Product product) {
-        if (product.getName() == "Milk" || product.getName() == "Oil") {
+        if (product.getName().equals("Milk") || product.getName().equals("Oil")) {
             product.setDetail("lt");
             return product;
         }
-        if (product.getName() == "Bread") {
+        if (product.getName().equals("Bread")) {
             product.setDetail("u");
             return product;
 
         }
-        if (product.getName() == "Rice") {
+        if (product.getName().equals("Rice")) {
             product.setDetail("kg");
             return product;
         }
@@ -43,8 +43,8 @@ public class Invoice {
     private boolean verifyExist(Product newProduct) {
 
         for (Product product : productsObjects) {
-            if (product.getName() == newProduct.getName()) {
-                product.setCant(product.getCant() + 1);
+            if (product.getName().equals(newProduct.getName())) {
+                product.setAmount(product.getAmount() + 1);
                 return true;
             }
         }
@@ -53,16 +53,16 @@ public class Invoice {
 
     public int getTotalCost() {
         int sumTotal = 0;
-        int sumPartial = 0;
-        float discount = 0;
+        int sumPartial;
+        float discount;
         final int numberDiscount = 100;
         printHead();
         for (Product product : productsObjects) {
-            sumPartial = product.getPrice() * product.getCant();
+            sumPartial = product.getPrice() * product.getAmount();
             discount = sumPartial * (this.promos / numberDiscount);
             sumPartial = sumPartial - (int) discount;
             sumTotal += sumPartial;
-            printBody(product.getCant(), product.getDetail(), product.getName(), product.getPrice(), sumPartial);
+            printBody(product.getAmount(), product.getDetail(), product.getName(), product.getPrice(), sumPartial);
         }
         printFooter(sumTotal);
         return sumTotal;

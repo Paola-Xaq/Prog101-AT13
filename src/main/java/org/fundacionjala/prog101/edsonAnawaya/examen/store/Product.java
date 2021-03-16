@@ -3,7 +3,7 @@ package org.fundacionjala.prog101.edsonAnawaya.examen.store;
 public class Product {
     private String name;
     private int price;
-    private int cant = 1;
+    private int amount = 1;
     private String detail;
 
     public String getDetail() {
@@ -15,12 +15,12 @@ public class Product {
     }
 
 
-    public int getCant() {
-        return cant;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setCant(final int newCant) {
-        this.cant = newCant;
+    public void setAmount(final int newAmount) {
+        this.amount = newAmount;
     }
 
 
