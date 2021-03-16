@@ -6,6 +6,7 @@ public class Store {
 
     private ItemInvoice[] items;
     private int total;
+    private Employee employee;
 
     public Store() {
     }
@@ -15,7 +16,11 @@ public class Store {
         this.total = 0;
     }
 
-
+    public Store(ItemInvoice[] items, int total, Employee employee) {
+        this.items = items;
+        this.total = total;
+        this.employee = employee;
+    }
 
     public ItemInvoice[] getItems() {
         return items;
@@ -23,6 +28,14 @@ public class Store {
 
     public void setItems(ItemInvoice[] items) {
         this.items = items;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public int totalCost() {
@@ -39,9 +52,6 @@ public class Store {
         sb.append("Cant\tProduct\t\t\tPrice\tTotal\n");
         sb.append("-------------------------------------\n");
         for(ItemInvoice item: this.items){
-//            if(item == null){
-//                continue;
-//            }
             sb.append(item.getCant())
                     .append(" ")
                     .append(item.getProduct().getType())
