@@ -8,18 +8,29 @@ import static org.junit.Assert.*;
 public class StoreTest {
 
     ItemInvoice[] items;
+    ItemInvoice[] itemsDiscount;
 
     @Before
     public void setup() {
         Product producto1 = new Product("bread",1,"u");
         Product producto2 = new Product("milk",10,"lt");
-        Product producto3 = new Product("rice",5,"kg");
+        Product producto3 = new Product("oil",10,"lt");
+        Product producto4 = new Product("rice",5,"kg");
+
         ItemInvoice[] products= {
                 new ItemInvoice(3,producto1),
                 new ItemInvoice(2,producto2),
-                new ItemInvoice(5,producto3),
+                new ItemInvoice(5,producto4),
         };
         items = products;
+
+        ItemInvoice[] productsD= {
+                new ItemInvoice(10,producto1),
+                new ItemInvoice(5,producto2),
+                new ItemInvoice(10,producto3),
+                new ItemInvoice(20,producto4),
+        };
+        itemsDiscount = productsD;
     }
 
 
@@ -60,11 +71,29 @@ public class StoreTest {
         StringBuilder sb = new StringBuilder();
         sb.append("Cant\tProduct\t\t\tPrice\tTotal\n")
                 .append("-------------------------------------\n")
-                .append("3 u - \tbread\t-\t\t$1\t\t$3\n")
-                .append("2 lt - \tmilk\t-\t\t$10\t\t$20\n")
-                .append("5 kg - \trice\t-\t\t$5\t\t$25\n")
+                .append("3 u -  \tbread\t-\t\t$1\t\t$3\n")
+                .append("2 lt -  \tmilk\t-\t\t$10\t\t$20\n")
+                .append("5 kg -  \trice\t-\t\t$5\t\t$25\n")
                 .append("-------------------------------------\n")
                 .append("Total\t\t\t\t\t\t\t$48");
+        String expected = sb.toString();
+        String actual = store.showDetail();
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testShowDetailInvoicePromotions() {
+        Store store = new Store();
+        store.buy(itemsDiscount);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Cant\tProduct\t\t\tPrice\tTotal\n")
+                .append("-------------------------------------\n")
+                .append("10 u -  \tbread\t-\t\t$1\t\t$9\n")
+                .append("5 lt -  \tmilk\t-\t\t$10\t\t$45\n")
+                .append("10 lt -  \toil\t-\t\t$10\t\t$90\n")
+                .append("20 kg -  \trice\t-\t\t$5\t\t$90\n")
+                .append("-------------------------------------\n")
+                .append("Total\t\t\t\t\t\t\t$234");
         String expected = sb.toString();
         String actual = store.showDetail();
         assertEquals(expected,actual);

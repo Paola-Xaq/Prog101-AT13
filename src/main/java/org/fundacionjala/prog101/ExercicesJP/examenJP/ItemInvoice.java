@@ -27,8 +27,24 @@ public class ItemInvoice {
     }
 
     public int getTotalCost(){
-        return this.cant * this.product.getPrice();
+        return promotions(this.product.getName(), this.cant*this.product.getPrice());
     }
 
+    public int promotions(String name,int price){
+        int aux = price;
+        int discount = 0;
+        if(name.equals("bread") && cant > 9){
+            discount = price - (int)(price*0.1);
+        } else if(name.equals("milk") && cant > 4){
+            discount = price - (int)(price*0.1);
+        } else if(name.equals("oil") && cant > 9){
+            discount = price - (int)(price*0.1);
+        }else if(name.equals("rice") && cant > 19) {
+            discount = price - (int)(price*0.1);
+        }else {
+            discount = price;
+        }
+        return discount;
+    }
 
 }

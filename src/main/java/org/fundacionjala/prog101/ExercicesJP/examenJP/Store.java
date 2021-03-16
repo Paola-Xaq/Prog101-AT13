@@ -45,7 +45,7 @@ public class Store {
             sb.append(item.getCant())
                     .append(" ")
                     .append(item.getProduct().getType())
-                    .append(" - ")
+                    .append(" -  ")
                     .append("\t")
                     .append(item.getProduct().getName())
                     .append("\t-\t\t$")
