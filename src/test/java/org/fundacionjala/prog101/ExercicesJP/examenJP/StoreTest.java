@@ -11,11 +11,13 @@ public class StoreTest {
 
     @Before
     public void setup() {
-        Product producto1 = new Product("bread",1);
-        Product producto2 = new Product("milk",10);
+        Product producto1 = new Product("bread",1,"u");
+        Product producto2 = new Product("milk",10,"lt");
+        Product producto3 = new Product("rice",5,"kg");
         ItemInvoice[] products= {
                 new ItemInvoice(3,producto1),
-                new ItemInvoice(2,producto2)
+                new ItemInvoice(2,producto2),
+                new ItemInvoice(5,producto3),
         };
         items = products;
     }
@@ -43,10 +45,10 @@ public class StoreTest {
     }
 
     @Test
-    public void testTotalInvoiceWithTwoProducts() {
+    public void testTotalInvoiceWithProducts() {
         Store store = new Store();
         store.buy(items);
-        int expected = 23;
+        int expected = 48;
         int actual = store.totalCost();
         assertEquals(expected,actual);
     }
@@ -58,10 +60,11 @@ public class StoreTest {
         StringBuilder sb = new StringBuilder();
         sb.append("Cant\tProduct\t\t\tPrice\tTotal\n")
                 .append("-------------------------------------\n")
-                .append("3 - \tbread\t-\t\t$1\t\t$3\n")
-                .append("2 - \tmilk\t-\t\t$10\t\t$20\n")
+                .append("3 u - \tbread\t-\t\t$1\t\t$3\n")
+                .append("2 lt - \tmilk\t-\t\t$10\t\t$20\n")
+                .append("5 kg - \trice\t-\t\t$5\t\t$25\n")
                 .append("-------------------------------------\n")
-                .append("Total\t\t\t\t\t\t\t$23");
+                .append("Total\t\t\t\t\t\t\t$48");
         String expected = sb.toString();
         String actual = store.showDetail();
         assertEquals(expected,actual);

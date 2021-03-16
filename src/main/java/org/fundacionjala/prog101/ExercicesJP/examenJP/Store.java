@@ -39,10 +39,12 @@ public class Store {
         sb.append("Cant\tProduct\t\t\tPrice\tTotal\n");
         sb.append("-------------------------------------\n");
         for(ItemInvoice item: this.items){
-            if(item == null){
-                continue;
-            }
+//            if(item == null){
+//                continue;
+//            }
             sb.append(item.getCant())
+                    .append(" ")
+                    .append(item.getProduct().getType())
                     .append(" - ")
                     .append("\t")
                     .append(item.getProduct().getName())
