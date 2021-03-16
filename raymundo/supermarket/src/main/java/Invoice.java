@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class Invoice {
     private ArrayList<InvoiceDetail> invoiceDetails = new ArrayList<>();
 
+    /**
+     * Calculates the total cost of the invoice
+     * @return a sum with the total
+     */
     public int getTotalCost() {
         int sum = 0;
         for (InvoiceDetail invoiceDetail : invoiceDetails) {
@@ -11,12 +15,20 @@ public class Invoice {
         return sum;
     }
 
+    /**
+     * sets the arraylist with the invoice details
+     * @param invoiceDetails the array to set
+     */
     public void setInvoiceDetails(ArrayList<InvoiceDetail> invoiceDetails) {
         for (InvoiceDetail invoiceDetail : invoiceDetails) {
             this.invoiceDetails.add(invoiceDetail);
         }
     }
 
+    /**
+     * Creates an array with information of step 2
+     * @return an arraylist with the required data
+     */
     public ArrayList<String> getProductAndUnitFromInvoiceDetail() {
         ArrayList<String> arrayList = new ArrayList<>();
         for (InvoiceDetail invoiceDetail : invoiceDetails) {
@@ -25,6 +37,10 @@ public class Invoice {
         return arrayList;
     }
 
+    /**
+     * Creates an array with information of step 3
+     * @return an arraylist with the required data
+     */
     public ArrayList<String> getFullInvoiceDetail() {
         ArrayList<String> stringArrayList = new ArrayList<>();
         for (InvoiceDetail invoiceDetail : invoiceDetails) {
@@ -33,6 +49,10 @@ public class Invoice {
         return stringArrayList;
     }
 
+    /**
+     * Creates an array with information of step 4
+     * @return an arraylist with the requiered data
+     */
     public ArrayList<String> getFullInvoiceDetailWithUnitOfMeasurement() {
         ArrayList<String> stringArrayList = new ArrayList<>();
         for (InvoiceDetail invoiceDetail : invoiceDetails) {
@@ -43,7 +63,7 @@ public class Invoice {
 
     /**
      * Creates an array with the complete invoice information
-     * @return an arraylist with the requiered data
+     * @return an arraylist with the required data
      */
     public ArrayList<String> getCompleteInvoice() {
         ArrayList<String> stringArrayList = new ArrayList<>();

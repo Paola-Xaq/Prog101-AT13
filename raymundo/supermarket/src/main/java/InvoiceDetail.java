@@ -2,11 +2,10 @@ public class InvoiceDetail {
     private int quantity;
     private Product product;
     private double total;
-    private double promotion;
     InvoiceDetail (Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
-        if (quantity >= product.getQuantityForPromotion()) {
+        if (quantity >= product.getQuantityForPromotion() && product.getPromotionPrice() != 0) {
             this.total = product.getPromotionPrice() * quantity;
         } else {
             this.total = product.getPrice() * quantity;

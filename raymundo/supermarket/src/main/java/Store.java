@@ -1,10 +1,13 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Store {
     private ArrayList<Product> productArrayList = new ArrayList<>();
     private ArrayList<InvoiceDetail> invoiceDetails = new ArrayList<>();
 
+    /**
+     * Adds a product to the store arraylist
+     * @param product to add to the array
+     */
     public void addProduct(Product product) {
         this.productArrayList.add(product);
     }

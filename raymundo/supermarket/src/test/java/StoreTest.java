@@ -75,7 +75,7 @@ public class StoreTest {
         Store store = new Store();
         store.buy(new Product("milk", 10), 2);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("2 milk - 10 20");
+        expected.add("2 milk - 10 20.0");
         ArrayList<String> actual = store.createInvoice().getFullInvoiceDetail();
         assertEquals(expected, actual);
     }
@@ -86,8 +86,8 @@ public class StoreTest {
         store.buy(new Product("milk", 10), 2);
         store.buy(new Product("bread", 1), 3);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("2 milk - 10 20");
-        expected.add("3 bread - 1 3");
+        expected.add("2 milk - 10 20.0");
+        expected.add("3 bread - 1 3.0");
         ArrayList<String> actual = store.createInvoice().getFullInvoiceDetail();
         assertEquals(expected, actual);
     }
@@ -105,7 +105,7 @@ public class StoreTest {
         Store store = new Store();
         store.buy(new Product("milk", 10, "lt"), 2);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("2 lt milk - 10 20");
+        expected.add("2 lt milk - 10 20.0");
         ArrayList<String> actual = store.createInvoice().getFullInvoiceDetailWithUnitOfMeasurement();
         assertEquals(expected, actual);
     }
@@ -117,9 +117,9 @@ public class StoreTest {
         store.buy(new Product("bread", 1, "u"), 3);
         store.buy(new Product("rice",5, "kg"), 5);
         ArrayList<String> expected = new ArrayList<>();
-        expected.add("2 lt milk - 10 20");
-        expected.add("3 u bread - 1 3");
-        expected.add("5 kg rice - 5 25");
+        expected.add("2 lt milk - 10 20.0");
+        expected.add("3 u bread - 1 3.0");
+        expected.add("5 kg rice - 5 25.0");
         ArrayList<String> actual = store.createInvoice().getFullInvoiceDetailWithUnitOfMeasurement();
         assertEquals(expected, actual);
     }

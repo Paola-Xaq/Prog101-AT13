@@ -27,6 +27,10 @@ public class Product {
         return promotionPrice;
     }
 
+    /**
+     * Calculates the promotion percentage
+     * @return a string with the percentage
+     */
     public String getPromotionPercentage() {
         double percentage = ((price - getPromotionPrice()) * 100) / price;
         return "" + String.format("%.1f", percentage) + "%";
