@@ -1,6 +1,7 @@
 package org.fundacionjala.prog101.jessicka.exam;
 
 import org.fundacionjala.prog101.jessicka.exam.categories.Food;
+import org.fundacionjala.prog101.jessicka.exam.categories.Meat;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -26,5 +27,12 @@ public class ProductTest {
         Product product = new Product("bread", 1, 4, new Food());
         int actual = product.getQuantity();
         assertEquals(4, actual);
+    }
+
+    @Test
+    public void setPromo_50_40() {
+        Product product = new Product("salmon", 50, 1, new Meat());
+        int actual = product.setPromo(20);
+        assertEquals(40, actual);
     }
 }

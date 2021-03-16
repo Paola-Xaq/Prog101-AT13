@@ -14,7 +14,11 @@ public class Store {
     public String createInvoice() {
         String invoice = "";
         for (Product product: order) {
-            invoice += product.getQuantity() + " " + product.getCategoryUnit() + "  -  " + product.getName() + "  -  $" + product.getPrice() + "  " + product.getPriceQuantity() + "\n";
+            if (product.getPercentageDiscount() == 0) {
+                invoice += product.getQuantity() + " " + product.getCategoryUnit() + "  -  " + product.getName() + "  -  $" + product.getPrice() + "  " + product.getPriceQuantity() + "\n";
+            } else {
+                invoice += product.getQuantity() + " " + product.getCategoryUnit() + "  -  " + product.getName() + "  -  $" + product.getPrice() + "  " + product.getPriceQuantity() + " %" + product.getPercentageDiscount() + "\n";
+            }
         }
         return header + invoice + footer + getTotalCost();
     }

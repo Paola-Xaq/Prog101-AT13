@@ -44,4 +44,16 @@ public class StoreTest {
         String actual = store.createInvoice();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void createInvoiceWithPromo_Product_StringOfProducts() {
+        Store store = new Store();
+        Product milk = new Product("milk", 10, 4, new Lactose());
+        milk.setPromo(10);
+        store.buy(new Product("bread", 1, 5, new Food()));
+        store.buy(milk);
+        String expected = "Cant Product Price Total\n--------------------------\n5 u  -  bread  -  $1  5\n4 lt  -  milk  -  $9  36 %10\n--------------------------\nTotal:              41";
+        String actual = store.createInvoice();
+        assertEquals(expected, actual);
+    }
 }
