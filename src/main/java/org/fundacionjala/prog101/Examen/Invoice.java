@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Invoice {
     private int totalCost = 0;
+    private int prodPrice = 0;
+    private  int prodAmount = 0;
+    private int partialTotal = 0;
     public ArrayList<Product> prod;
 
     public Invoice(ArrayList<Product> products) {
@@ -13,7 +16,11 @@ public class Invoice {
     public int totalCost() {
         if (!prod.isEmpty()) {
             for (int i = 0; i < prod.size(); i++) {
-                totalCost += prod.get(i).getPrice();
+                prodAmount = prod.get(i).getAmount();
+                prodPrice = prod.get(i).getPrice();
+                partialTotal = prod.get(i).calculatePartialTotal();
+                totalCost += prodAmount * prodPrice;
+
             }
         }
         return totalCost;
@@ -29,12 +36,18 @@ public class Invoice {
 
     public String create() {
         String creation = "";
+        String title = "Cant Prod Price TOTAL";
+        String dividedLine1 = "--------------------";
+        System.out.println(title);
+        System.out.println(dividedLine1);
         for (int i = 0; i < prod.size(); i++) {
             creation += prod.get(i).getInfoProduct();
             System.out.println(prod.get(i).getInfoProduct());
         }
-        System.out.println("-------------------");
-        System.out.println("Total" + "     " + getTotalCost());
+        String dividedLine = "--------------------";
+        System.out.println(dividedLine);
+        String totalLine = "Total" + "            " + getTotalCost();
+        System.out.println(totalLine);
         return creation;
     }
 }
