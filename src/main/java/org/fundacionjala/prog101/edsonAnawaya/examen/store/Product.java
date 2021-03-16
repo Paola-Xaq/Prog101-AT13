@@ -4,6 +4,16 @@ public class Product {
     private String name;
     private int price;
     private int cant = 1;
+    private String detail;
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String newDetail) {
+        this.detail = newDetail;
+    }
+
 
     public int getCant() {
         return cant;

@@ -8,14 +8,21 @@ public final class Main {
     }
 
     public static void main(final String[] args) {
+        final int priceBread = 1;
         final int priceMilk = 10;
+        final int priceRice = 5;
         Store store = new Store();
-        store.buy(new Product("bread", 1));
-        store.buy(new Product("bread", 1));
-        store.buy(new Product("milk", priceMilk));
-        store.buy(new Product("milk", priceMilk));
-        store.buy(new Product("milk", priceMilk));
+        store.buy(new Product("Bread", priceBread));
+        store.buy(new Product("Bread", priceBread));
+        store.buy(new Product("Bread", priceBread));
+        store.buy(new Product("Milk", priceMilk));
+        store.buy(new Product("Milk", priceMilk));
+        store.buy(new Product("Rice", priceRice));
+        store.buy(new Product("Rice", priceRice));
+        store.buy(new Product("Rice", priceRice));
+        store.buy(new Product("Rice", priceRice));
+        store.buy(new Product("Rice", priceRice));
 
-        store.createInvoice().getTotalCost();
+        System.out.println(store.createInvoice().getTotalCost());
     }
 }

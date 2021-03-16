@@ -11,9 +11,27 @@ public class Invoice {
     }
 
     public void addProduct(Product product) {
+        product = addDetail(product);
         if (!verifyExist(product)) {
             productsObjects.add(product);
         }
+    }
+
+    public Product addDetail(Product product) {
+        if (product.getName() == "Milk") {
+            product.setDetail("lt");
+            return product;
+        }
+        if (product.getName() == "Bread") {
+            product.setDetail("u");
+            return product;
+
+        }
+        if (product.getName() == "Rice") {
+            product.setDetail("kg");
+            return product;
+        }
+        return product;
     }
 
     private boolean verifyExist(Product newProduct) {
@@ -28,25 +46,29 @@ public class Invoice {
     }
 
     public int getTotalCost() {
-        int sum = 0;
-        int cant = 0;
-        String name = "";
-        int price = 0;
         int sumTotal = 0;
+        int sumPartial = 0;
+        printHead();
+        for (Product product : productsObjects) {
+            sumPartial = product.getPrice() * product.getCant();
+            sumTotal += sumPartial;
+            printBody(product.getCant(), product.getDetail(), product.getName(), product.getPrice(), sumPartial);
+        }
+        printFooter(sumTotal);
+        return sumTotal;
+    }
 
+    public void printHead() {
         System.out.println("Cant    Product    Price   Total");
         System.out.println("--------------------------------");
-        for (Product product : productsObjects) {
-            cant = product.getCant();
-            name = product.getName();
-            price = product.getPrice();
-            sumTotal = product.getPrice() * product.getCant();
-            sum += sumTotal;
+    }
 
-            System.out.println(cant + "       " + name + "  -     $" + price + "      $" + sumTotal);
-        }
+    public void printBody(final int cant, final String detail, final String name, final int price, final int sumPartial) {
+        System.out.println(cant + " " + detail + "    " + name + "   -     $" + price + "      $" + sumPartial);
+    }
+
+    public void printFooter(final int sumTotal) {
         System.out.println("--------------------------------");
-        System.out.println("Total                        $" + sum);
-        return sum;
+        System.out.println("Total                        $" + sumTotal);
     }
 }
