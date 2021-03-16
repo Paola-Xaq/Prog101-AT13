@@ -124,4 +124,19 @@ public class StoreTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGetFourProductsCompleteInvoiceDetail() {
+        Store store = new Store();
+        store.buy(new Product("milk", 10, "lt",45, 5), 5);
+        store.buy(new Product("bread", 1, "u", 9, 10), 10);
+        store.buy(new Product("rice",5, "kg", 90, 20), 20);
+        store.buy(new Product("oil",10, "lt", 90, 10), 10);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("5 lt milk - 10 10.0% 45.0");
+        expected.add("10 u bread - 1 10.0% 9.0");
+        expected.add("20 kg rice - 5 10.0% 90.0");
+        expected.add("10 lt oil - 10 10.0% 90.0");
+        ArrayList<String> actual = store.createInvoice().getCompleteInvoice();
+        assertEquals(expected, actual);
+    }
 }
