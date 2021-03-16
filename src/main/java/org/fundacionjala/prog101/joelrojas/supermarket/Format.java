@@ -1,8 +1,16 @@
 package org.fundacionjala.prog101.joelrojas.supermarket;
 
-public class Format {
+public final class Format {
+    public static final int STANDAR = 10;
+    public static final int TOTAL = 35;
+    public static final int NAME = 15;
+
+    private Format() {
+
+    }
+
     public static String complete(String input) {
-        return complete(input, 10);
+        return complete(input, STANDAR);
     }
     public static String complete(String input, int lenght) {
         String res = input;

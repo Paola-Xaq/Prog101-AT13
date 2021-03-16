@@ -11,7 +11,11 @@ public class InvoiceTest {
         products.add(new Product("Beer", 12));
         products.add(new Product("Cookies", 6));
         products.add(new Product("Cheese", 5));
-        Invoice invoice = new Invoice(products);
+        ArrayList<Integer> amounts = new ArrayList<>();
+        amounts.add(1);
+        amounts.add(1);
+        amounts.add(1);
+        Invoice invoice = new Invoice(products, amounts);
         int expected = 23;
         int actual = invoice.getTotalCost();
         assertEquals(expected, actual);
@@ -22,10 +26,14 @@ public class InvoiceTest {
         ArrayList<Product> products = new ArrayList<>();
         products.add(new Product("Beer", 12));
         products.add(new Product("Cookies", 6));
-        Invoice invoice = new Invoice(products);
+        ArrayList<Integer> amounts = new ArrayList<>();
+        amounts.add(1);
+        amounts.add(1);
+        Invoice invoice = new Invoice(products, amounts);
         String expected = "Cant      Product        Price     Total\n"
                 + "----------------------------------------\n"
-                + "Beer           $12       " + "\n" + "Cookies        $6        " + "\n"
+                + "1         Beer           $12       $12" + "\n"
+                + "1         Cookies        $6        $6" + "\n"
                 + "----------------------------------------\n"
                 + "Total                              $18";
         String actual = invoice.toString();
@@ -69,4 +77,5 @@ public class InvoiceTest {
         String actual = invoice.toString();
         assertEquals(expected, actual);
     }
+
 }

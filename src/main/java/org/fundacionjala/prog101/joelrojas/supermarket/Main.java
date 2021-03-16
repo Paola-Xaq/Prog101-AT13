@@ -6,11 +6,9 @@ public final class Main {
     }
     public static void main(String[] args) {
         Store store = new Store();
-        store.buy(new Product("bread", 1, "l"), 2);
-        store.buy(new Product("bread", 1, "l"), 2);
+        store.buy(new Product("Bread", 1, "l"), 10);
         store.buy(new Product("Nuddles", 6, "p"), 3);
-        String actual2 = store.createInvoice2().toString();
+        String actual2 = store.createInvoice().toString();
         System.out.println(actual2);
-
     }
 }

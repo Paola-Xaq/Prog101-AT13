@@ -5,21 +5,21 @@ public class Product {
     private int price;
     private String category;
     private String unitOfMeasurement;
+    private boolean inPromo;
 
     public Product(String nameP, int priceP) {
-        this.name = nameP;
-        this.price = priceP;
-        this.unitOfMeasurement = "";
+        this(nameP, priceP, "");
     }
 
     public Product(String nameP, int priceP, String measurementUnit) {
         this.name = nameP;
         this.price = priceP;
         this.unitOfMeasurement = measurementUnit;
+        this.inPromo = false;
     }
 
     public String toString() {
-        return Format.complete(name, 15) + Format.complete("$" + price);
+        return Format.complete(name, Format.NAME) + Format.complete("$" + price);
     }
 
     public int getPrice() {
@@ -28,5 +28,17 @@ public class Product {
 
     public String getUnitOfMeasurement() {
         return unitOfMeasurement;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean getinPromo() {
+        return inPromo;
+    }
+
+    public void putInPromo() {
+        inPromo = true;
     }
 }

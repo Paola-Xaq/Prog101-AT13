@@ -7,28 +7,21 @@ public class Invoice {
     private ArrayList<Product> products;
     private ArrayList<Integer> amounts;
 
-    public Invoice(ArrayList<Product> inputProducts) {
-        this.products = inputProducts;
-        totalcost = 0;
-        amounts = new ArrayList<>();
-        calculeTotalCost();
-    }
-
     public Invoice(ArrayList<Product> inputProducts, ArrayList<Integer> amountList) {
         products = inputProducts;
         amounts = amountList;
         totalcost = 0;
-        calculeTotalCost();
+        calculateTotalCost();
     }
 
     public int getTotalCost() {
         return totalcost;
     }
 
-    private void calculeTotalCost() {
+    private void calculateTotalCost() {
         for (int i = 0; i < products.size(); i++) {
-            if (amounts.isEmpty()) {
-                totalcost += products.get(i).getPrice();
+            if (products.get(i).getinPromo()) {
+                totalcost += (int) (products.get(i).getPrice() * amounts.get(i) * 0.90);
             } else {
                 totalcost += products.get(i).getPrice() * amounts.get(i);
             }
@@ -37,20 +30,21 @@ public class Invoice {
 
     public String toString() {
         String res = "";
-        res = Format.complete("Cant") + Format.complete("Product", 15)
+        res = Format.complete("Cant") + Format.complete("Product", Format.NAME)
                 + Format.complete("Price") + "Total" + "\n";
         res += "----------------------------------------\n";
         for (int i = 0; i < products.size(); i++) {
-            if (amounts.isEmpty()) {
-                res += products.get(i).toString() + "\n";
+
+            res += Format.complete(amounts.get(i) + " " + products.get(i).getUnitOfMeasurement())
+                    + products.get(i).toString();
+            if (products.get(i).getinPromo()) {
+                res += "$" + (int) (amounts.get(i) * products.get(i).getPrice() * 0.90) + "  10%\n";
             } else {
-                res += Format.complete(amounts.get(i) + " " + products.get(i).getUnitOfMeasurement())
-                        + products.get(i).toString()
-                        + "$" + amounts.get(i) * products.get(i).getPrice() + "\n";
+                res += "$" + amounts.get(i) * products.get(i).getPrice() + "\n";
             }
         }
         res += "----------------------------------------\n";
-        res += Format.complete("Total", 35) + "$" + totalcost;
+        res += Format.complete("Total", Format.TOTAL) + "$" + totalcost;
         return res;
     }
 
