@@ -36,17 +36,17 @@ public class Invoice {
 
     public String create() {
         String creation = "";
-        String title = "Cant Prod Price TOTAL";
-        String dividedLine1 = "--------------------";
+        String title = "Cant   Prod  Price TOTAL";
+        String dividedLine1 = "-----------------------";
         System.out.println(title);
         System.out.println(dividedLine1);
         for (int i = 0; i < prod.size(); i++) {
             creation += prod.get(i).getInfoProduct();
             System.out.println(prod.get(i).getInfoProduct());
         }
-        String dividedLine = "--------------------";
+        String dividedLine = "-----------------------";
         System.out.println(dividedLine);
-        String totalLine = "Total" + "            " + getTotalCost();
+        String totalLine = "Total" + "                " + getTotalCost();
         System.out.println(totalLine);
         return creation;
     }

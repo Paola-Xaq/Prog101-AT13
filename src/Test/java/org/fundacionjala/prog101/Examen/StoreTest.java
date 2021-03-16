@@ -16,7 +16,7 @@ public class StoreTest {
         Store store = new Store();
         store.buy(new Product("Bread", 1));
         int expected = 1;
-        int actual = store.createInvoice().getTotalCost();
+        int actual = store.createInvoice().totalCost();
         assertEquals(expected, actual);
     }
 
@@ -26,7 +26,7 @@ public class StoreTest {
         store.buy(new Product("Bread", 1));
         store.buy(new Product("Milk", 10));
         int expected = 11;
-        int actual = store.createInvoice().getTotalCost();
+        int actual = store.createInvoice().totalCost();
         assertEquals(expected, actual);
     }
 }

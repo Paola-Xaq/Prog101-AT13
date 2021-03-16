@@ -44,11 +44,11 @@ public class InvoiceTest {
     @Test
     public void create() {
         ArrayList<Product> prod = new ArrayList<>();
-        prod.add(new Product("Bread", 1, 1));
-        prod.add(new Product("Milk", 5, 2));
+        prod.add(new Product("Bread", 1, 1, "u"));
+        prod.add(new Product("Milk", 5, 2, "l"));
         Invoice invoice = new Invoice(prod);
         invoice.totalCost();
-        String expected = "1    Bread - 1     12    Milk - 5     10";
+        String expected = "1 u    Bread - 1     12 l    Milk - 5     10";
         String actual = invoice.create();
         assertEquals(expected, actual);
     }
