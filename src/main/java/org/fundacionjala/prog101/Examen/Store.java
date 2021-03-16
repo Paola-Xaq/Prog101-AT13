@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Store {
     Product product;
     private ArrayList<Product> productList = new ArrayList<>();
+    private Promotion promotion = new Promotion();
 
     public void buy(Product productToBuy) {
         productList.add(productToBuy);

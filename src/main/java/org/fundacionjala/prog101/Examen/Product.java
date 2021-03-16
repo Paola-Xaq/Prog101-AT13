@@ -6,6 +6,7 @@ public class Product {
     private int amount;
     private String unit;
     private int partialTotal;
+    private boolean promo;
 
     public Product(String name, int price) {
         this.name = name;
@@ -38,7 +39,7 @@ public class Product {
         return name;
     }
 
-    public int calculatePartialTotal(){
+    public int calculatePartialTotal() {
         if (amount >= 1) {
             partialTotal = amount * price;
             return partialTotal;
@@ -51,4 +52,11 @@ public class Product {
         return amount + " " + unit + "    " + name + " " + "-" + " " + price + "     " + partialTotal;
     }
 
+    public void promotionProduct(){
+        promo = true;
+    }
+
+    public boolean getPromo(){
+        return promo;
+    }
 }

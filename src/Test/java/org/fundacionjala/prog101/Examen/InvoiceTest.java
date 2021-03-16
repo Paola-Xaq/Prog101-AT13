@@ -20,11 +20,10 @@ public class InvoiceTest {
     @Test
     public void totalCostTwoProductsAdded() {
         ArrayList<Product> prod = new ArrayList<>();
-        prod.add(new Product("Bread", 1, 2));
-        prod.add(new Product("Milk", 5, 3));
-        prod.add(new Product("Milk", 5, 1));
+        prod.add(new Product("Bread", 1));
+        prod.add(new Product("Milk", 5));
         Invoice invoice = new Invoice(prod);
-        int expected = 22;
+        int expected = 6;
         int actual = invoice.totalCost();
         assertEquals(expected, actual);
     }

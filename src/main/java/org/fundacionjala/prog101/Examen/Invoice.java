@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Invoice {
     private int totalCost = 0;
     private int prodPrice = 0;
-    private  int prodAmount = 0;
+    private int prodAmount = 0;
     private int partialTotal = 0;
     public ArrayList<Product> prod;
 
@@ -16,10 +16,14 @@ public class Invoice {
     public int totalCost() {
         if (!prod.isEmpty()) {
             for (int i = 0; i < prod.size(); i++) {
-                prodAmount = prod.get(i).getAmount();
-                prodPrice = prod.get(i).getPrice();
-                partialTotal = prod.get(i).calculatePartialTotal();
-                totalCost += prodAmount * prodPrice;
+                    prodAmount = prod.get(i).getAmount();
+                    prodPrice = prod.get(i).getPrice();
+                    partialTotal = prod.get(i).calculatePartialTotal();
+                if(prod.get(i).getPromo()) {
+                    totalCost += prodAmount * prodPrice * 0.90;
+                }else{
+                    totalCost += prodAmount * prodPrice;
+                }
 
             }
         }
